@@ -4,6 +4,8 @@
 >
 > Four core domains → individual modules → technical notes → practical labs → enterprise capstone → CPTS exam.
 
+> 📖 **Read these notes as a searchable site (diagrams, dark mode, offline search):** <https://romeo-mhakayakora.github.io/CPTS/>
+
 ---
 
 ## 🗺️ CPTS Interactive Map
@@ -501,4 +503,4 @@ A module is considered CPTS-ready when I can:
 
 ---
 
-[⬆ Back to top](#-cpts--certified-penetration-testing-specialist)
+[⬆ Back to top](#)

@@ -1,0 +1,8 @@
+# Generated MkDocs staging + output — rebuilt by build-site.sh on every build
+docs/
+site/
+
+# Python / editors
+__pycache__/
+.venv/
+*.pyc

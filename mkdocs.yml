@@ -1,0 +1,97 @@
+site_name: CPTS Notes
+site_description: Certified Penetration Testing Specialist — study dashboard, modules and technical notes.
+site_author: Romeo Mhakayakora
+site_url: https://romeo-mhakayakora.github.io/CPTS/
+repo_url: https://github.com/romeo-mhakayakora/CPTS
+repo_name: GitHub
+
+# Single source of truth: notes live as README.md files in the repo root
+# (so GitHub renders them). `build-site.sh` copies them into docs/
+# before every build — docs/ is generated, never committed.
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js
+  - javascripts/mermaid.js
+
+nav:
+  - Home: README.md
+  - 01 Information Gathering:
+      - Overview: 01-information-gathering/README.md
+      - Network Enumeration with Nmap: 01-information-gathering/network-enumeration-nmap/README.md
+      - Footprinting: 01-information-gathering/footprinting/README.md
+      - Information Gathering – Web Edition: 01-information-gathering/information-gathering-web-edition/README.md
+      - Vulnerability Assessment: 01-information-gathering/vulnerability-assessment/README.md
+  - 02 Web & App Security:
+      - Overview: 02-web-application-security/README.md
+      - Using Web Proxies: 02-web-application-security/using-web-proxies/README.md
+      - Attacking Web Apps with Ffuf: 02-web-application-security/attacking-web-applications-with-ffuf/README.md
+      - Login Brute Forcing: 02-web-application-security/login-brute-forcing/README.md
+      - SQL Injection Fundamentals: 02-web-application-security/sql-injection-fundamentals/README.md
+      - SQLMap Essentials: 02-web-application-security/sqlmap-essentials/README.md
+      - Cross-Site Scripting: 02-web-application-security/cross-site-scripting/README.md
+      - File Inclusion: 02-web-application-security/file-inclusion/README.md
+      - File Upload Attacks: 02-web-application-security/file-upload-attacks/README.md
+      - Command Injections: 02-web-application-security/command-injections/README.md
+      - Web Attacks: 02-web-application-security/web-attacks/README.md
+      - Attacking Common Applications: 02-web-application-security/attacking-common-applications/README.md
+  - 03 Network Security:
+      - Overview: 03-network-security/README.md
+      - Attacking Common Services: 03-network-security/attacking-common-services/README.md
+      - Password Attacks: 03-network-security/password-attacks/README.md
+      - Pivoting, Tunneling & Port Forwarding: 03-network-security/pivoting-tunneling-port-forwarding/README.md
+      - Active Directory Enumeration & Attacks: 03-network-security/active-directory-enumeration-attacks/README.md
+      - File Transfers: 03-network-security/file-transfers/README.md
+      - Shells & Payloads: 03-network-security/shells-payloads/README.md
+      - Using the Metasploit Framework: 03-network-security/using-metasploit-framework/README.md
+  - 04 Privilege Escalation:
+      - Overview: 04-privilege-escalation/README.md
+      - Linux Privilege Escalation: 04-privilege-escalation/linux-privilege-escalation/README.md
+      - Windows Privilege Escalation: 04-privilege-escalation/windows-privilege-escalation/README.md
+  - Supporting & Capstone:
+      - Overview: supporting/README.md
+      - Penetration Testing Process: supporting/penetration-testing-process/README.md
+      - Getting Started: supporting/getting-started/README.md
+      - Documentation & Reporting: supporting/documentation-reporting/README.md
+      - Attacking Enterprise Networks: supporting/attacking-enterprise-networks/README.md
