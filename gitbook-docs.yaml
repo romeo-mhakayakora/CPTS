@@ -1,8 +1,11 @@
-# GitBook Git Sync configuration.
-# Maps this GitBook space to the repository root, using SUMMARY.md
-# as the table of contents. GitBook manages this file during sync —
-# keep `root` pointing at ./ so it reads the notes living in the repo.
-root: ./
-structure:
-  readme: README.md
-  summary: SUMMARY.md
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: darkOp Docs
+  structure:
+    - type: space
+      key: space-1
+      title: Product Docs
+      path: docs
+      default: true
+      content:
+        directory: ./
