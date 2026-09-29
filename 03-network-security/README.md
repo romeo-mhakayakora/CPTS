@@ -8,13 +8,13 @@
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Attacking Common Services](./attacking-common-services/) | 21.05% | 🔄 | [📖](./attacking-common-services/README.md) |
-| [Password Attacks](./password-attacks/) | 15.38% | 🔄 | [📖](./password-attacks/README.md) |
-| [Pivoting, Tunneling & Port Forwarding](./pivoting-tunneling-port-forwarding/) | 44.44% | 🔄 | [📖](./pivoting-tunneling-port-forwarding/README.md) |
-| [Active Directory Enumeration & Attacks](./active-directory-enumeration-attacks/) | — | 🔄 | [📖](./active-directory-enumeration-attacks/README.md) |
-| [File Transfers](./file-transfers/) | 100% | ✅ | [📖](./file-transfers/README.md) |
-| [Shells & Payloads](./shells-payloads/) | 94.12% | 🔄 | [📖](./shells-payloads/README.md) |
-| [Using the Metasploit Framework](./using-metasploit-framework/) | 100% | ✅ | [📖](./using-metasploit-framework/README.md) |
+| [Attacking Common Services](./attacking-common-services/) | 21.05% | 🔄 | [📖][notion-attacking-common-services] |
+| [Password Attacks](./password-attacks/) | 15.38% | 🔄 | [📖][notion-password-attacks] |
+| [Pivoting, Tunneling & Port Forwarding](./pivoting-tunneling-port-forwarding/) | 44.44% | 🔄 | [📖][notion-pivoting-tunneling-port-forwarding] |
+| [Active Directory Enumeration & Attacks](./active-directory-enumeration-attacks/) | — | 🔄 | [📖][notion-active-directory-enumeration-attacks] |
+| [File Transfers](./file-transfers/) | 100% | ✅ | [📖][notion-file-transfers] |
+| [Shells & Payloads](./shells-payloads/) | 94.12% | 🔄 | [📖][notion-shells-payloads] |
+| [Using the Metasploit Framework](./using-metasploit-framework/) | 100% | ✅ | [📖][notion-using-metasploit-framework] |
 
 ## 🚨 Current Priority
 
@@ -66,3 +66,13 @@ Lateral Movement
 ---
 
 [⬅ Back to CPTS Dashboard](../README.md)
+
+<!-- 🔗 Notes links: replace each local path below with its Notion URL.
+     One edit here swaps every 📖 link in this file. -->
+[notion-attacking-common-services]: ./attacking-common-services/README.md
+[notion-password-attacks]: ./password-attacks/README.md
+[notion-pivoting-tunneling-port-forwarding]: ./pivoting-tunneling-port-forwarding/README.md
+[notion-active-directory-enumeration-attacks]: ./active-directory-enumeration-attacks/README.md
+[notion-file-transfers]: ./file-transfers/README.md
+[notion-shells-payloads]: ./shells-payloads/README.md
+[notion-using-metasploit-framework]: ./using-metasploit-framework/README.md

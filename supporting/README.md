@@ -8,15 +8,15 @@
 
 | Module | Status | Notes |
 |--------|:------:|:-----:|
-| [Penetration Testing Process](./penetration-testing-process/) | ⬜ | [📖](./penetration-testing-process/README.md) |
-| [Getting Started](./getting-started/) | ⬜ | [📖](./getting-started/README.md) |
-| [Documentation & Reporting](./documentation-reporting/) | ⬜ | [📖](./documentation-reporting/README.md) |
+| [Penetration Testing Process](./penetration-testing-process/) | ⬜ | [📖][notion-penetration-testing-process] |
+| [Getting Started](./getting-started/) | ⬜ | [📖][notion-getting-started] |
+| [Documentation & Reporting](./documentation-reporting/) | ⬜ | [📖][notion-documentation-reporting] |
 
 ## Enterprise Capstone
 
 | Module | Status | Notes |
 |--------|:------:|:-----:|
-| [Attacking Enterprise Networks](./attacking-enterprise-networks/) | ⬜ | [📖](./attacking-enterprise-networks/README.md) |
+| [Attacking Enterprise Networks](./attacking-enterprise-networks/) | ⬜ | [📖][notion-attacking-enterprise-networks] |
 
 ```text
 Information Gathering
@@ -55,3 +55,10 @@ Professional Report
 ---
 
 [⬅ Back to CPTS Dashboard](../README.md)
+
+<!-- 🔗 Notes links: replace each local path below with its Notion URL.
+     One edit here swaps every 📖 link in this file. -->
+[notion-penetration-testing-process]: ./penetration-testing-process/README.md
+[notion-getting-started]: ./getting-started/README.md
+[notion-documentation-reporting]: ./documentation-reporting/README.md
+[notion-attacking-enterprise-networks]: ./attacking-enterprise-networks/README.md
