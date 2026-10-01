@@ -10,7 +10,6 @@
 |--------|:--------:|:------:|:-----:|
 | [Network Enumeration with Nmap](./network-enumeration-nmap.md) | 100% | ✅ | [📖](./network-enumeration-nmap.md) |
 | [Footprinting](./footprinting.md) | 14.29% | 🔄 | [📖](./footprinting.md) |
-| [Information Gathering – Web Edition](./information-gathering-web-edition.md) | 100% | ✅ | [📖](./information-gathering-web-edition.md) |
 | [Vulnerability Assessment](./vulnerability-assessment.md) | 100% | ✅ | [📖](./vulnerability-assessment.md) |
 
 ## 🎯 Domain Goal

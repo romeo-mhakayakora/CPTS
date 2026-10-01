@@ -30,11 +30,11 @@ flowchart TB
     subgraph IG_MODS ["01 — Information Gathering"]
         NMAP["✅ Nmap — 100%"]
         FOOT["🔄 Footprinting — 14.29%"]
-        WEBED["✅ Web Edition — 100%"]
         VULN["✅ Vuln Assessment — 100%"]
     end
 
     subgraph WEB_MODS ["02 — Web & App Security"]
+        WEBED["✅ Web Edition — 100%"]
         PROXY["🔄 Web Proxies — 93.33%"]
         FFUF["✅ Ffuf — 100%"]
         BRUTE["🔄 Brute Forcing — 84.62%"]
@@ -70,7 +70,7 @@ flowchart TB
 
     click NMAP href "./01-information-gathering/network-enumeration-nmap.md"
     click FOOT href "./01-information-gathering/footprinting.md"
-    click WEBED href "./01-information-gathering/information-gathering-web-edition.md"
+    click WEBED href "./02-web-application-security/information-gathering-web-edition.md"
     click VULN href "./01-information-gathering/vulnerability-assessment.md"
     click PROXY href "./02-web-application-security/using-web-proxies.md"
     click FFUF href "./02-web-application-security/attacking-web-applications-with-ffuf.md"
@@ -131,7 +131,6 @@ flowchart TB
 |--------|:--------:|:------:|:-----:|
 | [Network Enumeration with Nmap](./01-information-gathering/network-enumeration-nmap.md) | 100% | ✅ | [📖](./01-information-gathering/network-enumeration-nmap.md) |
 | [Footprinting](./01-information-gathering/footprinting.md) | 14.29% | 🔄 | [📖](./01-information-gathering/footprinting.md) |
-| [Information Gathering – Web Edition](./01-information-gathering/information-gathering-web-edition.md) | 100% | ✅ | [📖](./01-information-gathering/information-gathering-web-edition.md) |
 | [Vulnerability Assessment](./01-information-gathering/vulnerability-assessment.md) | 100% | ✅ | [📖](./01-information-gathering/vulnerability-assessment.md) |
 
 ### 🎯 Domain Goal
@@ -160,6 +159,7 @@ What should I attack first?
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
+| [Information Gathering – Web Edition](./02-web-application-security/information-gathering-web-edition.md) | 100% | ✅ | [📖](./02-web-application-security/information-gathering-web-edition.md) |
 | [Using Web Proxies](./02-web-application-security/using-web-proxies.md) | 93.33% | 🔄 | [📖](./02-web-application-security/using-web-proxies.md) |
 | [Attacking Web Applications with Ffuf](./02-web-application-security/attacking-web-applications-with-ffuf.md) | 100% | ✅ | [📖](./02-web-application-security/attacking-web-applications-with-ffuf.md) |
 | [Login Brute Forcing](./02-web-application-security/login-brute-forcing.md) | 84.62% | 🔄 | [📖](./02-web-application-security/login-brute-forcing.md) |

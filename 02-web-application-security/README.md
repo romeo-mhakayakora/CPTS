@@ -8,6 +8,7 @@
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
+| [Information Gathering – Web Edition](./information-gathering-web-edition.md) | 100% | ✅ | [📖](./information-gathering-web-edition.md) |
 | [Using Web Proxies](./using-web-proxies.md) | 93.33% | 🔄 | [📖](./using-web-proxies.md) |
 | [Attacking Web Applications with Ffuf](./attacking-web-applications-with-ffuf.md) | 100% | ✅ | [📖](./attacking-web-applications-with-ffuf.md) |
 | [Login Brute Forcing](./login-brute-forcing.md) | 84.62% | 🔄 | [📖](./login-brute-forcing.md) |
