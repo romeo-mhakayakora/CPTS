@@ -8,10 +8,10 @@
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Network Enumeration with Nmap](./network-enumeration-nmap/) | 100% | ✅ | [📖][notion-network-enumeration-nmap] |
-| [Footprinting](./footprinting/) | 14.29% | 🔄 | [📖][notion-footprinting] |
-| [Information Gathering – Web Edition](./information-gathering-web-edition/) | 100% | ✅ | [📖][notion-information-gathering-web-edition] |
-| [Vulnerability Assessment](./vulnerability-assessment/) | 100% | ✅ | [📖][notion-vulnerability-assessment] |
+| [Network Enumeration with Nmap](./network-enumeration-nmap/) | 100% | ✅ | [📖](./network-enumeration-nmap/README.md) |
+| [Footprinting](./footprinting/) | 14.29% | 🔄 | [📖](./footprinting/README.md) |
+| [Information Gathering – Web Edition](./information-gathering-web-edition/) | 100% | ✅ | [📖](./information-gathering-web-edition/README.md) |
+| [Vulnerability Assessment](./vulnerability-assessment/) | 100% | ✅ | [📖](./vulnerability-assessment/README.md) |
 
 ## 🎯 Domain Goal
 
@@ -45,10 +45,3 @@ What should I attack first?
 ---
 
 [⬅ Back to CPTS Dashboard](../README.md)
-
-<!-- 🔗 Notes links: replace each local path below with its Notion URL.
-     One edit here swaps every 📖 link in this file. -->
-[notion-network-enumeration-nmap]: ./network-enumeration-nmap/README.md
-[notion-footprinting]: ./footprinting/README.md
-[notion-information-gathering-web-edition]: ./information-gathering-web-edition/README.md
-[notion-vulnerability-assessment]: ./vulnerability-assessment/README.md

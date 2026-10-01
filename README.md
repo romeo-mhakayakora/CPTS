@@ -129,10 +129,10 @@ flowchart TB
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Network Enumeration with Nmap](./01-information-gathering/network-enumeration-nmap/) | 100% | ✅ | [📖][notion-network-enumeration-nmap] |
-| [Footprinting](./01-information-gathering/footprinting/) | 14.29% | 🔄 | [📖][notion-footprinting] |
-| [Information Gathering – Web Edition](./01-information-gathering/information-gathering-web-edition/) | 100% | ✅ | [📖][notion-information-gathering-web-edition] |
-| [Vulnerability Assessment](./01-information-gathering/vulnerability-assessment/) | 100% | ✅ | [📖][notion-vulnerability-assessment] |
+| [Network Enumeration with Nmap](./01-information-gathering/network-enumeration-nmap/) | 100% | ✅ | [📖](./01-information-gathering/network-enumeration-nmap/README.md) |
+| [Footprinting](./01-information-gathering/footprinting/) | 14.29% | 🔄 | [📖](./01-information-gathering/footprinting/README.md) |
+| [Information Gathering – Web Edition](./01-information-gathering/information-gathering-web-edition/) | 100% | ✅ | [📖](./01-information-gathering/information-gathering-web-edition/README.md) |
+| [Vulnerability Assessment](./01-information-gathering/vulnerability-assessment/) | 100% | ✅ | [📖](./01-information-gathering/vulnerability-assessment/README.md) |
 
 ### 🎯 Domain Goal
 
@@ -160,17 +160,17 @@ What should I attack first?
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Using Web Proxies](./02-web-application-security/using-web-proxies/) | 93.33% | 🔄 | [📖][notion-using-web-proxies] |
-| [Attacking Web Applications with Ffuf](./02-web-application-security/attacking-web-applications-with-ffuf/) | 100% | ✅ | [📖][notion-attacking-web-applications-with-ffuf] |
-| [Login Brute Forcing](./02-web-application-security/login-brute-forcing/) | 84.62% | 🔄 | [📖][notion-login-brute-forcing] |
-| [SQL Injection Fundamentals](./02-web-application-security/sql-injection-fundamentals/) | 100% | ✅ | [📖][notion-sql-injection-fundamentals] |
-| [SQLMap Essentials](./02-web-application-security/sqlmap-essentials/) | 90.91% | 🔄 | [📖][notion-sqlmap-essentials] |
-| [Cross-Site Scripting](./02-web-application-security/cross-site-scripting/) | 100% | ✅ | [📖][notion-cross-site-scripting] |
-| [File Inclusion](./02-web-application-security/file-inclusion/) | 100% | ✅ | [📖][notion-file-inclusion] |
-| [File Upload Attacks](./02-web-application-security/file-upload-attacks/) | 72.73% | 🔄 | [📖][notion-file-upload-attacks] |
-| [Command Injections](./02-web-application-security/command-injections/) | 75% | 🔄 | [📖][notion-command-injections] |
-| [Web Attacks](./02-web-application-security/web-attacks/) | 50% | 🔄 | [📖][notion-web-attacks] |
-| [Attacking Common Applications](./02-web-application-security/attacking-common-applications/) | — | 🔄 | [📖][notion-attacking-common-applications] |
+| [Using Web Proxies](./02-web-application-security/using-web-proxies/) | 93.33% | 🔄 | [📖](./02-web-application-security/using-web-proxies/README.md) |
+| [Attacking Web Applications with Ffuf](./02-web-application-security/attacking-web-applications-with-ffuf/) | 100% | ✅ | [📖](./02-web-application-security/attacking-web-applications-with-ffuf/README.md) |
+| [Login Brute Forcing](./02-web-application-security/login-brute-forcing/) | 84.62% | 🔄 | [📖](./02-web-application-security/login-brute-forcing/README.md) |
+| [SQL Injection Fundamentals](./02-web-application-security/sql-injection-fundamentals/) | 100% | ✅ | [📖](./02-web-application-security/sql-injection-fundamentals/README.md) |
+| [SQLMap Essentials](./02-web-application-security/sqlmap-essentials/) | 90.91% | 🔄 | [📖](./02-web-application-security/sqlmap-essentials/README.md) |
+| [Cross-Site Scripting](./02-web-application-security/cross-site-scripting/) | 100% | ✅ | [📖](./02-web-application-security/cross-site-scripting/README.md) |
+| [File Inclusion](./02-web-application-security/file-inclusion/) | 100% | ✅ | [📖](./02-web-application-security/file-inclusion/README.md) |
+| [File Upload Attacks](./02-web-application-security/file-upload-attacks/) | 72.73% | 🔄 | [📖](./02-web-application-security/file-upload-attacks/README.md) |
+| [Command Injections](./02-web-application-security/command-injections/) | 75% | 🔄 | [📖](./02-web-application-security/command-injections/README.md) |
+| [Web Attacks](./02-web-application-security/web-attacks/) | 50% | 🔄 | [📖](./02-web-application-security/web-attacks/README.md) |
+| [Attacking Common Applications](./02-web-application-security/attacking-common-applications/) | — | 🔄 | [📖](./02-web-application-security/attacking-common-applications/README.md) |
 
 ### 🎯 Domain Goal
 
@@ -202,13 +202,13 @@ Shell / Credential / Data
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Attacking Common Services](./03-network-security/attacking-common-services/) | 21.05% | 🔄 | [📖][notion-attacking-common-services] |
-| [Password Attacks](./03-network-security/password-attacks/) | 15.38% | 🔄 | [📖][notion-password-attacks] |
-| [Pivoting, Tunneling & Port Forwarding](./03-network-security/pivoting-tunneling-port-forwarding/) | 44.44% | 🔄 | [📖][notion-pivoting-tunneling-port-forwarding] |
-| [Active Directory Enumeration & Attacks](./03-network-security/active-directory-enumeration-attacks/) | — | 🔄 | [📖][notion-active-directory-enumeration-attacks] |
-| [File Transfers](./03-network-security/file-transfers/) | 100% | ✅ | [📖][notion-file-transfers] |
-| [Shells & Payloads](./03-network-security/shells-payloads/) | 94.12% | 🔄 | [📖][notion-shells-payloads] |
-| [Using the Metasploit Framework](./03-network-security/using-metasploit-framework/) | 100% | ✅ | [📖][notion-using-metasploit-framework] |
+| [Attacking Common Services](./03-network-security/attacking-common-services/) | 21.05% | 🔄 | [📖](./03-network-security/attacking-common-services/README.md) |
+| [Password Attacks](./03-network-security/password-attacks/) | 15.38% | 🔄 | [📖](./03-network-security/password-attacks/README.md) |
+| [Pivoting, Tunneling & Port Forwarding](./03-network-security/pivoting-tunneling-port-forwarding/) | 44.44% | 🔄 | [📖](./03-network-security/pivoting-tunneling-port-forwarding/README.md) |
+| [Active Directory Enumeration & Attacks](./03-network-security/active-directory-enumeration-attacks/) | — | 🔄 | [📖](./03-network-security/active-directory-enumeration-attacks/README.md) |
+| [File Transfers](./03-network-security/file-transfers/) | 100% | ✅ | [📖](./03-network-security/file-transfers/README.md) |
+| [Shells & Payloads](./03-network-security/shells-payloads/) | 94.12% | 🔄 | [📖](./03-network-security/shells-payloads/README.md) |
+| [Using the Metasploit Framework](./03-network-security/using-metasploit-framework/) | 100% | ✅ | [📖](./03-network-security/using-metasploit-framework/README.md) |
 
 ### 🚨 Current Priority
 
@@ -254,8 +254,8 @@ Lateral Movement
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Linux Privilege Escalation](./04-privilege-escalation/linux-privilege-escalation/) | 89.29% | 🔄 | [📖][notion-linux-privilege-escalation] |
-| [Windows Privilege Escalation](./04-privilege-escalation/windows-privilege-escalation/) | 36.36% | 🔄 | [📖][notion-windows-privilege-escalation] |
+| [Linux Privilege Escalation](./04-privilege-escalation/linux-privilege-escalation/) | 89.29% | 🔄 | [📖](./04-privilege-escalation/linux-privilege-escalation/README.md) |
+| [Windows Privilege Escalation](./04-privilege-escalation/windows-privilege-escalation/) | 36.36% | 🔄 | [📖](./04-privilege-escalation/windows-privilege-escalation/README.md) |
 
 ### 🎯 Domain Goal
 
@@ -281,9 +281,9 @@ Root / SYSTEM
 
 | Module | Status | Notes |
 |--------|:------:|:-----:|
-| [Penetration Testing Process](./supporting/penetration-testing-process/) | ⬜ | [📖][notion-penetration-testing-process] |
-| [Getting Started](./supporting/getting-started/) | ⬜ | [📖][notion-getting-started] |
-| [Documentation & Reporting](./supporting/documentation-reporting/) | ⬜ | [📖][notion-documentation-reporting] |
+| [Penetration Testing Process](./supporting/penetration-testing-process/) | ⬜ | [📖](./supporting/penetration-testing-process/README.md) |
+| [Getting Started](./supporting/getting-started/) | ⬜ | [📖](./supporting/getting-started/README.md) |
+| [Documentation & Reporting](./supporting/documentation-reporting/) | ⬜ | [📖](./supporting/documentation-reporting/README.md) |
 
 ---
 
@@ -504,33 +504,3 @@ A module is considered CPTS-ready when I can:
 ---
 
 [⬆ Back to top](#)
-
-<!-- 🔗 Notes links: replace each local path below with its Notion URL.
-     One edit here swaps every 📖 link in this file. -->
-[notion-network-enumeration-nmap]: ./01-information-gathering/network-enumeration-nmap/README.md
-[notion-footprinting]: ./01-information-gathering/footprinting/README.md
-[notion-information-gathering-web-edition]: ./01-information-gathering/information-gathering-web-edition/README.md
-[notion-vulnerability-assessment]: ./01-information-gathering/vulnerability-assessment/README.md
-[notion-using-web-proxies]: ./02-web-application-security/using-web-proxies/README.md
-[notion-attacking-web-applications-with-ffuf]: ./02-web-application-security/attacking-web-applications-with-ffuf/README.md
-[notion-login-brute-forcing]: ./02-web-application-security/login-brute-forcing/README.md
-[notion-sql-injection-fundamentals]: ./02-web-application-security/sql-injection-fundamentals/README.md
-[notion-sqlmap-essentials]: ./02-web-application-security/sqlmap-essentials/README.md
-[notion-cross-site-scripting]: ./02-web-application-security/cross-site-scripting/README.md
-[notion-file-inclusion]: ./02-web-application-security/file-inclusion/README.md
-[notion-file-upload-attacks]: ./02-web-application-security/file-upload-attacks/README.md
-[notion-command-injections]: ./02-web-application-security/command-injections/README.md
-[notion-web-attacks]: ./02-web-application-security/web-attacks/README.md
-[notion-attacking-common-applications]: ./02-web-application-security/attacking-common-applications/README.md
-[notion-attacking-common-services]: ./03-network-security/attacking-common-services/README.md
-[notion-password-attacks]: ./03-network-security/password-attacks/README.md
-[notion-pivoting-tunneling-port-forwarding]: ./03-network-security/pivoting-tunneling-port-forwarding/README.md
-[notion-active-directory-enumeration-attacks]: ./03-network-security/active-directory-enumeration-attacks/README.md
-[notion-file-transfers]: ./03-network-security/file-transfers/README.md
-[notion-shells-payloads]: ./03-network-security/shells-payloads/README.md
-[notion-using-metasploit-framework]: ./03-network-security/using-metasploit-framework/README.md
-[notion-linux-privilege-escalation]: ./04-privilege-escalation/linux-privilege-escalation/README.md
-[notion-windows-privilege-escalation]: ./04-privilege-escalation/windows-privilege-escalation/README.md
-[notion-penetration-testing-process]: ./supporting/penetration-testing-process/README.md
-[notion-getting-started]: ./supporting/getting-started/README.md
-[notion-documentation-reporting]: ./supporting/documentation-reporting/README.md
