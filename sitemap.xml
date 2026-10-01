@@ -13,10 +13,6 @@
          <lastmod>2026-10-01</lastmod>
     </url>
     <url>
-         <loc>https://romeo-mhakayakora.github.io/CPTS/01-information-gathering/information-gathering-web-edition/</loc>
-         <lastmod>2026-10-01</lastmod>
-    </url>
-    <url>
          <loc>https://romeo-mhakayakora.github.io/CPTS/01-information-gathering/network-enumeration-nmap/</loc>
          <lastmod>2026-10-01</lastmod>
     </url>
@@ -50,6 +46,10 @@
     </url>
     <url>
          <loc>https://romeo-mhakayakora.github.io/CPTS/02-web-application-security/file-upload-attacks/</loc>
+         <lastmod>2026-10-01</lastmod>
+    </url>
+    <url>
+         <loc>https://romeo-mhakayakora.github.io/CPTS/02-web-application-security/information-gathering-web-edition/</loc>
          <lastmod>2026-10-01</lastmod>
     </url>
     <url>
