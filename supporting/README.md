@@ -8,15 +8,15 @@
 
 | Module | Status | Notes |
 |--------|:------:|:-----:|
-| [Penetration Testing Process](./penetration-testing-process/) | ⬜ | [📖](./penetration-testing-process/README.md) |
-| [Getting Started](./getting-started/) | ⬜ | [📖](./getting-started/README.md) |
-| [Documentation & Reporting](./documentation-reporting/) | ⬜ | [📖](./documentation-reporting/README.md) |
+| [Penetration Testing Process](./penetration-testing-process.md) | ⬜ | [📖](./penetration-testing-process.md) |
+| [Getting Started](./getting-started.md) | ⬜ | [📖](./getting-started.md) |
+| [Documentation & Reporting](./documentation-reporting.md) | ⬜ | [📖](./documentation-reporting.md) |
 
 ## Enterprise Capstone
 
 | Module | Status | Notes |
 |--------|:------:|:-----:|
-| [Attacking Enterprise Networks](./attacking-enterprise-networks/) | ⬜ | [📖](./attacking-enterprise-networks/README.md) |
+| [Attacking Enterprise Networks](./attacking-enterprise-networks.md) | ⬜ | [📖](./attacking-enterprise-networks.md) |
 
 ```text
 Information Gathering

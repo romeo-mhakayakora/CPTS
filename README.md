@@ -68,31 +68,31 @@ flowchart TB
     NET --- NET_MODS
     PRIV --- PRIV_MODS
 
-    click NMAP href "./01-information-gathering/network-enumeration-nmap/"
-    click FOOT href "./01-information-gathering/footprinting/"
-    click WEBED href "./01-information-gathering/information-gathering-web-edition/"
-    click VULN href "./01-information-gathering/vulnerability-assessment/"
-    click PROXY href "./02-web-application-security/using-web-proxies/"
-    click FFUF href "./02-web-application-security/attacking-web-applications-with-ffuf/"
-    click BRUTE href "./02-web-application-security/login-brute-forcing/"
-    click SQLI href "./02-web-application-security/sql-injection-fundamentals/"
-    click SQLMAP href "./02-web-application-security/sqlmap-essentials/"
-    click XSS href "./02-web-application-security/cross-site-scripting/"
-    click LFI href "./02-web-application-security/file-inclusion/"
-    click UPLOAD href "./02-web-application-security/file-upload-attacks/"
-    click CMDI href "./02-web-application-security/command-injections/"
-    click WEBATK href "./02-web-application-security/web-attacks/"
-    click COMMONAPP href "./02-web-application-security/attacking-common-applications/"
-    click SVC href "./03-network-security/attacking-common-services/"
-    click PASS href "./03-network-security/password-attacks/"
-    click PIVOT href "./03-network-security/pivoting-tunneling-port-forwarding/"
-    click AD href "./03-network-security/active-directory-enumeration-attacks/"
-    click FT href "./03-network-security/file-transfers/"
-    click SHELL href "./03-network-security/shells-payloads/"
-    click MSF href "./03-network-security/using-metasploit-framework/"
-    click LINUX href "./04-privilege-escalation/linux-privilege-escalation/"
-    click WINDOWS href "./04-privilege-escalation/windows-privilege-escalation/"
-    click CAP href "./supporting/attacking-enterprise-networks/"
+    click NMAP href "./01-information-gathering/network-enumeration-nmap.md"
+    click FOOT href "./01-information-gathering/footprinting.md"
+    click WEBED href "./01-information-gathering/information-gathering-web-edition.md"
+    click VULN href "./01-information-gathering/vulnerability-assessment.md"
+    click PROXY href "./02-web-application-security/using-web-proxies.md"
+    click FFUF href "./02-web-application-security/attacking-web-applications-with-ffuf.md"
+    click BRUTE href "./02-web-application-security/login-brute-forcing.md"
+    click SQLI href "./02-web-application-security/sql-injection-fundamentals.md"
+    click SQLMAP href "./02-web-application-security/sqlmap-essentials.md"
+    click XSS href "./02-web-application-security/cross-site-scripting.md"
+    click LFI href "./02-web-application-security/file-inclusion.md"
+    click UPLOAD href "./02-web-application-security/file-upload-attacks.md"
+    click CMDI href "./02-web-application-security/command-injections.md"
+    click WEBATK href "./02-web-application-security/web-attacks.md"
+    click COMMONAPP href "./02-web-application-security/attacking-common-applications.md"
+    click SVC href "./03-network-security/attacking-common-services.md"
+    click PASS href "./03-network-security/password-attacks.md"
+    click PIVOT href "./03-network-security/pivoting-tunneling-port-forwarding.md"
+    click AD href "./03-network-security/active-directory-enumeration-attacks.md"
+    click FT href "./03-network-security/file-transfers.md"
+    click SHELL href "./03-network-security/shells-payloads.md"
+    click MSF href "./03-network-security/using-metasploit-framework.md"
+    click LINUX href "./04-privilege-escalation/linux-privilege-escalation.md"
+    click WINDOWS href "./04-privilege-escalation/windows-privilege-escalation.md"
+    click CAP href "./supporting/attacking-enterprise-networks.md"
 ```
 
 ### Legend
@@ -129,10 +129,10 @@ flowchart TB
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Network Enumeration with Nmap](./01-information-gathering/network-enumeration-nmap/) | 100% | ✅ | [📖](./01-information-gathering/network-enumeration-nmap/README.md) |
-| [Footprinting](./01-information-gathering/footprinting/) | 14.29% | 🔄 | [📖](./01-information-gathering/footprinting/README.md) |
-| [Information Gathering – Web Edition](./01-information-gathering/information-gathering-web-edition/) | 100% | ✅ | [📖](./01-information-gathering/information-gathering-web-edition/README.md) |
-| [Vulnerability Assessment](./01-information-gathering/vulnerability-assessment/) | 100% | ✅ | [📖](./01-information-gathering/vulnerability-assessment/README.md) |
+| [Network Enumeration with Nmap](./01-information-gathering/network-enumeration-nmap.md) | 100% | ✅ | [📖](./01-information-gathering/network-enumeration-nmap.md) |
+| [Footprinting](./01-information-gathering/footprinting.md) | 14.29% | 🔄 | [📖](./01-information-gathering/footprinting.md) |
+| [Information Gathering – Web Edition](./01-information-gathering/information-gathering-web-edition.md) | 100% | ✅ | [📖](./01-information-gathering/information-gathering-web-edition.md) |
+| [Vulnerability Assessment](./01-information-gathering/vulnerability-assessment.md) | 100% | ✅ | [📖](./01-information-gathering/vulnerability-assessment.md) |
 
 ### 🎯 Domain Goal
 
@@ -160,17 +160,17 @@ What should I attack first?
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Using Web Proxies](./02-web-application-security/using-web-proxies/) | 93.33% | 🔄 | [📖](./02-web-application-security/using-web-proxies/README.md) |
-| [Attacking Web Applications with Ffuf](./02-web-application-security/attacking-web-applications-with-ffuf/) | 100% | ✅ | [📖](./02-web-application-security/attacking-web-applications-with-ffuf/README.md) |
-| [Login Brute Forcing](./02-web-application-security/login-brute-forcing/) | 84.62% | 🔄 | [📖](./02-web-application-security/login-brute-forcing/README.md) |
-| [SQL Injection Fundamentals](./02-web-application-security/sql-injection-fundamentals/) | 100% | ✅ | [📖](./02-web-application-security/sql-injection-fundamentals/README.md) |
-| [SQLMap Essentials](./02-web-application-security/sqlmap-essentials/) | 90.91% | 🔄 | [📖](./02-web-application-security/sqlmap-essentials/README.md) |
-| [Cross-Site Scripting](./02-web-application-security/cross-site-scripting/) | 100% | ✅ | [📖](./02-web-application-security/cross-site-scripting/README.md) |
-| [File Inclusion](./02-web-application-security/file-inclusion/) | 100% | ✅ | [📖](./02-web-application-security/file-inclusion/README.md) |
-| [File Upload Attacks](./02-web-application-security/file-upload-attacks/) | 72.73% | 🔄 | [📖](./02-web-application-security/file-upload-attacks/README.md) |
-| [Command Injections](./02-web-application-security/command-injections/) | 75% | 🔄 | [📖](./02-web-application-security/command-injections/README.md) |
-| [Web Attacks](./02-web-application-security/web-attacks/) | 50% | 🔄 | [📖](./02-web-application-security/web-attacks/README.md) |
-| [Attacking Common Applications](./02-web-application-security/attacking-common-applications/) | — | 🔄 | [📖](./02-web-application-security/attacking-common-applications/README.md) |
+| [Using Web Proxies](./02-web-application-security/using-web-proxies.md) | 93.33% | 🔄 | [📖](./02-web-application-security/using-web-proxies.md) |
+| [Attacking Web Applications with Ffuf](./02-web-application-security/attacking-web-applications-with-ffuf.md) | 100% | ✅ | [📖](./02-web-application-security/attacking-web-applications-with-ffuf.md) |
+| [Login Brute Forcing](./02-web-application-security/login-brute-forcing.md) | 84.62% | 🔄 | [📖](./02-web-application-security/login-brute-forcing.md) |
+| [SQL Injection Fundamentals](./02-web-application-security/sql-injection-fundamentals.md) | 100% | ✅ | [📖](./02-web-application-security/sql-injection-fundamentals.md) |
+| [SQLMap Essentials](./02-web-application-security/sqlmap-essentials.md) | 90.91% | 🔄 | [📖](./02-web-application-security/sqlmap-essentials.md) |
+| [Cross-Site Scripting](./02-web-application-security/cross-site-scripting.md) | 100% | ✅ | [📖](./02-web-application-security/cross-site-scripting.md) |
+| [File Inclusion](./02-web-application-security/file-inclusion.md) | 100% | ✅ | [📖](./02-web-application-security/file-inclusion.md) |
+| [File Upload Attacks](./02-web-application-security/file-upload-attacks.md) | 72.73% | 🔄 | [📖](./02-web-application-security/file-upload-attacks.md) |
+| [Command Injections](./02-web-application-security/command-injections.md) | 75% | 🔄 | [📖](./02-web-application-security/command-injections.md) |
+| [Web Attacks](./02-web-application-security/web-attacks.md) | 50% | 🔄 | [📖](./02-web-application-security/web-attacks.md) |
+| [Attacking Common Applications](./02-web-application-security/attacking-common-applications.md) | — | 🔄 | [📖](./02-web-application-security/attacking-common-applications.md) |
 
 ### 🎯 Domain Goal
 
@@ -202,13 +202,13 @@ Shell / Credential / Data
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Attacking Common Services](./03-network-security/attacking-common-services/) | 21.05% | 🔄 | [📖](./03-network-security/attacking-common-services/README.md) |
-| [Password Attacks](./03-network-security/password-attacks/) | 15.38% | 🔄 | [📖](./03-network-security/password-attacks/README.md) |
-| [Pivoting, Tunneling & Port Forwarding](./03-network-security/pivoting-tunneling-port-forwarding/) | 44.44% | 🔄 | [📖](./03-network-security/pivoting-tunneling-port-forwarding/README.md) |
-| [Active Directory Enumeration & Attacks](./03-network-security/active-directory-enumeration-attacks/) | — | 🔄 | [📖](./03-network-security/active-directory-enumeration-attacks/README.md) |
-| [File Transfers](./03-network-security/file-transfers/) | 100% | ✅ | [📖](./03-network-security/file-transfers/README.md) |
-| [Shells & Payloads](./03-network-security/shells-payloads/) | 94.12% | 🔄 | [📖](./03-network-security/shells-payloads/README.md) |
-| [Using the Metasploit Framework](./03-network-security/using-metasploit-framework/) | 100% | ✅ | [📖](./03-network-security/using-metasploit-framework/README.md) |
+| [Attacking Common Services](./03-network-security/attacking-common-services.md) | 21.05% | 🔄 | [📖](./03-network-security/attacking-common-services.md) |
+| [Password Attacks](./03-network-security/password-attacks.md) | 15.38% | 🔄 | [📖](./03-network-security/password-attacks.md) |
+| [Pivoting, Tunneling & Port Forwarding](./03-network-security/pivoting-tunneling-port-forwarding.md) | 44.44% | 🔄 | [📖](./03-network-security/pivoting-tunneling-port-forwarding.md) |
+| [Active Directory Enumeration & Attacks](./03-network-security/active-directory-enumeration-attacks.md) | — | 🔄 | [📖](./03-network-security/active-directory-enumeration-attacks.md) |
+| [File Transfers](./03-network-security/file-transfers.md) | 100% | ✅ | [📖](./03-network-security/file-transfers.md) |
+| [Shells & Payloads](./03-network-security/shells-payloads.md) | 94.12% | 🔄 | [📖](./03-network-security/shells-payloads.md) |
+| [Using the Metasploit Framework](./03-network-security/using-metasploit-framework.md) | 100% | ✅ | [📖](./03-network-security/using-metasploit-framework.md) |
 
 ### 🚨 Current Priority
 
@@ -254,8 +254,8 @@ Lateral Movement
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Linux Privilege Escalation](./04-privilege-escalation/linux-privilege-escalation/) | 89.29% | 🔄 | [📖](./04-privilege-escalation/linux-privilege-escalation/README.md) |
-| [Windows Privilege Escalation](./04-privilege-escalation/windows-privilege-escalation/) | 36.36% | 🔄 | [📖](./04-privilege-escalation/windows-privilege-escalation/README.md) |
+| [Linux Privilege Escalation](./04-privilege-escalation/linux-privilege-escalation.md) | 89.29% | 🔄 | [📖](./04-privilege-escalation/linux-privilege-escalation.md) |
+| [Windows Privilege Escalation](./04-privilege-escalation/windows-privilege-escalation.md) | 36.36% | 🔄 | [📖](./04-privilege-escalation/windows-privilege-escalation.md) |
 
 ### 🎯 Domain Goal
 
@@ -281,19 +281,19 @@ Root / SYSTEM
 
 | Module | Status | Notes |
 |--------|:------:|:-----:|
-| [Penetration Testing Process](./supporting/penetration-testing-process/) | ⬜ | [📖](./supporting/penetration-testing-process/README.md) |
-| [Getting Started](./supporting/getting-started/) | ⬜ | [📖](./supporting/getting-started/README.md) |
-| [Documentation & Reporting](./supporting/documentation-reporting/) | ⬜ | [📖](./supporting/documentation-reporting/README.md) |
+| [Penetration Testing Process](./supporting/penetration-testing-process.md) | ⬜ | [📖](./supporting/penetration-testing-process.md) |
+| [Getting Started](./supporting/getting-started.md) | ⬜ | [📖](./supporting/getting-started.md) |
+| [Documentation & Reporting](./supporting/documentation-reporting.md) | ⬜ | [📖](./supporting/documentation-reporting.md) |
 
 ---
 
 ## 🏢 Enterprise Integration
 
-### [Attacking Enterprise Networks](./supporting/attacking-enterprise-networks/)
+### [Attacking Enterprise Networks](./supporting/attacking-enterprise-networks.md)
 
 **Status:** ⬜ Not Started
 
-→ [Open Capstone Notes](./supporting/attacking-enterprise-networks/README.md)
+→ [Open Capstone Notes](./supporting/attacking-enterprise-networks.md)
 
 This is where the four domains need to come together.
 
@@ -335,18 +335,18 @@ Professional Report
 
 ## 📝 Notes Structure
 
-Each module contains its own notes:
+Each module is a single notes file inside its domain folder:
 
 ```text
 03-network-security/
-└── password-attacks/
-    ├── README.md        ← entry point (concepts + methodology + commands)
-    ├── concepts.md
-    ├── techniques.md
-    ├── commands.md
-    ├── methodology.md
-    ├── labs.md
-    └── cheatsheet.md
+├── README.md                        ← domain overview + module table
+├── attacking-common-services.md
+├── password-attacks.md              ← concepts, methodology, techniques, commands, labs, cheatsheet
+├── pivoting-tunneling-port-forwarding.md
+├── active-directory-enumeration-attacks.md
+├── file-transfers.md
+├── shells-payloads.md
+└── using-metasploit-framework.md
 ```
 
 Workflow:
@@ -358,7 +358,7 @@ CPTS Dashboard
 Network Security
       │
       ▼
-Password Attacks
+password-attacks.md
       │
       ├── Concepts
       ├── Methodology

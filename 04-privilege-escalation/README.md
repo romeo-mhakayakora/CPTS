@@ -8,8 +8,8 @@
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Linux Privilege Escalation](./linux-privilege-escalation/) | 89.29% | 🔄 | [📖](./linux-privilege-escalation/README.md) |
-| [Windows Privilege Escalation](./windows-privilege-escalation/) | 36.36% | 🔄 | [📖](./windows-privilege-escalation/README.md) |
+| [Linux Privilege Escalation](./linux-privilege-escalation.md) | 89.29% | 🔄 | [📖](./linux-privilege-escalation.md) |
+| [Windows Privilege Escalation](./windows-privilege-escalation.md) | 36.36% | 🔄 | [📖](./windows-privilege-escalation.md) |
 
 ## 🎯 Domain Goal
 

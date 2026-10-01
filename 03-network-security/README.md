@@ -8,13 +8,13 @@
 
 | Module | Progress | Status | Notes |
 |--------|:--------:|:------:|:-----:|
-| [Attacking Common Services](./attacking-common-services/) | 21.05% | 🔄 | [📖](./attacking-common-services/README.md) |
-| [Password Attacks](./password-attacks/) | 15.38% | 🔄 | [📖](./password-attacks/README.md) |
-| [Pivoting, Tunneling & Port Forwarding](./pivoting-tunneling-port-forwarding/) | 44.44% | 🔄 | [📖](./pivoting-tunneling-port-forwarding/README.md) |
-| [Active Directory Enumeration & Attacks](./active-directory-enumeration-attacks/) | — | 🔄 | [📖](./active-directory-enumeration-attacks/README.md) |
-| [File Transfers](./file-transfers/) | 100% | ✅ | [📖](./file-transfers/README.md) |
-| [Shells & Payloads](./shells-payloads/) | 94.12% | 🔄 | [📖](./shells-payloads/README.md) |
-| [Using the Metasploit Framework](./using-metasploit-framework/) | 100% | ✅ | [📖](./using-metasploit-framework/README.md) |
+| [Attacking Common Services](./attacking-common-services.md) | 21.05% | 🔄 | [📖](./attacking-common-services.md) |
+| [Password Attacks](./password-attacks.md) | 15.38% | 🔄 | [📖](./password-attacks.md) |
+| [Pivoting, Tunneling & Port Forwarding](./pivoting-tunneling-port-forwarding.md) | 44.44% | 🔄 | [📖](./pivoting-tunneling-port-forwarding.md) |
+| [Active Directory Enumeration & Attacks](./active-directory-enumeration-attacks.md) | — | 🔄 | [📖](./active-directory-enumeration-attacks.md) |
+| [File Transfers](./file-transfers.md) | 100% | ✅ | [📖](./file-transfers.md) |
+| [Shells & Payloads](./shells-payloads.md) | 94.12% | 🔄 | [📖](./shells-payloads.md) |
+| [Using the Metasploit Framework](./using-metasploit-framework.md) | 100% | ✅ | [📖](./using-metasploit-framework.md) |
 
 ## 🚨 Current Priority
 
