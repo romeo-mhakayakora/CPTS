@@ -72,6 +72,7 @@ flowchart TB
         ADAUTH["🔄 Authentication — —"]
         ADTRUST["🔄 Trusts — —"]
         ADDNS["🔄 Network & DNS — —"]
+        ADBREACH["🔄 Breaching — —"]
         ADENUM["⬜ Enumeration — —"]
         ADATK["⬜ Attacks — —"]
         ADLAT["⬜ Lateral Movement — —"]
@@ -114,6 +115,7 @@ flowchart TB
     click ADAUTH href "./05-active-directory/ad-basics/authentication-kerberos-netntlm.md"
     click ADTRUST href "./05-active-directory/ad-basics/trees-forests-trusts.md"
     click ADDNS href "./05-active-directory/ad-basics/network-connection-dns.md"
+    click ADBREACH href "./05-active-directory/breaching-ad/breaching-ad-intro.md"
     click ADENUM href "./05-active-directory/enumeration.md"
     click ADATK href "./05-active-directory/attacks.md"
     click ADLAT href "./05-active-directory/lateral-movement.md"
@@ -315,6 +317,8 @@ Root / SYSTEM
 | [Authentication (Kerberos & NetNTLM)](./05-active-directory/ad-basics/authentication-kerberos-netntlm.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/authentication-kerberos-netntlm.md) |
 | [Trees, Forests and Trust Relationships](./05-active-directory/ad-basics/trees-forests-trusts.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/trees-forests-trusts.md) |
 | [Connecting to the Network and DNS](./05-active-directory/ad-basics/network-connection-dns.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/network-connection-dns.md) |
+| [Breaching AD](./05-active-directory/breaching-ad/README.md) | — | 🔄 | [📖](./05-active-directory/breaching-ad/README.md) |
+| [Breaching AD (Intro) & Initial Credentials](./05-active-directory/breaching-ad/breaching-ad-intro.md) | — | 🔄 | [📖](./05-active-directory/breaching-ad/breaching-ad-intro.md) |
 | [Enumeration](./05-active-directory/enumeration.md) | — | ⬜ | [📖](./05-active-directory/enumeration.md) |
 | [Attacks](./05-active-directory/attacks.md) | — | ⬜ | [📖](./05-active-directory/attacks.md) |
 | [Lateral Movement & Pivoting](./05-active-directory/lateral-movement.md) | — | ⬜ | [📖](./05-active-directory/lateral-movement.md) |
