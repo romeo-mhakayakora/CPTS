@@ -2,7 +2,7 @@
 
 > My structured path toward the HTB CPTS certification.
 >
-> Four core domains → individual modules → technical notes → practical labs → enterprise capstone → CPTS exam.
+> Five core domains → individual modules → technical notes → practical labs → enterprise capstone → CPTS exam.
 
 > 📖 **Read these notes as a searchable site (diagrams, dark mode, offline search):** <https://romeo-mhakayakora.github.io/CPTS/>
 
@@ -20,12 +20,13 @@ flowchart TB
     WEB["🌐 WEB & APP SECURITY<br/>🟡 In Progress"]
     NET["🌐 NETWORK SECURITY<br/>🔴 Major Focus"]
     PRIV["🔐 PRIVILEGE ESCALATION<br/>🟡 In Progress"]
+    ADMOD["🟦 ACTIVE DIRECTORY<br/>⬜ Not Started"]
     CAP["🏢 ENTERPRISE NETWORKS<br/>⬜ Capstone"]
     EXAM["🏁 CPTS EXAM"]
 
     CPTS --> IG & WEB & NET
     IG & WEB & NET --> PRIV
-    PRIV --> CAP --> EXAM
+    PRIV --> ADMOD --> CAP --> EXAM
 
     subgraph IG_MODS ["01 — Information Gathering"]
         NMAP["✅ Nmap — 100%"]
@@ -63,10 +64,23 @@ flowchart TB
         WINDOWS["🔄 Windows — 36.36%"]
     end
 
+    subgraph AD_MODS ["05 — Active Directory"]
+        ADINTRO["🔄 Intro — —"]
+        ADOBJ["🔄 Objects — —"]
+        ADMGMT["🔄 Users/OUs/Delegation — —"]
+        ADGPO["🔄 GPOs — —"]
+        ADAUTH["🔄 Authentication — —"]
+        ADTRUST["🔄 Trusts — —"]
+        ADENUM["⬜ Enumeration — —"]
+        ADATK["⬜ Attacks — —"]
+        ADLAT["⬜ Lateral Movement — —"]
+    end
+
     IG --- IG_MODS
     WEB --- WEB_MODS
     NET --- NET_MODS
     PRIV --- PRIV_MODS
+    ADMOD --- AD_MODS
 
     click NMAP href "./01-information-gathering/network-enumeration-nmap.md"
     click FOOT href "./01-information-gathering/footprinting.md"
@@ -92,6 +106,15 @@ flowchart TB
     click MSF href "./03-network-security/using-metasploit-framework.md"
     click LINUX href "./04-privilege-escalation/linux-privilege-escalation.md"
     click WINDOWS href "./04-privilege-escalation/windows-privilege-escalation.md"
+    click ADINTRO href "./05-active-directory/ad-basics/windows-domains-intro.md"
+    click ADOBJ href "./05-active-directory/ad-basics/ad-objects-accounts-organisation.md"
+    click ADMGMT href "./05-active-directory/ad-basics/managing-users-ous-delegation.md"
+    click ADGPO href "./05-active-directory/ad-basics/group-policy-objects.md"
+    click ADAUTH href "./05-active-directory/ad-basics/authentication-kerberos-netntlm.md"
+    click ADTRUST href "./05-active-directory/ad-basics/trees-forests-trusts.md"
+    click ADENUM href "./05-active-directory/enumeration.md"
+    click ADATK href "./05-active-directory/attacks.md"
+    click ADLAT href "./05-active-directory/lateral-movement.md"
     click CAP href "./supporting/attacking-enterprise-networks.md"
 ```
 
@@ -117,6 +140,7 @@ flowchart TB
 | 🌐 Web & Application Security | 🟡 In Progress | [Open →](./02-web-application-security/) |
 | 🌐 Network Security | 🔴 Major Focus | [Open →](./03-network-security/) |
 | 🔐 Privilege Escalation | 🟡 In Progress | [Open →](./04-privilege-escalation/) |
+| 🟦 Active Directory | ⬜ Not Started | [Open →](./05-active-directory/) |
 | 🧰 Supporting Skills | ⬜ Not Started | [Open →](./supporting/) |
 
 > ⚠️ **Note:** HTB completion percentage is not the same thing as CPTS readiness. Practical ability, repetition, enumeration discipline, and the ability to chain techniques together matter more than the percentage alone.
@@ -271,6 +295,43 @@ Exploit
 Higher Privileges
      ↓
 Root / SYSTEM
+```
+
+---
+
+## 05 — 🟦 Active Directory
+
+> Dedicated AD enumeration, attacks and lateral movement. → [Domain README](./05-active-directory/README.md)
+
+| Module | Progress | Status | Notes |
+|--------|:--------:|:------:|:-----:|
+| [AD Basics](./05-active-directory/ad-basics/README.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/README.md) |
+| [Windows Domains and AD (Intro)](./05-active-directory/ad-basics/windows-domains-intro.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/windows-domains-intro.md) |
+| [AD Objects, Accounts and Organisation](./05-active-directory/ad-basics/ad-objects-accounts-organisation.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/ad-objects-accounts-organisation.md) |
+| [Managing AD Users, OUs and Delegation](./05-active-directory/ad-basics/managing-users-ous-delegation.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/managing-users-ous-delegation.md) |
+| [Group Policy Objects (GPOs)](./05-active-directory/ad-basics/group-policy-objects.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/group-policy-objects.md) |
+| [Authentication (Kerberos & NetNTLM)](./05-active-directory/ad-basics/authentication-kerberos-netntlm.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/authentication-kerberos-netntlm.md) |
+| [Trees, Forests and Trust Relationships](./05-active-directory/ad-basics/trees-forests-trusts.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/trees-forests-trusts.md) |
+| [Enumeration](./05-active-directory/enumeration.md) | — | ⬜ | [📖](./05-active-directory/enumeration.md) |
+| [Attacks](./05-active-directory/attacks.md) | — | ⬜ | [📖](./05-active-directory/attacks.md) |
+| [Lateral Movement & Pivoting](./05-active-directory/lateral-movement.md) | — | ⬜ | [📖](./05-active-directory/lateral-movement.md) |
+
+> Legacy overview kept at [03-network-security/active-directory-enumeration-attacks.md](./03-network-security/active-directory-enumeration-attacks.md) — new detailed notes live here.
+
+### 🎯 Domain Goal
+
+```text
+Domain Discovery
+      ↓
+Enumerate Users / Groups / Trusts
+      ↓
+Kerberoast / AS-REP / Spray
+      ↓
+Lateral Movement
+      ↓
+Domain Admin
+      ↓
+Enterprise Compromise
 ```
 
 ---
