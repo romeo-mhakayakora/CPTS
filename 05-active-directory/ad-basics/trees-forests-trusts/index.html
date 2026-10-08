@@ -12,31 +12,31 @@
         <meta name="author" content="Romeo Mhakayakora">
       
       
-        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/04-privilege-escalation/linux-privilege-escalation/">
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/ad-basics/trees-forests-trusts/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../authentication-kerberos-netntlm/">
       
       
-        <link rel="next" href="../windows-privilege-escalation/">
+        <link rel="next" href="../../enumeration/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Linux Privilege Escalation - CPTS Notes</title>
+        <title>Trees, Forests and Trust Relationships - CPTS Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux-privilege-escalation" class="md-skip">
+        <a href="#trees-forests-and-trust-relationships" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linux Privilege Escalation
+              Trees, Forests and Trust Relationships
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../01-information-gathering/" class="md-tabs__link">
+        <a href="../../../01-information-gathering/" class="md-tabs__link">
           
   
   
@@ -268,7 +268,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../02-web-application-security/" class="md-tabs__link">
+        <a href="../../../02-web-application-security/" class="md-tabs__link">
           
   
   
@@ -288,11 +288,31 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../03-network-security/" class="md-tabs__link">
+        <a href="../../../03-network-security/" class="md-tabs__link">
           
   
   
   03 Network Security
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../04-privilege-escalation/" class="md-tabs__link">
+          
+  
+  
+  04 Privilege Escalation
 
         </a>
       </li>
@@ -310,27 +330,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
-          
-  
-  
-  04 Privilege Escalation
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../05-active-directory/" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../supporting/" class="md-tabs__link">
+        <a href="../../../supporting/" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -414,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -495,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/" class="md-nav__link">
+      <a href="../../../01-information-gathering/" class="md-nav__link">
         
   
   
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
+      <a href="../../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
         
   
   
@@ -551,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/footprinting/" class="md-nav__link">
+      <a href="../../../01-information-gathering/footprinting/" class="md-nav__link">
         
   
   
@@ -579,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
+      <a href="../../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
         
   
   
@@ -668,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/" class="md-nav__link">
+      <a href="../../../02-web-application-security/" class="md-nav__link">
         
   
   
@@ -696,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
+      <a href="../../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
         
   
   
@@ -724,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/using-web-proxies/" class="md-nav__link">
+      <a href="../../../02-web-application-security/using-web-proxies/" class="md-nav__link">
         
   
   
@@ -752,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
+      <a href="../../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
         
   
   
@@ -780,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
+      <a href="../../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
         
   
   
@@ -808,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
+      <a href="../../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
         
   
   
@@ -836,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
+      <a href="../../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
         
   
   
@@ -864,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
+      <a href="../../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
         
   
   
@@ -892,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/file-inclusion/" class="md-nav__link">
+      <a href="../../../02-web-application-security/file-inclusion/" class="md-nav__link">
         
   
   
@@ -920,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
+      <a href="../../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
         
   
   
@@ -948,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/command-injections/" class="md-nav__link">
+      <a href="../../../02-web-application-security/command-injections/" class="md-nav__link">
         
   
   
@@ -976,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/web-attacks/" class="md-nav__link">
+      <a href="../../../02-web-application-security/web-attacks/" class="md-nav__link">
         
   
   
@@ -1004,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
+      <a href="../../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
         
   
   
@@ -1093,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/" class="md-nav__link">
+      <a href="../../../03-network-security/" class="md-nav__link">
         
   
   
@@ -1121,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/attacking-common-services/" class="md-nav__link">
+      <a href="../../../03-network-security/attacking-common-services/" class="md-nav__link">
         
   
   
@@ -1149,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/password-attacks/" class="md-nav__link">
+      <a href="../../../03-network-security/password-attacks/" class="md-nav__link">
         
   
   
@@ -1177,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
+      <a href="../../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
         
   
   
@@ -1205,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
+      <a href="../../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
         
   
   
@@ -1233,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/file-transfers/" class="md-nav__link">
+      <a href="../../../03-network-security/file-transfers/" class="md-nav__link">
         
   
   
@@ -1261,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/shells-payloads/" class="md-nav__link">
+      <a href="../../../03-network-security/shells-payloads/" class="md-nav__link">
         
   
   
@@ -1289,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/using-metasploit-framework/" class="md-nav__link">
+      <a href="../../../03-network-security/using-metasploit-framework/" class="md-nav__link">
         
   
   
@@ -1297,6 +1297,151 @@
     
   
     Using the Metasploit Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 Privilege Escalation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-privilege-escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-privilege-escalation/linux-privilege-escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-privilege-escalation/windows-privilege-escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Privilege Escalation
   
 
     
@@ -1342,17 +1487,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    04 Privilege Escalation
+    05 Active Directory
   
 
     
@@ -1363,12 +1508,97 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    04 Privilege Escalation
+    05 Active Directory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AD Basics
   
 
           </label>
@@ -1406,6 +1636,146 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../windows-domains-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Domains and AD (Intro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ad-objects-accounts-organisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Objects, Accounts and Organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-users-ous-delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing AD Users, OUs and Delegation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../group-policy-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Group Policy Objects (GPOs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authentication-kerberos-netntlm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication (Kerberos & NetNTLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1425,7 +1795,7 @@
   <span class="md-ellipsis">
     
   
-    Linux Privilege Escalation
+    Trees, Forests and Trust Relationships
   
 
     
@@ -1443,7 +1813,7 @@
   <span class="md-ellipsis">
     
   
-    Linux Privilege Escalation
+    Trees, Forests and Trust Relationships
   
 
     
@@ -1476,6 +1846,134 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-why-multiple-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why multiple domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trees
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-admins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise Admins
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-forests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Forests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-trust-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Trust relationships
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Trust relationships">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-way-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One-way trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-way-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two-way trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1551,17 +2049,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#cpts-readiness" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ CPTS Readiness
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1571,373 +2058,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../windows-privilege-escalation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Windows Privilege Escalation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    05 Active Directory
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    05 Active Directory
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AD Basics
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    AD Basics
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/windows-domains-intro/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Windows Domains and AD (Intro)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AD Objects, Accounts and Organisation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/managing-users-ous-delegation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing AD Users, OUs and Delegation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/group-policy-objects/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Group Policy Objects (GPOs)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication (Kerberos & NetNTLM)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/trees-forests-trusts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trees, Forests and Trust Relationships
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1953,7 +2073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/enumeration/" class="md-nav__link">
+      <a href="../../enumeration/" class="md-nav__link">
         
   
   
@@ -1981,7 +2101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/attacks/" class="md-nav__link">
+      <a href="../../attacks/" class="md-nav__link">
         
   
   
@@ -2009,7 +2129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/lateral-movement/" class="md-nav__link">
+      <a href="../../lateral-movement/" class="md-nav__link">
         
   
   
@@ -2098,7 +2218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/" class="md-nav__link">
+      <a href="../../../supporting/" class="md-nav__link">
         
   
   
@@ -2126,7 +2246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/penetration-testing-process/" class="md-nav__link">
+      <a href="../../../supporting/penetration-testing-process/" class="md-nav__link">
         
   
   
@@ -2154,7 +2274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/getting-started/" class="md-nav__link">
+      <a href="../../../supporting/getting-started/" class="md-nav__link">
         
   
   
@@ -2182,7 +2302,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/documentation-reporting/" class="md-nav__link">
+      <a href="../../../supporting/documentation-reporting/" class="md-nav__link">
         
   
   
@@ -2210,7 +2330,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/attacking-enterprise-networks/" class="md-nav__link">
+      <a href="../../../supporting/attacking-enterprise-networks/" class="md-nav__link">
         
   
   
@@ -2272,6 +2392,134 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-why-multiple-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why multiple domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trees
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benefits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-admins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise Admins
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-forests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Forests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-trust-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Trust relationships
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Trust relationships">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-way-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One-way trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-way-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two-way trust
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2347,17 +2595,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#cpts-readiness" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ CPTS Readiness
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2378,9 +2615,9 @@
   
 
 
-<h1 id="linux-privilege-escalation">Linux Privilege Escalation<a class="headerlink" href="#linux-privilege-escalation" title="Permanent link">&para;</a></h1>
+<h1 id="trees-forests-and-trust-relationships">Trees, Forests and Trust Relationships<a class="headerlink" href="#trees-forests-and-trust-relationships" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>[⬅ Domain(./README.md) | [🏠 Dashboard(../README.md)</p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
 </blockquote>
 <table>
 <thead>
@@ -2393,8 +2630,8 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">89.29%</td>
 <td style="text-align: center;">—</td>
+<td style="text-align: center;">Started</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 </tr>
@@ -2403,21 +2640,100 @@
 <p><strong>Status:</strong> 🔄 In Progress</p>
 <hr />
 <h2 id="concepts">📌 Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<!-- Core theory: what is this, why it matters, how it works. -->
-
-<p>-</p>
+<h3 id="1-why-multiple-domains">1. Why multiple domains<a class="headerlink" href="#1-why-multiple-domains" title="Permanent link">&para;</a></h3>
+<p>A single domain is fine to start, but growth creates new needs. Examples from the source:</p>
+<ul>
+<li>Expanding to a new country with different laws and regulations, requiring different GPOs.</li>
+<li>Separate IT teams that must manage their own resources without interfering with each other.</li>
+</ul>
+<p>This could be done with a complex OU structure and delegation, but a huge AD structure is hard to manage and prone to human error.</p>
+<p>AD supports integrating multiple domains, so the network is partitioned into units that can be managed independently.</p>
+<h3 id="2-trees">2. Trees<a class="headerlink" href="#2-trees" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Tree = domains that share the same namespace, joined together.</li>
+<li>Example: root domain <code>thm.local</code> with subdomains <code>uk.thm.local</code> and <code>us.thm.local</code>. Each has its own AD, computers and users.</li>
+</ul>
+<h4 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Better control over who can access what.</li>
+<li>Each branch has its own DC managing only its own resources. A UK user can't manage US users.</li>
+<li>Domain Admins of each branch have full control over their own DCs, but not other branches' DCs.</li>
+<li>Policies can be configured independently per domain in the tree.</li>
+</ul>
+<h4 id="enterprise-admins">Enterprise Admins<a class="headerlink" href="#enterprise-admins" title="Permanent link">&para;</a></h4>
+<ul>
+<li>New security group introduced with trees and forests.</li>
+<li>Grants administrative privileges over all domains in the enterprise.</li>
+<li>Each domain still has its own Domain Admins (power over that single domain only).</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domain Admins</td>
+<td>One domain</td>
+</tr>
+<tr>
+<td>Enterprise Admins</td>
+<td>All domains in the enterprise</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-forests">3. Forests<a class="headerlink" href="#3-forests" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Forest = the union of several trees with different namespaces in the same network.</li>
+<li>Example: after acquiring MHT Inc., the company has two trees (<code>thm.local</code> and the MHT tree), each managed by its own IT department.</li>
+</ul>
+<h3 id="4-trust-relationships">4. Trust relationships<a class="headerlink" href="#4-trust-relationships" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Domains in trees and forests are joined by trust relationships.</li>
+<li>A trust lets you authorise a user from one domain to access resources in another. Example: a user in THM UK accessing a shared file on a server in an MHT domain.</li>
+</ul>
+<h4 id="one-way-trust">One-way trust<a class="headerlink" href="#one-way-trust" title="Permanent link">&para;</a></h4>
+<ul>
+<li>If Domain AAA trusts Domain BBB, a user on BBB can be authorised to access resources on AAA.</li>
+<li>The direction of the trust is opposite to the direction of access.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>AAA  --trusts--&gt;  BBB
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>AAA  &lt;--access--  BBB user
+</code></pre></div>
+<h4 id="two-way-trust">Two-way trust<a class="headerlink" href="#two-way-trust" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Both domains can mutually authorise users from the other.</li>
+<li>By default, joining domains under a tree or forest forms a two-way trust.</li>
+</ul>
+<h4 id="important-caveat">Important caveat<a class="headerlink" href="#important-caveat" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A trust does not automatically grant access to all resources in the other domain.</li>
+<li>It only makes cross-domain authorisation possible. What is actually authorised is up to the administrator.</li>
+</ul>
+<h3 id="5-quick-recall">5. Quick recall<a class="headerlink" href="#5-quick-recall" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Domain = single unit with its own DC, users and computers.</li>
+<li>Tree = domains sharing a namespace (<code>thm.local</code>, <code>uk.thm.local</code>, <code>us.thm.local</code>).</li>
+<li>Forest = multiple trees with different namespaces.</li>
+<li>Enterprise Admins = admin over all domains. Domain Admins = admin over one domain.</li>
+<li>One-way trust: AAA trusts BBB means BBB users can access AAA, so the arrow of trust points opposite to access.</li>
+<li>Two-way trust is the default within a tree or forest.</li>
+<li>Trust is not access. Authorisation is still configured separately.</li>
+</ul>
 <h2 id="methodology">🧭 Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
-<!-- Step-by-step enumeration / attack workflow. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Step 1
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ↓
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Step 2
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ↓
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Step 3
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Identify domain / tree / forest boundaries
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  ↓
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Map DCs per domain
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  ↓
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Enumerate trusts (direction, type)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  ↓
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Check Enterprise Admins / Domain Admins scope
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  ↓
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Find cross-domain access paths
 </code></pre></div>
 <h2 id="techniques">🛠️ Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
-<!-- Individual techniques with when/why to use each. -->
-
 <h3 id="technique-1">Technique 1<a class="headerlink" href="#technique-1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Description:</li>
@@ -2425,13 +2741,9 @@
 <li>Command:</li>
 </ul>
 <h2 id="commands">💻 Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<!-- Copy-paste ready command reference. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># TODO: add commands</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># TODO: trust enumeration (nltest, dsquery, BloodHound trusts) when offsec material added</span>
 </code></pre></div>
 <h2 id="labs">🧪 Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
-<!-- HTB labs / boxes practiced, what worked, what failed. -->
-
 <table>
 <thead>
 <tr>
@@ -2449,22 +2761,12 @@
 </tbody>
 </table>
 <h2 id="cheatsheet">📇 Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permanent link">&para;</a></h2>
-<!-- Ultra-condensed quick reference for exam-time recall. -->
-
-<p>-</p>
-<h2 id="cpts-readiness">✅ CPTS Readiness<a class="headerlink" href="#cpts-readiness" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] Explain the underlying concepts</li>
-<li>[ ] Enumerate systematically</li>
-<li>[ ] Identify attack opportunities</li>
-<li>[ ] Execute the relevant techniques</li>
-<li>[ ] Troubleshoot when the obvious approach fails</li>
-<li>[ ] Document commands and evidence</li>
-<li>[ ] Apply the technique in an unfamiliar environment</li>
-<li>[ ] Combine it with other CPTS skills</li>
+<li>Tree = shared namespace | Forest = multiple trees | Enterprise Admins = all domains</li>
+<li>One-way trust arrow = opposite of access direction | Trust ≠ access</li>
 </ul>
 <hr />
-<p>[⬅ Domain(./README.md) | [🏠 Dashboard(../README.md)</p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
 
 
 
@@ -2522,14 +2824,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid.js"></script>
+        <script src="../../../javascripts/mermaid.js"></script>
       
     
   </body>

@@ -12,31 +12,31 @@
         <meta name="author" content="Romeo Mhakayakora">
       
       
-        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/04-privilege-escalation/linux-privilege-escalation/">
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/ad-basics/group-policy-objects/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../managing-users-ous-delegation/">
       
       
-        <link rel="next" href="../windows-privilege-escalation/">
+        <link rel="next" href="../authentication-kerberos-netntlm/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Linux Privilege Escalation - CPTS Notes</title>
+        <title>Group Policy Objects (GPOs) - CPTS Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux-privilege-escalation" class="md-skip">
+        <a href="#group-policy-objects-gpos" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linux Privilege Escalation
+              Group Policy Objects (GPOs)
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../01-information-gathering/" class="md-tabs__link">
+        <a href="../../../01-information-gathering/" class="md-tabs__link">
           
   
   
@@ -268,7 +268,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../02-web-application-security/" class="md-tabs__link">
+        <a href="../../../02-web-application-security/" class="md-tabs__link">
           
   
   
@@ -288,11 +288,31 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../03-network-security/" class="md-tabs__link">
+        <a href="../../../03-network-security/" class="md-tabs__link">
           
   
   
   03 Network Security
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../04-privilege-escalation/" class="md-tabs__link">
+          
+  
+  
+  04 Privilege Escalation
 
         </a>
       </li>
@@ -310,27 +330,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
-          
-  
-  
-  04 Privilege Escalation
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../05-active-directory/" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../supporting/" class="md-tabs__link">
+        <a href="../../../supporting/" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -414,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -495,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/" class="md-nav__link">
+      <a href="../../../01-information-gathering/" class="md-nav__link">
         
   
   
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
+      <a href="../../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
         
   
   
@@ -551,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/footprinting/" class="md-nav__link">
+      <a href="../../../01-information-gathering/footprinting/" class="md-nav__link">
         
   
   
@@ -579,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
+      <a href="../../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
         
   
   
@@ -668,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/" class="md-nav__link">
+      <a href="../../../02-web-application-security/" class="md-nav__link">
         
   
   
@@ -696,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
+      <a href="../../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
         
   
   
@@ -724,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/using-web-proxies/" class="md-nav__link">
+      <a href="../../../02-web-application-security/using-web-proxies/" class="md-nav__link">
         
   
   
@@ -752,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
+      <a href="../../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
         
   
   
@@ -780,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
+      <a href="../../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
         
   
   
@@ -808,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
+      <a href="../../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
         
   
   
@@ -836,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
+      <a href="../../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
         
   
   
@@ -864,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
+      <a href="../../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
         
   
   
@@ -892,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/file-inclusion/" class="md-nav__link">
+      <a href="../../../02-web-application-security/file-inclusion/" class="md-nav__link">
         
   
   
@@ -920,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
+      <a href="../../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
         
   
   
@@ -948,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/command-injections/" class="md-nav__link">
+      <a href="../../../02-web-application-security/command-injections/" class="md-nav__link">
         
   
   
@@ -976,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/web-attacks/" class="md-nav__link">
+      <a href="../../../02-web-application-security/web-attacks/" class="md-nav__link">
         
   
   
@@ -1004,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
+      <a href="../../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
         
   
   
@@ -1093,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/" class="md-nav__link">
+      <a href="../../../03-network-security/" class="md-nav__link">
         
   
   
@@ -1121,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/attacking-common-services/" class="md-nav__link">
+      <a href="../../../03-network-security/attacking-common-services/" class="md-nav__link">
         
   
   
@@ -1149,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/password-attacks/" class="md-nav__link">
+      <a href="../../../03-network-security/password-attacks/" class="md-nav__link">
         
   
   
@@ -1177,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
+      <a href="../../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
         
   
   
@@ -1205,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
+      <a href="../../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
         
   
   
@@ -1233,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/file-transfers/" class="md-nav__link">
+      <a href="../../../03-network-security/file-transfers/" class="md-nav__link">
         
   
   
@@ -1261,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/shells-payloads/" class="md-nav__link">
+      <a href="../../../03-network-security/shells-payloads/" class="md-nav__link">
         
   
   
@@ -1289,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/using-metasploit-framework/" class="md-nav__link">
+      <a href="../../../03-network-security/using-metasploit-framework/" class="md-nav__link">
         
   
   
@@ -1297,6 +1297,151 @@
     
   
     Using the Metasploit Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 Privilege Escalation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-privilege-escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-privilege-escalation/linux-privilege-escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-privilege-escalation/windows-privilege-escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Privilege Escalation
   
 
     
@@ -1342,17 +1487,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    04 Privilege Escalation
+    05 Active Directory
   
 
     
@@ -1363,12 +1508,97 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    04 Privilege Escalation
+    05 Active Directory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AD Basics
   
 
           </label>
@@ -1406,6 +1636,90 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../windows-domains-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Domains and AD (Intro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ad-objects-accounts-organisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Objects, Accounts and Organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-users-ous-delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing AD Users, OUs and Delegation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1425,7 +1739,7 @@
   <span class="md-ellipsis">
     
   
-    Linux Privilege Escalation
+    Group Policy Objects (GPOs)
   
 
     
@@ -1443,7 +1757,7 @@
   <span class="md-ellipsis">
     
   
-    Linux Privilege Escalation
+    Group Policy Objects (GPOs)
   
 
     
@@ -1477,6 +1791,106 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-gpos-are" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What GPOs are
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-group-policy-management-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Group Policy Management tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Group Policy Management tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-gpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default GPOs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-anatomy-of-a-gpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Anatomy of a GPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-editing-a-gpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Editing a GPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-gpo-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. GPO distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1503,10 +1917,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#gpo-enumeration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        GPO Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-policy-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force Policy Refresh
       
     </span>
   </a>
@@ -1551,17 +1976,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#cpts-readiness" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ CPTS Readiness
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1578,318 +1992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../windows-privilege-escalation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Windows Privilege Escalation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    05 Active Directory
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    05 Active Directory
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AD Basics
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    AD Basics
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/windows-domains-intro/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Windows Domains and AD (Intro)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AD Objects, Accounts and Organisation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/managing-users-ous-delegation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing AD Users, OUs and Delegation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/group-policy-objects/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Group Policy Objects (GPOs)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
+      <a href="../authentication-kerberos-netntlm/" class="md-nav__link">
         
   
   
@@ -1917,7 +2020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/trees-forests-trusts/" class="md-nav__link">
+      <a href="../trees-forests-trusts/" class="md-nav__link">
         
   
   
@@ -1953,7 +2056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/enumeration/" class="md-nav__link">
+      <a href="../../enumeration/" class="md-nav__link">
         
   
   
@@ -1981,7 +2084,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/attacks/" class="md-nav__link">
+      <a href="../../attacks/" class="md-nav__link">
         
   
   
@@ -2009,7 +2112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/lateral-movement/" class="md-nav__link">
+      <a href="../../lateral-movement/" class="md-nav__link">
         
   
   
@@ -2098,7 +2201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/" class="md-nav__link">
+      <a href="../../../supporting/" class="md-nav__link">
         
   
   
@@ -2126,7 +2229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/penetration-testing-process/" class="md-nav__link">
+      <a href="../../../supporting/penetration-testing-process/" class="md-nav__link">
         
   
   
@@ -2154,7 +2257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/getting-started/" class="md-nav__link">
+      <a href="../../../supporting/getting-started/" class="md-nav__link">
         
   
   
@@ -2182,7 +2285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/documentation-reporting/" class="md-nav__link">
+      <a href="../../../supporting/documentation-reporting/" class="md-nav__link">
         
   
   
@@ -2210,7 +2313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/attacking-enterprise-networks/" class="md-nav__link">
+      <a href="../../../supporting/attacking-enterprise-networks/" class="md-nav__link">
         
   
   
@@ -2273,6 +2376,106 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-what-gpos-are" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. What GPOs are
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-group-policy-management-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Group Policy Management tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Group Policy Management tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-gpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default GPOs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inheritance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-anatomy-of-a-gpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Anatomy of a GPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-editing-a-gpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Editing a GPO
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-gpo-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. GPO distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2299,10 +2502,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#gpo-enumeration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        GPO Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-policy-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force Policy Refresh
       
     </span>
   </a>
@@ -2347,17 +2561,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#cpts-readiness" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ CPTS Readiness
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2378,9 +2581,9 @@
   
 
 
-<h1 id="linux-privilege-escalation">Linux Privilege Escalation<a class="headerlink" href="#linux-privilege-escalation" title="Permanent link">&para;</a></h1>
+<h1 id="group-policy-objects-gpos">Group Policy Objects (GPOs)<a class="headerlink" href="#group-policy-objects-gpos" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>[⬅ Domain(./README.md) | [🏠 Dashboard(../README.md)</p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
 </blockquote>
 <table>
 <thead>
@@ -2393,8 +2596,8 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">89.29%</td>
 <td style="text-align: center;">—</td>
+<td style="text-align: center;">Started</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 </tr>
@@ -2403,35 +2606,122 @@
 <p><strong>Status:</strong> 🔄 In Progress</p>
 <hr />
 <h2 id="concepts">📌 Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<!-- Core theory: what is this, why it matters, how it works. -->
-
-<p>-</p>
+<h3 id="1-what-gpos-are">1. What GPOs are<a class="headerlink" href="#1-what-gpos-are" title="Permanent link">&para;</a></h3>
+<ul>
+<li>OUs exist so that <strong>different policies can be deployed per OU</strong>, pushing different configurations and security baselines by department or device type.</li>
+<li><strong>GPO</strong> = a collection of settings that can be applied to OUs.</li>
+<li>A GPO can hold policies for <strong>users</strong>, <strong>computers</strong>, or both, setting a baseline on specific machines and identities.</li>
+</ul>
+<h3 id="2-group-policy-management-tool">2. Group Policy Management tool<a class="headerlink" href="#2-group-policy-management-tool" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Open it from the Start menu.</li>
+<li>It shows the full OU hierarchy.</li>
+<li><strong>Workflow:</strong> create a GPO under <em>Group Policy Objects</em>, then <strong>link</strong> it to the OU where it should apply.</li>
+</ul>
+<h4 id="default-gpos">Default GPOs<a class="headerlink" href="#default-gpos" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>GPO</th>
+<th>Linked to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default Domain Policy</td>
+<td><code>thm.local</code> (whole domain)</td>
+</tr>
+<tr>
+<td>RDP Policy</td>
+<td><code>thm.local</code> (whole domain)</td>
+</tr>
+<tr>
+<td>Default Domain Controllers Policy</td>
+<td>Domain Controllers OU only</td>
+</tr>
+</tbody>
+</table>
+<h4 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A GPO applies to the <strong>linked OU and all sub-OUs under it</strong>. For example, Sales is still affected by the Default Domain Policy.</li>
+<li><strong>Computer Configuration settings are ignored</strong> on OUs that contain only users, so a computer-targeted GPO linked at the root domain is safe to inherit everywhere.</li>
+</ul>
+<h3 id="3-anatomy-of-a-gpo">3. Anatomy of a GPO<a class="headerlink" href="#3-anatomy-of-a-gpo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Scope tab:</strong> shows where the GPO is linked in AD.</li>
+<li><strong>Security Filtering:</strong> restricts a GPO to specific users or computers under an OU. The default is the <strong>Authenticated Users</strong> group (all users and PCs).</li>
+<li><strong>Settings tab:</strong> shows the actual contents. Each GPO has two sections:</li>
+<li><strong>Computer Configuration:</strong> applies to computers only.</li>
+<li><strong>User Configuration:</strong> applies to users only.</li>
+<li>The Default Domain Policy contains only Computer Configuration, with basic domain settings such as <strong>password and account lockout policies</strong>.</li>
+<li>In the editor, double-click a policy and read the <strong>Explain tab</strong> for details.</li>
+</ul>
+<h3 id="4-editing-a-gpo">4. Editing a GPO<a class="headerlink" href="#4-editing-a-gpo" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Right-click the GPO and choose <strong>Edit</strong>.</li>
+<li>Example path for password policy: <code>Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt; Account Policies -&gt; Password Policy</code></li>
+<li>Settings in a domain-wide GPO affect <strong>all computers</strong> in the domain.</li>
+<li>Example setting: <strong>Minimum password length</strong>.</li>
+<li>A policy that restricts user access (for example, prohibiting Control Panel access) lives under <strong>User Configuration</strong>.</li>
+</ul>
+<h3 id="5-gpo-distribution">5. GPO distribution<a class="headerlink" href="#5-gpo-distribution" title="Permanent link">&para;</a></h3>
+<ul>
+<li>GPOs are distributed through the <strong>SYSVOL</strong> network share, stored on the DC.</li>
+<li>Domain users should normally have access to SYSVOL to sync their GPOs periodically.</li>
+<li><strong>Default path:</strong> <code>C:\Windows\SYSVOL\sysvol\</code> on each DC.</li>
+<li><strong>Sync delay:</strong> changes can take <strong>up to 2 hours</strong> to reach computers.</li>
+<li><strong>Force an immediate sync</strong> on a specific computer:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">gpupdate</span> <span class="p">/</span><span class="n">force</span>
+</code></pre></div>
+<h3 id="6-quick-recall">6. Quick recall<a class="headerlink" href="#6-quick-recall" title="Permanent link">&para;</a></h3>
+<ul>
+<li>GPO = set of user and computer settings, <strong>linked to OUs</strong> and inherited by sub-OUs.</li>
+<li>Tool: <strong>Group Policy Management</strong>. Create the GPO, then link it.</li>
+<li><strong>Security Filtering</strong> defaults to Authenticated Users.</li>
+<li>Distributed via <strong>SYSVOL</strong> (<code>C:\Windows\SYSVOL\sysvol\</code>), refreshed up to every 2 hours.</li>
+<li>Force a refresh: <code>gpupdate /force</code>.</li>
+<li><strong>User Configuration</strong> targets users. <strong>Computer Configuration</strong> targets machines and is ignored on user-only OUs.</li>
+<li>If a GPO doesn't seem to apply, run <code>gpupdate /force</code>.</li>
+</ul>
 <h2 id="methodology">🧭 Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
-<!-- Step-by-step enumeration / attack workflow. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Step 1
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ↓
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Step 2
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ↓
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Step 3
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Map OU hierarchy
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  ↓
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Create GPO → Link to target OU
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  ↓
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Scope + Security Filtering check
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  ↓
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Edit User vs Computer Configuration
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  ↓
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Verify via SYSVOL / gpupdate /force
 </code></pre></div>
 <h2 id="techniques">🛠️ Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
-<!-- Individual techniques with when/why to use each. -->
-
-<h3 id="technique-1">Technique 1<a class="headerlink" href="#technique-1" title="Permanent link">&para;</a></h3>
+<h3 id="gpo-enumeration">GPO Enumeration<a class="headerlink" href="#gpo-enumeration" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Description:</li>
-<li>When to use:</li>
-<li>Command:</li>
+<li>Description: Identify linked GPOs, inheritance and filtering.</li>
+<li>When to use: Mapping policy attack surface.</li>
+<li>Command: Group Policy Management → Scope / Settings tabs; <code>gpresult /r</code> on host.</li>
+</ul>
+<h3 id="force-policy-refresh">Force Policy Refresh<a class="headerlink" href="#force-policy-refresh" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: Apply pending GPO immediately for testing.</li>
+<li>When to use: GPO change not yet synced.</li>
+<li>Command:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">gpupdate</span> <span class="p">/</span><span class="n">force</span>
+</code></pre></div></li>
 </ul>
 <h2 id="commands">💻 Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<!-- Copy-paste ready command reference. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># TODO: add commands</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c"># Force GPO sync on host</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">gpupdate</span> <span class="p">/</span><span class="n">force</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c"># Show applied GPOs</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">gpresult</span> <span class="p">/</span><span class="nb">r</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># SYSVOL share (from Linux, for enumeration)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># smbclient //DC-IP/SYSVOL -U 'THM\user'</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># ls C:\Windows\SYSVOL\sysvol\  # on DC</span>
 </code></pre></div>
 <h2 id="labs">🧪 Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
-<!-- HTB labs / boxes practiced, what worked, what failed. -->
-
 <table>
 <thead>
 <tr>
@@ -2449,22 +2739,12 @@
 </tbody>
 </table>
 <h2 id="cheatsheet">📇 Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permanent link">&para;</a></h2>
-<!-- Ultra-condensed quick reference for exam-time recall. -->
-
-<p>-</p>
-<h2 id="cpts-readiness">✅ CPTS Readiness<a class="headerlink" href="#cpts-readiness" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] Explain the underlying concepts</li>
-<li>[ ] Enumerate systematically</li>
-<li>[ ] Identify attack opportunities</li>
-<li>[ ] Execute the relevant techniques</li>
-<li>[ ] Troubleshoot when the obvious approach fails</li>
-<li>[ ] Document commands and evidence</li>
-<li>[ ] Apply the technique in an unfamiliar environment</li>
-<li>[ ] Combine it with other CPTS skills</li>
+<li>GPO linked to OU → inherits to sub-OUs | Filtering default Authenticated Users</li>
+<li>User vs Computer Configuration | SYSVOL <code>C:\Windows\SYSVOL\sysvol\</code> | <code>gpupdate /force</code></li>
 </ul>
 <hr />
-<p>[⬅ Domain(./README.md) | [🏠 Dashboard(../README.md)</p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
 
 
 
@@ -2522,14 +2802,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid.js"></script>
+        <script src="../../../javascripts/mermaid.js"></script>
       
     
   </body>
