@@ -12,31 +12,31 @@
         <meta name="author" content="Romeo Mhakayakora">
       
       
-        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/02-web-application-security/attacking-web-applications-with-ffuf/">
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/breaching-ad/breaching-ad-intro/">
       
       
-        <link rel="prev" href="../using-web-proxies/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../login-brute-forcing/">
+        <link rel="next" href="../../enumeration/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Attacking Web Apps with Ffuf - CPTS Notes</title>
+        <title>Breaching AD (Intro) & Initial Credentials - CPTS Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#attacking-web-applications-with-ffuf" class="md-skip">
+        <a href="#breaching-active-directory-intro-and-initial-credentials-via-osint-and-phishing" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Attacking Web Apps with Ffuf
+              Breaching AD (Intro) & Initial Credentials
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../01-information-gathering/" class="md-tabs__link">
+        <a href="../../../01-information-gathering/" class="md-tabs__link">
           
   
   
@@ -264,13 +264,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../02-web-application-security/" class="md-tabs__link">
           
   
   
@@ -290,7 +288,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../03-network-security/" class="md-tabs__link">
+        <a href="../../../03-network-security/" class="md-tabs__link">
           
   
   
@@ -310,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../04-privilege-escalation/" class="md-tabs__link">
+        <a href="../../../04-privilege-escalation/" class="md-tabs__link">
           
   
   
@@ -326,11 +324,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../05-active-directory/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../supporting/" class="md-tabs__link">
+        <a href="../../../supporting/" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -414,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -495,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/" class="md-nav__link">
+      <a href="../../../01-information-gathering/" class="md-nav__link">
         
   
   
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
+      <a href="../../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
         
   
   
@@ -551,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/footprinting/" class="md-nav__link">
+      <a href="../../../01-information-gathering/footprinting/" class="md-nav__link">
         
   
   
@@ -579,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
+      <a href="../../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
         
   
   
@@ -611,31 +611,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -653,7 +650,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -671,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../../02-web-application-security/" class="md-nav__link">
         
   
   
@@ -699,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../information-gathering-web-edition/" class="md-nav__link">
+      <a href="../../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
         
   
   
@@ -727,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../using-web-proxies/" class="md-nav__link">
+      <a href="../../../02-web-application-security/using-web-proxies/" class="md-nav__link">
         
   
   
@@ -752,37 +749,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Attacking Web Apps with Ffuf
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
         
   
   
@@ -798,120 +768,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📌 Concepts
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#methodology" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🧭 Methodology
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#techniques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🛠️ Techniques
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🛠️ Techniques">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technique 1
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        💻 Commands
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🧪 Labs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cheatsheet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📇 Cheatsheet
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cpts-readiness" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ CPTS Readiness
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -924,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../login-brute-forcing/" class="md-nav__link">
+      <a href="../../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
         
   
   
@@ -952,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql-injection-fundamentals/" class="md-nav__link">
+      <a href="../../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
         
   
   
@@ -980,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sqlmap-essentials/" class="md-nav__link">
+      <a href="../../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
         
   
   
@@ -1008,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cross-site-scripting/" class="md-nav__link">
+      <a href="../../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
         
   
   
@@ -1036,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../file-inclusion/" class="md-nav__link">
+      <a href="../../../02-web-application-security/file-inclusion/" class="md-nav__link">
         
   
   
@@ -1064,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../file-upload-attacks/" class="md-nav__link">
+      <a href="../../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
         
   
   
@@ -1092,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../command-injections/" class="md-nav__link">
+      <a href="../../../02-web-application-security/command-injections/" class="md-nav__link">
         
   
   
@@ -1120,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../web-attacks/" class="md-nav__link">
+      <a href="../../../02-web-application-security/web-attacks/" class="md-nav__link">
         
   
   
@@ -1148,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../attacking-common-applications/" class="md-nav__link">
+      <a href="../../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
         
   
   
@@ -1237,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/" class="md-nav__link">
+      <a href="../../../03-network-security/" class="md-nav__link">
         
   
   
@@ -1265,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/attacking-common-services/" class="md-nav__link">
+      <a href="../../../03-network-security/attacking-common-services/" class="md-nav__link">
         
   
   
@@ -1293,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/password-attacks/" class="md-nav__link">
+      <a href="../../../03-network-security/password-attacks/" class="md-nav__link">
         
   
   
@@ -1321,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
+      <a href="../../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
         
   
   
@@ -1349,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
+      <a href="../../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
         
   
   
@@ -1377,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/file-transfers/" class="md-nav__link">
+      <a href="../../../03-network-security/file-transfers/" class="md-nav__link">
         
   
   
@@ -1405,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/shells-payloads/" class="md-nav__link">
+      <a href="../../../03-network-security/shells-payloads/" class="md-nav__link">
         
   
   
@@ -1433,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-network-security/using-metasploit-framework/" class="md-nav__link">
+      <a href="../../../03-network-security/using-metasploit-framework/" class="md-nav__link">
         
   
   
@@ -1522,7 +1378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-privilege-escalation/" class="md-nav__link">
+      <a href="../../../04-privilege-escalation/" class="md-nav__link">
         
   
   
@@ -1550,7 +1406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-privilege-escalation/linux-privilege-escalation/" class="md-nav__link">
+      <a href="../../../04-privilege-escalation/linux-privilege-escalation/" class="md-nav__link">
         
   
   
@@ -1578,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-privilege-escalation/windows-privilege-escalation/" class="md-nav__link">
+      <a href="../../../04-privilege-escalation/windows-privilege-escalation/" class="md-nav__link">
         
   
   
@@ -1610,28 +1466,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1649,7 +1508,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1667,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -1701,10 +1560,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -1713,7 +1575,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
             
   
   
@@ -1749,7 +1611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/" class="md-nav__link">
+      <a href="../../ad-basics/" class="md-nav__link">
         
   
   
@@ -1777,7 +1639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/windows-domains-intro/" class="md-nav__link">
+      <a href="../../ad-basics/windows-domains-intro/" class="md-nav__link">
         
   
   
@@ -1805,7 +1667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
+      <a href="../../ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
         
   
   
@@ -1833,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/managing-users-ous-delegation/" class="md-nav__link">
+      <a href="../../ad-basics/managing-users-ous-delegation/" class="md-nav__link">
         
   
   
@@ -1861,7 +1723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/group-policy-objects/" class="md-nav__link">
+      <a href="../../ad-basics/group-policy-objects/" class="md-nav__link">
         
   
   
@@ -1889,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
+      <a href="../../ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
         
   
   
@@ -1917,7 +1779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/trees-forests-trusts/" class="md-nav__link">
+      <a href="../../ad-basics/trees-forests-trusts/" class="md-nav__link">
         
   
   
@@ -1945,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/network-connection-dns/" class="md-nav__link">
+      <a href="../../ad-basics/network-connection-dns/" class="md-nav__link">
         
   
   
@@ -1978,28 +1840,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
         
           
+          
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
             
   
   
@@ -2017,7 +1882,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2035,7 +1900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/breaching-ad/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -2060,10 +1925,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/breaching-ad/breaching-ad-intro/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Breaching AD (Intro) & Initial Credentials
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2079,6 +1971,265 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-why-ad-is-the-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why AD is the target
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-goal-of-this-phase-initial-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Goal of this phase: initial access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Goal of this phase: initial access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#techniques-covered-in-this-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Techniques covered in this phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-osint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. OSINT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. OSINT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-ad-credentials-leak-publicly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How AD credentials leak publicly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breach-check-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breach-check platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-phishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Phishing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Phishing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-its-effective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it's effective
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-open-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Open items
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Methodology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#osint-credential-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OSINT Credential Discovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phishing-credential-page-rat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phishing (credential page / RAT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Labs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheatsheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📇 Cheatsheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2099,7 +2250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/enumeration/" class="md-nav__link">
+      <a href="../../enumeration/" class="md-nav__link">
         
   
   
@@ -2127,7 +2278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/attacks/" class="md-nav__link">
+      <a href="../../attacks/" class="md-nav__link">
         
   
   
@@ -2155,7 +2306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/lateral-movement/" class="md-nav__link">
+      <a href="../../lateral-movement/" class="md-nav__link">
         
   
   
@@ -2244,7 +2395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/" class="md-nav__link">
+      <a href="../../../supporting/" class="md-nav__link">
         
   
   
@@ -2272,7 +2423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/penetration-testing-process/" class="md-nav__link">
+      <a href="../../../supporting/penetration-testing-process/" class="md-nav__link">
         
   
   
@@ -2300,7 +2451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/getting-started/" class="md-nav__link">
+      <a href="../../../supporting/getting-started/" class="md-nav__link">
         
   
   
@@ -2328,7 +2479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/documentation-reporting/" class="md-nav__link">
+      <a href="../../../supporting/documentation-reporting/" class="md-nav__link">
         
   
   
@@ -2356,7 +2507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/attacking-enterprise-networks/" class="md-nav__link">
+      <a href="../../../supporting/attacking-enterprise-networks/" class="md-nav__link">
         
   
   
@@ -2419,6 +2570,151 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-why-ad-is-the-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Why AD is the target
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-goal-of-this-phase-initial-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Goal of this phase: initial access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Goal of this phase: initial access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#techniques-covered-in-this-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Techniques covered in this phase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-osint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. OSINT
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. OSINT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-ad-credentials-leak-publicly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How AD credentials leak publicly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breach-check-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breach-check platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key caveat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-phishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Phishing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Phishing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-its-effective" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it's effective
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-open-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Open items
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2445,10 +2741,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#osint-credential-discovery" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        OSINT Credential Discovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phishing-credential-page-rat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phishing (credential page / RAT)
       
     </span>
   </a>
@@ -2493,17 +2800,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#cpts-readiness" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ CPTS Readiness
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2524,9 +2820,9 @@
   
 
 
-<h1 id="attacking-web-applications-with-ffuf">Attacking Web Applications with Ffuf<a class="headerlink" href="#attacking-web-applications-with-ffuf" title="Permanent link">&para;</a></h1>
+<h1 id="breaching-active-directory-intro-and-initial-credentials-via-osint-and-phishing">Breaching Active Directory (Intro) and Initial Credentials via OSINT and Phishing<a class="headerlink" href="#breaching-active-directory-intro-and-initial-credentials-via-osint-and-phishing" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>[⬅ Domain(./README.md) | [🏠 Dashboard(../README.md)</p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 </blockquote>
 <table>
 <thead>
@@ -2539,45 +2835,153 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">100%</td>
 <td style="text-align: center;">—</td>
+<td style="text-align: center;">Started</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Status:</strong> ✅ Completed</p>
+<p><strong>Status:</strong> 🔄 In Progress</p>
 <hr />
 <h2 id="concepts">📌 Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<!-- Core theory: what is this, why it matters, how it works. -->
-
-<p>-</p>
+<h3 id="1-why-ad-is-the-target">1. Why AD is the target<a class="headerlink" href="#1-why-ad-is-the-target" title="Permanent link">&para;</a></h3>
+<ul>
+<li>AD is used by roughly <strong>90% of Global Fortune 1000 companies</strong>. If an estate uses Windows, you're almost guaranteed to find AD.</li>
+<li>It's the dominant suite for managing Windows domain networks.</li>
+<li>It handles <strong>Identity and Access Management for the entire estate</strong>, so it "holds the keys to the kingdom" and is a very likely target.</li>
+<li>Prerequisite: the AD basics material.</li>
+</ul>
+<h3 id="2-goal-of-this-phase-initial-access">2. Goal of this phase: initial access<a class="headerlink" href="#2-goal-of-this-phase-initial-access" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Before exploiting misconfigurations for <strong>privilege escalation, lateral movement and goal execution</strong>, you need <strong>initial access</strong>: a first set of <strong>valid AD credentials</strong>.</li>
+<li><strong>Privilege level doesn't matter</strong> at this stage. Even a low-privileged account works, because the aim is just to <strong>authenticate to AD</strong> so you can do further enumeration.</li>
+<li>The attack surface for getting that first credential set is usually large.</li>
+</ul>
+<h4 id="techniques-covered-in-this-phase">Techniques covered in this phase<a class="headerlink" href="#techniques-covered-in-this-phase" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NTLM authenticated services</td>
+<td>Also useful for testing whether credentials are valid</td>
+</tr>
+<tr>
+<td>LDAP bind credentials</td>
+<td></td>
+</tr>
+<tr>
+<td>Authentication relays</td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft Deployment Toolkit (MDT)</td>
+<td></td>
+</tr>
+<tr>
+<td>Configuration files</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The list is <strong>not exhaustive</strong>, since new methods are discovered constantly.</li>
+<li><strong>Delivery:</strong> target <strong>internet-facing systems</strong>, or <strong>implant a rogue device</strong> on the organisation's network.</li>
+</ul>
+<h3 id="3-osint">3. OSINT<a class="headerlink" href="#3-osint" title="Permanent link">&para;</a></h3>
+<p><strong>Definition:</strong> discovering information that has been <strong>publicly disclosed</strong>.</p>
+<h4 id="how-ad-credentials-leak-publicly">How AD credentials leak publicly<a class="headerlink" href="#how-ad-credentials-leak-publicly" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Public forums</strong></td>
+<td>Users post questions on Stack Overflow and include credentials</td>
+</tr>
+<tr>
+<td><strong>Code repositories</strong></td>
+<td>Developers upload scripts to GitHub with <strong>hardcoded credentials</strong></td>
+</tr>
+<tr>
+<td><strong>Past breaches</strong></td>
+<td>Employees signed up to external sites with <strong>work accounts</strong>, so their credentials appear in breach data</td>
+</tr>
+</tbody>
+</table>
+<h4 id="breach-check-platforms">Breach-check platforms<a class="headerlink" href="#breach-check-platforms" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>HaveIBeenPwned</strong></li>
+<li><strong>DeHashed</strong></li>
+<li>Both let you check whether someone's information (such as a work email) appeared in a known public breach.</li>
+</ul>
+<h4 id="key-caveat">Key caveat<a class="headerlink" href="#key-caveat" title="Permanent link">&para;</a></h4>
+<ul>
+<li>OSINT data can be <strong>outdated</strong>, so found credentials must be <strong>validated</strong>.</li>
+<li>NTLM authenticated services is a good way to test whether credentials are still valid.</li>
+<li>Further reading: Red Team OSINT (Red Team Recon) room.</li>
+</ul>
+<h3 id="4-phishing">4. Phishing<a class="headerlink" href="#4-phishing" title="Permanent link">&para;</a></h3>
+<p><strong>Two common approaches:</strong></p>
+<ol>
+<li>Entice users to <strong>enter credentials on a malicious web page</strong>.</li>
+<li>Entice users to <strong>run an application</strong> that installs a <strong>Remote Access Trojan (RAT)</strong> in the background.</li>
+</ol>
+<h4 id="why-its-effective">Why it's effective<a class="headerlink" href="#why-its-effective" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The RAT runs <strong>in the user's context</strong>, so you can <strong>immediately impersonate that user's AD account</strong>.</li>
+<li>This is why phishing is a major topic for both <strong>red and blue teams</strong>.</li>
+<li>Further reading: the TryHackMe phishing module.</li>
+</ul>
+<h3 id="5-quick-recall">5. Quick recall<a class="headerlink" href="#5-quick-recall" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Goal: <strong>any valid AD credential</strong>, not necessarily a privileged one.</li>
+<li>AD = identity for the whole estate, hence the prime target.</li>
+<li>Two entry paths covered here: <strong>OSINT</strong> (forums, GitHub, breach data) and <strong>phishing</strong> (credential harvesting page or RAT).</li>
+<li><strong>Always validate</strong> OSINT-found credentials, since they may be stale.</li>
+<li>Credential validation route: NTLM authenticated services (next section).</li>
+<li>Access routes: <strong>internet-facing systems</strong> or a <strong>rogue device</strong> on the internal network.</li>
+</ul>
+<h3 id="6-open-items">6. Open items<a class="headerlink" href="#6-open-items" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The five listed techniques are only named here. Each will be added as separate notes when source material arrives.</li>
+<li>Question prompts and overlapping intro text from the source were skipped/merged.</li>
+</ul>
 <h2 id="methodology">🧭 Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
-<!-- Step-by-step enumeration / attack workflow. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Step 1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>OSINT / Phishing / Network exposure
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ↓
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Step 2
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>First valid AD credential (any privilege level)
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ↓
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Step 3
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Validate via NTLM authenticated services
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ↓
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Proceed to enumeration
 </code></pre></div>
 <h2 id="techniques">🛠️ Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
-<!-- Individual techniques with when/why to use each. -->
-
-<h3 id="technique-1">Technique 1<a class="headerlink" href="#technique-1" title="Permanent link">&para;</a></h3>
+<h3 id="osint-credential-discovery">OSINT Credential Discovery<a class="headerlink" href="#osint-credential-discovery" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Description:</li>
-<li>When to use:</li>
-<li>Command:</li>
+<li>Description: Find leaked work credentials in forums, repos, breach data.</li>
+<li>When to use: First step before touching the network.</li>
+<li>Command: GitHub hardcoded-cred search; HaveIBeenPwned / DeHashed with work emails.</li>
+</ul>
+<h3 id="phishing-credential-page-rat">Phishing (credential page / RAT)<a class="headerlink" href="#phishing-credential-page-rat" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: Harvest creds or run a RAT in user context to impersonate the AD account.</li>
+<li>When to use: OSINT dry and targets need a human element.</li>
+<li>Command: (lab-specific — see phishing module notes)</li>
 </ul>
 <h2 id="commands">💻 Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<!-- Copy-paste ready command reference. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># TODO: add commands</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># TODO: credential validation against NTLM auth services (next section)</span>
 </code></pre></div>
 <h2 id="labs">🧪 Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
-<!-- HTB labs / boxes practiced, what worked, what failed. -->
-
 <table>
 <thead>
 <tr>
@@ -2595,22 +2999,14 @@
 </tbody>
 </table>
 <h2 id="cheatsheet">📇 Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permanent link">&para;</a></h2>
-<!-- Ultra-condensed quick reference for exam-time recall. -->
-
-<p>-</p>
-<h2 id="cpts-readiness">✅ CPTS Readiness<a class="headerlink" href="#cpts-readiness" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] Explain the underlying concepts</li>
-<li>[ ] Enumerate systematically</li>
-<li>[ ] Identify attack opportunities</li>
-<li>[ ] Execute the relevant techniques</li>
-<li>[ ] Troubleshoot when the obvious approach fails</li>
-<li>[ ] Document commands and evidence</li>
-<li>[ ] Apply the technique in an unfamiliar environment</li>
-<li>[ ] Combine it with other CPTS skills</li>
+<li>Breach AD = get <strong>any</strong> valid cred (low priv OK) → validate → enumerate</li>
+<li>OSINT leaks: forums / GitHub / breach data → validate before use</li>
+<li>Phishing: fake login page <strong>or</strong> RAT → impersonate user</li>
+<li>Delivery: internet-facing systems or rogue device on LAN</li>
 </ul>
 <hr />
-<p>[⬅ Domain(./README.md) | [🏠 Dashboard(../README.md)</p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 
 
 
@@ -2668,14 +3064,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid.js"></script>
+        <script src="../../../javascripts/mermaid.js"></script>
       
     
   </body>
