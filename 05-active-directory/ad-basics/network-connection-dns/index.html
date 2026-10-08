@@ -12,13 +12,13 @@
         <meta name="author" content="Romeo Mhakayakora">
       
       
-        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/ad-basics/trees-forests-trusts/">
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/ad-basics/network-connection-dns/">
       
       
-        <link rel="prev" href="../authentication-kerberos-netntlm/">
+        <link rel="prev" href="../trees-forests-trusts/">
       
       
-        <link rel="next" href="../network-connection-dns/">
+        <link rel="next" href="../../enumeration/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Trees, Forests and Trust Relationships - CPTS Notes</title>
+        <title>Connecting to the Network and DNS - CPTS Notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#trees-forests-and-trust-relationships" class="md-skip">
+        <a href="#connecting-to-the-network-and-dns-troubleshooting" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Trees, Forests and Trust Relationships
+              Connecting to the Network and DNS
             
           </span>
         </div>
@@ -1776,6 +1776,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../trees-forests-trusts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trees, Forests and Trust Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1795,7 +1823,7 @@
   <span class="md-ellipsis">
     
   
-    Trees, Forests and Trust Relationships
+    Connecting to the Network and DNS
   
 
     
@@ -1813,7 +1841,7 @@
   <span class="md-ellipsis">
     
   
-    Trees, Forests and Trust Relationships
+    Connecting to the Network and DNS
   
 
     
@@ -1851,10 +1879,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-why-multiple-domains" class="md-nav__link">
+  <a href="#1-why-dns-matters-in-ad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Why multiple domains
+        1. Why DNS matters in AD
       
     </span>
   </a>
@@ -1862,22 +1890,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-trees" class="md-nav__link">
+  <a href="#2-two-ways-to-handle-dns-etchosts-vs-dc-as-resolver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Trees
+        2. Two ways to handle DNS: /etc/hosts vs DC as resolver
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Trees">
+    <nav class="md-nav" aria-label="2. Two ways to handle DNS: /etc/hosts vs DC as resolver">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
+  <a href="#why-pointing-at-the-dc-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Benefits
+        Why pointing at the DC works
       
     </span>
   </a>
@@ -1885,10 +1913,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enterprise-admins" class="md-nav__link">
+  <a href="#why-the-dcs-entry-must-be-first" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enterprise Admins
+        Why the DC's entry must be first
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-each" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use each
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical caveat
       
     </span>
   </a>
@@ -1901,33 +1951,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-forests" class="md-nav__link">
+  <a href="#3-connecting-to-the-network" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Forests
+        3. Connecting to the network
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-trust-relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Trust relationships
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Trust relationships">
+    <nav class="md-nav" aria-label="3. Connecting to the network">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#one-way-trust" class="md-nav__link">
+  <a href="#web-attackbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        One-way trust
+        Web AttackBox
       
     </span>
   </a>
@@ -1935,10 +1974,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#two-way-trust" class="md-nav__link">
+  <a href="#own-attack-machine-openvpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Two-way trust
+        Own attack machine (OpenVPN)
       
     </span>
   </a>
@@ -1946,10 +1985,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#important-caveat" class="md-nav__link">
+  <a href="#note-your-vpn-ip" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important caveat
+        Note your VPN IP
       
     </span>
   </a>
@@ -1962,10 +2001,93 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-quick-recall" class="md-nav__link">
+  <a href="#4-configuring-dns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Quick recall
+        4. Configuring DNS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configuring DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attackbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AttackBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kali-vm-network-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kali VM (Network Manager)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-operating-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other operating systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-opsec-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Opsec note
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-dns-debugging-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DNS debugging steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-open-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Open items
       
     </span>
   </a>
@@ -2001,10 +2123,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#dc-first-dns-network-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        DC-first DNS (Network Manager)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attackbox-dns-via-dnsmasq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AttackBox DNS via dnsmasq
       
     </span>
   </a>
@@ -2053,34 +2186,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../network-connection-dns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Connecting to the Network and DNS
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2425,10 +2530,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-why-multiple-domains" class="md-nav__link">
+  <a href="#1-why-dns-matters-in-ad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Why multiple domains
+        1. Why DNS matters in AD
       
     </span>
   </a>
@@ -2436,22 +2541,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-trees" class="md-nav__link">
+  <a href="#2-two-ways-to-handle-dns-etchosts-vs-dc-as-resolver" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Trees
+        2. Two ways to handle DNS: /etc/hosts vs DC as resolver
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Trees">
+    <nav class="md-nav" aria-label="2. Two ways to handle DNS: /etc/hosts vs DC as resolver">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#benefits" class="md-nav__link">
+  <a href="#why-pointing-at-the-dc-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Benefits
+        Why pointing at the DC works
       
     </span>
   </a>
@@ -2459,10 +2564,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enterprise-admins" class="md-nav__link">
+  <a href="#why-the-dcs-entry-must-be-first" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enterprise Admins
+        Why the DC's entry must be first
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-each" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use each
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-caveat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical caveat
       
     </span>
   </a>
@@ -2475,33 +2602,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-forests" class="md-nav__link">
+  <a href="#3-connecting-to-the-network" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Forests
+        3. Connecting to the network
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-trust-relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Trust relationships
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Trust relationships">
+    <nav class="md-nav" aria-label="3. Connecting to the network">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#one-way-trust" class="md-nav__link">
+  <a href="#web-attackbox" class="md-nav__link">
     <span class="md-ellipsis">
       
-        One-way trust
+        Web AttackBox
       
     </span>
   </a>
@@ -2509,10 +2625,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#two-way-trust" class="md-nav__link">
+  <a href="#own-attack-machine-openvpn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Two-way trust
+        Own attack machine (OpenVPN)
       
     </span>
   </a>
@@ -2520,10 +2636,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#important-caveat" class="md-nav__link">
+  <a href="#note-your-vpn-ip" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important caveat
+        Note your VPN IP
       
     </span>
   </a>
@@ -2536,10 +2652,93 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-quick-recall" class="md-nav__link">
+  <a href="#4-configuring-dns" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Quick recall
+        4. Configuring DNS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configuring DNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attackbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AttackBox
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kali-vm-network-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kali VM (Network Manager)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-operating-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other operating systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-opsec-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Opsec note
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-dns-debugging-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. DNS debugging steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-open-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Open items
       
     </span>
   </a>
@@ -2575,10 +2774,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#dc-first-dns-network-manager" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        DC-first DNS (Network Manager)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attackbox-dns-via-dnsmasq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AttackBox DNS via dnsmasq
       
     </span>
   </a>
@@ -2643,7 +2853,7 @@
   
 
 
-<h1 id="trees-forests-and-trust-relationships">Trees, Forests and Trust Relationships<a class="headerlink" href="#trees-forests-and-trust-relationships" title="Permanent link">&para;</a></h1>
+<h1 id="connecting-to-the-network-and-dns-troubleshooting">Connecting to the Network and DNS Troubleshooting<a class="headerlink" href="#connecting-to-the-network-and-dns-troubleshooting" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
 </blockquote>
@@ -2668,108 +2878,228 @@
 <p><strong>Status:</strong> 🔄 In Progress</p>
 <hr />
 <h2 id="concepts">📌 Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<h3 id="1-why-multiple-domains">1. Why multiple domains<a class="headerlink" href="#1-why-multiple-domains" title="Permanent link">&para;</a></h3>
-<p>A single domain is fine to start, but growth creates new needs. Examples from the source:</p>
+<h3 id="1-why-dns-matters-in-ad">1. Why DNS matters in AD<a class="headerlink" href="#1-why-dns-matters-in-ad" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Expanding to a new country with different laws and regulations, requiring different GPOs.</li>
-<li>Separate IT teams that must manage their own resources without interfering with each other.</li>
+<li>Windows networks use <strong>DNS to resolve hostnames to IPs</strong>.</li>
+<li><strong>Kerberos relies on DNS</strong> to create tickets. Tickets can't be associated with IPs, so DNS is a must.</li>
+<li>The DC also acts as the <strong>DNS server</strong> for the domain.</li>
+<li><strong>Rule of thumb:</strong> when a tool or task isn't working, the first question is <strong>"Is my DNS working?"</strong> DNS changing silently has cost hours on real assessments.</li>
 </ul>
-<p>This could be done with a complex OU structure and delegation, but a huge AD structure is hard to manage and prone to human error.</p>
-<p>AD supports integrating multiple domains, so the network is partitioned into units that can be managed independently.</p>
-<h3 id="2-trees">2. Trees<a class="headerlink" href="#2-trees" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Tree = domains that share the same namespace, joined together.</li>
-<li>Example: root domain <code>thm.local</code> with subdomains <code>uk.thm.local</code> and <code>us.thm.local</code>. Each has its own AD, computers and users.</li>
-</ul>
-<h4 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Better control over who can access what.</li>
-<li>Each branch has its own DC managing only its own resources. A UK user can't manage US users.</li>
-<li>Domain Admins of each branch have full control over their own DCs, but not other branches' DCs.</li>
-<li>Policies can be configured independently per domain in the tree.</li>
-</ul>
-<h4 id="enterprise-admins">Enterprise Admins<a class="headerlink" href="#enterprise-admins" title="Permanent link">&para;</a></h4>
-<ul>
-<li>New security group introduced with trees and forests.</li>
-<li>Grants administrative privileges over all domains in the enterprise.</li>
-<li>Each domain still has its own Domain Admins (power over that single domain only).</li>
-</ul>
+<h3 id="2-two-ways-to-handle-dns-etchosts-vs-dc-as-resolver">2. Two ways to handle DNS: <code>/etc/hosts</code> vs DC as resolver<a class="headerlink" href="#2-two-ways-to-handle-dns-etchosts-vs-dc-as-resolver" title="Permanent link">&para;</a></h3>
+<p>They are not two versions of the same thing. <strong>Pointing your DNS at the DC is the better option.</strong></p>
 <table>
 <thead>
 <tr>
-<th>Group</th>
-<th>Scope</th>
+<th></th>
+<th><code>/etc/hosts</code></th>
+<th><code>/etc/resolv.conf</code> (pointing at the DC)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Domain Admins</td>
-<td>One domain</td>
+<td>What it does</td>
+<td>Hardcodes individual hostname-to-IP entries</td>
+<td>Sends all DNS queries to the DC's DNS server</td>
 </tr>
 <tr>
-<td>Enterprise Admins</td>
-<td>All domains in the enterprise</td>
+<td>Effort</td>
+<td>One line per host, added by hand</td>
+<td>Set once</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>Infeasible at 10,000+ hosts</td>
+<td>Works the same for 5 hosts or 10,000</td>
+</tr>
+<tr>
+<td>Stays current</td>
+<td>No. Stale if IPs change</td>
+<td>Yes. The DC's records are the source of truth</td>
+</tr>
+<tr>
+<td>New or unknown hosts</td>
+<td>Won't resolve until you add them</td>
+<td>Resolve automatically</td>
 </tr>
 </tbody>
 </table>
-<h3 id="3-forests">3. Forests<a class="headerlink" href="#3-forests" title="Permanent link">&para;</a></h3>
+<h4 id="why-pointing-at-the-dc-works">Why pointing at the DC works<a class="headerlink" href="#why-pointing-at-the-dc-works" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Forest = the union of several trees with different namespaces in the same network.</li>
-<li>Example: after acquiring MHT Inc., the company has two trees (<code>thm.local</code> and the MHT tree), each managed by its own IT department.</li>
+<li>The DC is the DNS server for the domain, so it already holds records for every domain-joined host.</li>
+<li>You don't need to know the hosts in advance. Querying the DC finds them.</li>
+<li>This is the "debug DNS until it works" option recommended.</li>
 </ul>
-<h3 id="4-trust-relationships">4. Trust relationships<a class="headerlink" href="#4-trust-relationships" title="Permanent link">&para;</a></h3>
+<h4 id="why-the-dcs-entry-must-be-first">Why the DC's entry must be first<a class="headerlink" href="#why-the-dcs-entry-must-be-first" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>My explanation. The source only says to make it the first entry.</p>
+</blockquote>
 <ul>
-<li>Domains in trees and forests are joined by trust relationships.</li>
-<li>A trust lets you authorise a user from one domain to access resources in another. Example: a user in THM UK accessing a shared file on a server in an MHT domain.</li>
+<li>The resolver asks nameservers <strong>in the order listed</strong>.</li>
+<li>If a public DNS (such as <code>1.1.1.1</code>) is first, it answers internal names with "doesn't exist" or a wrong answer. That counts as an answer, so the resolver <strong>never falls through to the DC</strong>.</li>
+<li>The DC is only asked if the first server is unreachable or times out.</li>
+<li>With the DC first, internal names resolve correctly. External names like <code>tryhackme.com</code> still resolve because the DC forwards what it doesn't know.</li>
 </ul>
-<h4 id="one-way-trust">One-way trust<a class="headerlink" href="#one-way-trust" title="Permanent link">&para;</a></h4>
+<h4 id="when-to-use-each">When to use each<a class="headerlink" href="#when-to-use-each" title="Permanent link">&para;</a></h4>
 <ul>
-<li>If Domain AAA trusts Domain BBB, a user on BBB can be authorised to access resources on AAA.</li>
-<li>The direction of the trust is opposite to the direction of access.</li>
+<li><strong>Normal approach:</strong> configure DNS to use the DC.</li>
+<li><strong><code>/etc/hosts</code>:</strong> a quick workaround for a handful of hosts, or when you can't change DNS.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>AAA  --trusts--&gt;  BBB
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>AAA  &lt;--access--  BBB user
+<h4 id="practical-caveat">Practical caveat<a class="headerlink" href="#practical-caveat" title="Permanent link">&para;</a></h4>
+<ul>
+<li>On many systems <code>resolv.conf</code> is <strong>managed by another service</strong> (NetworkManager on Kali, dnsmasq on the AttackBox), which can <strong>overwrite manual edits</strong>. That's why DNS is configured through those tools rather than by editing the file directly.</li>
+<li>The AttackBox DNS reset every ~3 hours is an example of this.</li>
+</ul>
+<h3 id="3-connecting-to-the-network">3. Connecting to the network<a class="headerlink" href="#3-connecting-to-the-network" title="Permanent link">&para;</a></h3>
+<h4 id="web-attackbox">Web AttackBox<a class="headerlink" href="#web-attackbox" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Connected automatically if started from the room page.</li>
+<li>Verify with <code>ping</code> against the DC (<code>THMDC.za.tryhackme.com</code>).</li>
+<li>DNS still needs manual configuration.</li>
+</ul>
+<h4 id="own-attack-machine-openvpn">Own attack machine (OpenVPN)<a class="headerlink" href="#own-attack-machine-openvpn" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Download the <code>.ovpn</code> config from the access page (network tab, select the VPN server).</li>
+<li>Connect:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>openvpn<span class="w"> </span>breachingad.ovpn
 </code></pre></div>
-<h4 id="two-way-trust">Two-way trust<a class="headerlink" href="#two-way-trust" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>"Initialization Sequence Completed"</strong> means you're connected. The access page should show a green tick next to Connected and your internal IP.</li>
+<li>Configure DNS (below), since the VPN doesn't set it up.</li>
+</ol>
+<h4 id="note-your-vpn-ip">Note your VPN IP<a class="headerlink" href="#note-your-vpn-ip" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Both domains can mutually authorise users from the other.</li>
-<li>By default, joining domains under a tree or forest forms a two-way trust.</li>
+<li>Run <code>ifconfig</code> or <code>ip a</code> and record the IP of the <strong><code>breachad</code> network adapter</strong>.</li>
+<li>Use this IP and interface when performing attacks.</li>
 </ul>
-<h4 id="important-caveat">Important caveat<a class="headerlink" href="#important-caveat" title="Permanent link">&para;</a></h4>
+<h3 id="4-configuring-dns">4. Configuring DNS<a class="headerlink" href="#4-configuring-dns" title="Permanent link">&para;</a></h3>
+<h4 id="attackbox">AttackBox<a class="headerlink" href="#attackbox" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'1s|^|nameserver &lt;THMDCIP&gt;\n|'</span><span class="w"> </span>/etc/resolv-dnsmasq
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>dnsmasq
+</code></pre></div>
 <ul>
-<li>A trust does not automatically grant access to all resources in the other domain.</li>
-<li>It only makes cross-domain authorisation possible. What is actually authorised is up to the administrator.</li>
+<li>Replace <code>&lt;THMDCIP&gt;</code> with the DC's IP. The <code>\n</code> puts the entry on its own line at the top of the file.</li>
+<li>Test:</li>
 </ul>
-<h3 id="5-quick-recall">5. Quick recall<a class="headerlink" href="#5-quick-recall" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>nslookup<span class="w"> </span>thmdc.za.tryhackme.com
+</code></pre></div>
 <ul>
-<li>Domain = single unit with its own DC, users and computers.</li>
-<li>Tree = domains sharing a namespace (<code>thm.local</code>, <code>uk.thm.local</code>, <code>us.thm.local</code>).</li>
-<li>Forest = multiple trees with different namespaces.</li>
-<li>Enterprise Admins = admin over all domains. Domain Admins = admin over one domain.</li>
-<li>One-way trust: AAA trusts BBB means BBB users can access AAA, so the arrow of trust points opposite to access.</li>
-<li>Two-way trust is the default within a tree or forest.</li>
-<li>Trust is not access. Authorisation is still configured separately.</li>
+<li>It should resolve to the DC's IP.</li>
+<li><strong>DNS may reset roughly every 3 hours</strong>, so rerun the command. If the AttackBox is terminated, redo all DNS steps.</li>
+</ul>
+<h4 id="kali-vm-network-manager">Kali VM (Network Manager)<a class="headerlink" href="#kali-vm-network-manager" title="Permanent link">&para;</a></h4>
+<ol>
+<li><code>Network Manager -&gt; Advanced Network Configuration -&gt; Your Connection -&gt; IPv4 Settings</code></li>
+<li>Set the DNS to the <strong>THMDC IP</strong>.</li>
+<li>Add a <strong>second DNS</strong> (such as <code>1.1.1.1</code>) so you keep internet access.</li>
+<li>Restart and test:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>NetworkManager
+</code></pre></div>
+<h4 id="other-operating-systems">Other operating systems<a class="headerlink" href="#other-operating-systems" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Look up the equivalent configuration for your OS.</li>
+</ul>
+<h3 id="5-opsec-note">5. Opsec note<a class="headerlink" href="#5-opsec-note" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The DC <strong>logs DNS requests</strong>, even though it isn't otherwise used here.</li>
+<li>If you use your own machine, the logs may include your <strong>device hostname</strong>. For example, a Kali box named <code>kali</code> will be logged as <code>kali</code>.</li>
+<li>On real engagements, consider setting a neutral hostname.</li>
+</ul>
+<h3 id="6-dns-debugging-steps">6. DNS debugging steps<a class="headerlink" href="#6-dns-debugging-steps" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Redo the configuration</strong> for your machine type.</li>
+<li><strong><code>ping &lt;THM DC IP&gt;</code></strong> — verifies the network is active.</li>
+<li>No response means the network isn't active. If the room page says it's running and you still get nothing, contact support. Waiting for the network timer to expire and restarting also fixes it.</li>
+<li><strong><code>nslookup za.tryhackme.com &lt;THM DC IP&gt;</code></strong> — verifies the DNS server on the DC is working.</li>
+<li>If ping worked but this fails, contact support and try the network reset button.</li>
+<li><strong><code>nslookup tryhackme.com</code></strong> — compare with step 3.</li>
+<li>A different response than step 3 means your DNS config is wrong. Redo the configuration.</li>
+<li><strong>Common Kali issue:</strong> the DC's entry is second in <code>/etc/resolv.conf</code>. <strong>Make it the first entry.</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>What it proves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ping &lt;DC IP&gt;</code></td>
+<td>Network and routing work</td>
+</tr>
+<tr>
+<td><code>nslookup za.tryhackme.com &lt;DC IP&gt;</code></td>
+<td>DC's DNS service is up</td>
+</tr>
+<tr>
+<td><code>nslookup tryhackme.com</code></td>
+<td>Your system is actually using the DC for DNS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-quick-recall">7. Quick recall<a class="headerlink" href="#7-quick-recall" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>DNS is required for AD testing</strong> because Kerberos needs hostnames.</li>
+<li><code>/etc/hosts</code> = manual list, doesn't scale. <strong>DC as DNS server = automatic, scales, stays current.</strong></li>
+<li>The DC's entry goes <strong>first</strong>, or a public DNS answers instead and internal names fail.</li>
+<li>AttackBox: <code>sed</code> into <code>/etc/resolv-dnsmasq</code>, then <code>systemctl restart dnsmasq</code>.</li>
+<li>Kali: set the DC IP as DNS in Network Manager, plus a secondary like <code>1.1.1.1</code>.</li>
+<li><code>resolv.conf</code> may be overwritten by NetworkManager or dnsmasq, so configure through them.</li>
+<li>Verify with <code>ping</code>, then <code>nslookup &lt;domain&gt; &lt;DC IP&gt;</code>, then <code>nslookup &lt;external domain&gt;</code>.</li>
+<li><strong>First thought when something breaks: is my DNS working?</strong></li>
+<li>Record your <code>breachad</code> adapter IP for attacks.</li>
+<li>The DC logs DNS queries, so your hostname may be recorded.</li>
+</ul>
+<h3 id="8-open-items">8. Open items<a class="headerlink" href="#8-open-items" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The room is rated <strong>medium</strong> and assumes some AD familiarity.</li>
 </ul>
 <h2 id="methodology">🧭 Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Identify domain / tree / forest boundaries
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  ↓
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Map DCs per domain
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  ↓
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Enumerate trusts (direction, type)
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  ↓
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Check Enterprise Admins / Domain Admins scope
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  ↓
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Find cross-domain access paths
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Connect (AttackBox or OpenVPN) → record breachad IP
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  ↓
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Set DNS: DC first, public DNS second
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  ↓
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>ping &lt;DC IP&gt; → nslookup &lt;domain&gt; &lt;DC IP&gt; → nslookup &lt;external&gt;
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  ↓
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>If broken: redo config (NetworkManager / dnsmasq), check entry order
 </code></pre></div>
 <h2 id="techniques">🛠️ Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
-<h3 id="technique-1">Technique 1<a class="headerlink" href="#technique-1" title="Permanent link">&para;</a></h3>
+<h3 id="dc-first-dns-network-manager">DC-first DNS (Network Manager)<a class="headerlink" href="#dc-first-dns-network-manager" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Description:</li>
-<li>When to use:</li>
-<li>Command:</li>
+<li>Description: Point resolver at DC with fallback to public DNS.</li>
+<li>When to use: Kali / own VM on VPN.</li>
+<li>Command: Network Manager → IPv4 → DNS = <code>&lt;DC IP&gt;, 1.1.1.1</code> → <code>sudo systemctl restart NetworkManager</code></li>
+</ul>
+<h3 id="attackbox-dns-via-dnsmasq">AttackBox DNS via dnsmasq<a class="headerlink" href="#attackbox-dns-via-dnsmasq" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: Prepend DC nameserver, restart dnsmasq.</li>
+<li>When to use: THM AttackBox (resets ~every 3h).</li>
+<li>Command:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'1s|^|nameserver &lt;THMDCIP&gt;\n|'</span><span class="w"> </span>/etc/resolv-dnsmasq
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>dnsmasq
+</code></pre></div></li>
 </ul>
 <h2 id="commands">💻 Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># TODO: trust enumeration (nltest, dsquery, BloodHound trusts) when offsec material added</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># OpenVPN connect</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>openvpn<span class="w"> </span>breachingad.ovpn
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># VPN IP</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>ip<span class="w"> </span>a<span class="w">   </span><span class="c1"># note breachad adapter IP</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># AttackBox DNS</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'1s|^|nameserver &lt;THMDCIP&gt;\n|'</span><span class="w"> </span>/etc/resolv-dnsmasq
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>dnsmasq
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1"># Kali DNS</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>NetworkManager
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="c1"># Verify</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>ping<span class="w"> </span>&lt;DC<span class="w"> </span>IP&gt;
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>nslookup<span class="w"> </span>za.tryhackme.com<span class="w"> </span>&lt;DC<span class="w"> </span>IP&gt;
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>nslookup<span class="w"> </span>tryhackme.com
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>nslookup<span class="w"> </span>thmdc.za.tryhackme.com
 </code></pre></div>
 <h2 id="labs">🧪 Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
 <table>
@@ -2782,16 +3112,17 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td>THM AD room (medium)</td>
+<td style="text-align: center;">DNS-first debugging, AttackBox reset, DC as resolver</td>
+<td style="text-align: center;">🔄</td>
 </tr>
 </tbody>
 </table>
 <h2 id="cheatsheet">📇 Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Tree = shared namespace | Forest = multiple trees | Enterprise Admins = all domains</li>
-<li>One-way trust arrow = opposite of access direction | Trust ≠ access</li>
+<li>Kerberos needs DNS → DC is DNS server → DC entry <strong>first</strong></li>
+<li>AttackBox: <code>sed</code> + <code>restart dnsmasq</code> (resets ~3h) | Kali: NetworkManager DNS = DC, 1.1.1.1</li>
+<li>Debug: ping DC → nslookup domain @DC → nslookup external | logs record your hostname</li>
 </ul>
 <hr />
 <p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
