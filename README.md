@@ -319,6 +319,8 @@ Root / SYSTEM
 | [Connecting to the Network and DNS](./05-active-directory/ad-basics/network-connection-dns.md) | — | 🔄 | [📖](./05-active-directory/ad-basics/network-connection-dns.md) |
 | [Breaching AD](./05-active-directory/breaching-ad/README.md) | — | 🔄 | [📖](./05-active-directory/breaching-ad/README.md) |
 | [Breaching AD (Intro) & Initial Credentials](./05-active-directory/breaching-ad/breaching-ad-intro.md) | — | 🔄 | [📖](./05-active-directory/breaching-ad/breaching-ad-intro.md) |
+| [Breaching AD via NTLM Authenticated Services](./05-active-directory/breaching-ad/ntlm-authenticated-services.md) | — | 🔄 | [📖](./05-active-directory/breaching-ad/ntlm-authenticated-services.md) |
+| [LDAP, Bind Credentials & Pass-back Attacks](./05-active-directory/breaching-ad/ldap-bind-passback-attack.md) | — | 🔄 | [📖](./05-active-directory/breaching-ad/ldap-bind-passback-attack.md) |
 | [Enumeration](./05-active-directory/enumeration.md) | — | ⬜ | [📖](./05-active-directory/enumeration.md) |
 | [Attacks](./05-active-directory/attacks.md) | — | ⬜ | [📖](./05-active-directory/attacks.md) |
 | [Lateral Movement & Pivoting](./05-active-directory/lateral-movement.md) | — | ⬜ | [📖](./05-active-directory/lateral-movement.md) |

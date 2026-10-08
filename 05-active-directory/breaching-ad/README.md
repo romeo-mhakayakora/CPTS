@@ -9,8 +9,10 @@
 | Module | Status | Notes |
 |--------|:------:|:-----:|
 | [Breaching AD (Intro) & Initial Credentials via OSINT/Phishing](./breaching-ad-intro.md) | 🔄 | [📖](./breaching-ad-intro.md) |
+| [Breaching AD via NTLM Authenticated Services](./ntlm-authenticated-services.md) | 🔄 | [📖](./ntlm-authenticated-services.md) |
+| [LDAP, Bind Credentials & Pass-back Attacks](./ldap-bind-passback-attack.md) | 🔄 | [📖](./ldap-bind-passback-attack.md) |
 
-> Planned sections (waiting for source material): NTLM authenticated services, LDAP bind credentials, Authentication relays, Microsoft Deployment Toolkit (MDT), Configuration files.
+> Planned sections (waiting for source material): Authentication relays, Microsoft Deployment Toolkit (MDT), Configuration files.
 
 ## 🎯 Folder Goal
 

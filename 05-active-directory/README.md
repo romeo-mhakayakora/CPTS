@@ -20,6 +20,8 @@
 | [Connecting to the Network and DNS](./ad-basics/network-connection-dns.md) | — | 🔄 | [📖](./ad-basics/network-connection-dns.md) |
 | [Breaching AD](./breaching-ad/README.md) | — | 🔄 | [📖](./breaching-ad/README.md) |
 | [Breaching AD (Intro) & Initial Credentials](./breaching-ad/breaching-ad-intro.md) | — | 🔄 | [📖](./breaching-ad/breaching-ad-intro.md) |
+| [Breaching AD via NTLM Authenticated Services](./breaching-ad/ntlm-authenticated-services.md) | — | 🔄 | [📖](./breaching-ad/ntlm-authenticated-services.md) |
+| [LDAP, Bind Credentials & Pass-back Attacks](./breaching-ad/ldap-bind-passback-attack.md) | — | 🔄 | [📖](./breaching-ad/ldap-bind-passback-attack.md) |
 | [Enumeration](./enumeration.md) | — | ⬜ | [📖](./enumeration.md) |
 | [Attacks](./attacks.md) | — | ⬜ | [📖](./attacks.md) |
 | [Lateral Movement & Pivoting](./lateral-movement.md) | — | ⬜ | [📖](./lateral-movement.md) |
