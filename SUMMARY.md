@@ -37,6 +37,7 @@
     * [Group Policy Objects (GPOs)](05-active-directory/ad-basics/group-policy-objects.md)
     * [Authentication (Kerberos & NetNTLM)](05-active-directory/ad-basics/authentication-kerberos-netntlm.md)
     * [Trees, Forests and Trust Relationships](05-active-directory/ad-basics/trees-forests-trusts.md)
+    * [Connecting to the Network and DNS](05-active-directory/ad-basics/network-connection-dns.md)
   * [Enumeration](05-active-directory/enumeration.md)
   * [Attacks](05-active-directory/attacks.md)
   * [Lateral Movement & Pivoting](05-active-directory/lateral-movement.md)

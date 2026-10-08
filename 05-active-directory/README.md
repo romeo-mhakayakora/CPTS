@@ -17,6 +17,7 @@
 | [Group Policy Objects (GPOs)](./ad-basics/group-policy-objects.md) | — | 🔄 | [📖](./ad-basics/group-policy-objects.md) |
 | [Authentication (Kerberos & NetNTLM)](./ad-basics/authentication-kerberos-netntlm.md) | — | 🔄 | [📖](./ad-basics/authentication-kerberos-netntlm.md) |
 | [Trees, Forests and Trust Relationships](./ad-basics/trees-forests-trusts.md) | — | 🔄 | [📖](./ad-basics/trees-forests-trusts.md) |
+| [Connecting to the Network and DNS](./ad-basics/network-connection-dns.md) | — | 🔄 | [📖](./ad-basics/network-connection-dns.md) |
 | [Enumeration](./enumeration.md) | — | ⬜ | [📖](./enumeration.md) |
 | [Attacks](./attacks.md) | — | ⬜ | [📖](./attacks.md) |
 | [Lateral Movement & Pivoting](./lateral-movement.md) | — | ⬜ | [📖](./lateral-movement.md) |

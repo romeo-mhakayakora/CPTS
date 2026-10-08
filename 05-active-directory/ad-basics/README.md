@@ -14,6 +14,7 @@
 | [Group Policy Objects (GPOs)](./group-policy-objects.md) | 🔄 | [📖](./group-policy-objects.md) |
 | [Authentication (Kerberos & NetNTLM)](./authentication-kerberos-netntlm.md) | 🔄 | [📖](./authentication-kerberos-netntlm.md) |
 | [Trees, Forests and Trust Relationships](./trees-forests-trusts.md) | 🔄 | [📖](./trees-forests-trusts.md) |
+| [Connecting to the Network and DNS](./network-connection-dns.md) | 🔄 | [📖](./network-connection-dns.md) |
 
 ---
 
