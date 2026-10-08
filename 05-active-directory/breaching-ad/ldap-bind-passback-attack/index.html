@@ -12,13 +12,13 @@
         <meta name="author" content="Romeo Mhakayakora">
       
       
-        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/ad-basics/group-policy-objects/">
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/breaching-ad/ldap-bind-passback-attack/">
       
       
-        <link rel="prev" href="../managing-users-ous-delegation/">
+        <link rel="prev" href="../ntlm-authenticated-services/">
       
       
-        <link rel="next" href="../authentication-kerberos-netntlm/">
+        <link rel="next" href="../../enumeration/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Group Policy Objects (GPOs) - CPTS Notes</title>
+        <title>LDAP, Bind Credentials & Pass-back Attacks - CPTS Notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#group-policy-objects-gpos" class="md-skip">
+        <a href="#ldap-ldap-bind-credentials-and-ldap-pass-back-attacks" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Group Policy Objects (GPOs)
+              LDAP, Bind Credentials & Pass-back Attacks
             
           </span>
         </div>
@@ -1551,6 +1551,295 @@
                 
   
   
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AD Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/windows-domains-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Domains and AD (Intro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Objects, Accounts and Organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/managing-users-ous-delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing AD Users, OUs and Delegation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/group-policy-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Group Policy Objects (GPOs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication (Kerberos & NetNTLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/trees-forests-trusts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trees, Forests and Trust Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/network-connection-dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting to the Network and DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1572,17 +1861,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    AD Basics
+    Breaching AD
   
 
     
@@ -1593,12 +1882,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    AD Basics
+    Breaching AD
   
 
           </label>
@@ -1639,14 +1928,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../windows-domains-intro/" class="md-nav__link">
+      <a href="../breaching-ad-intro/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Windows Domains and AD (Intro)
+    Breaching AD (Intro) & Initial Credentials
   
 
     
@@ -1667,42 +1956,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ad-objects-accounts-organisation/" class="md-nav__link">
+      <a href="../ntlm-authenticated-services/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AD Objects, Accounts and Organisation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../managing-users-ous-delegation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing AD Users, OUs and Delegation
+    Breaching AD via NTLM Authenticated Services
   
 
     
@@ -1739,7 +2000,7 @@
   <span class="md-ellipsis">
     
   
-    Group Policy Objects (GPOs)
+    LDAP, Bind Credentials & Pass-back Attacks
   
 
     
@@ -1757,7 +2018,7 @@
   <span class="md-ellipsis">
     
   
-    Group Policy Objects (GPOs)
+    LDAP, Bind Credentials & Pass-back Attacks
   
 
     
@@ -1795,44 +2056,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-what-gpos-are" class="md-nav__link">
+  <a href="#1-what-ldap-actually-is" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. What GPOs are
+        1. What LDAP actually is
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-group-policy-management-tool" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Group Policy Management tool
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Group Policy Management tool">
+    <nav class="md-nav" aria-label="1. What LDAP actually is">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#default-gpos" class="md-nav__link">
+  <a href="#the-dcs-dual-role" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Default GPOs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inheritance
+        The DC's dual role
       
     </span>
   </a>
@@ -1845,10 +2084,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-anatomy-of-a-gpo" class="md-nav__link">
+  <a href="#2-how-the-ldap-protocol-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Anatomy of a GPO
+        2. How the LDAP protocol works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. How the LDAP protocol works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-structure-the-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data structure (the tree)
       
     </span>
   </a>
@@ -1856,10 +2107,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-editing-a-gpo" class="md-nav__link">
+  <a href="#protocol-operations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Editing a GPO
+        Protocol operations
       
     </span>
   </a>
@@ -1867,10 +2118,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-gpo-distribution" class="md-nav__link">
+  <a href="#typical-flow-for-an-app-using-ldap-auth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. GPO distribution
+        Typical flow for an app using LDAP auth
       
     </span>
   </a>
@@ -1878,10 +2129,170 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-quick-recall" class="md-nav__link">
+  <a href="#why-this-is-a-huge-enumeration-target" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Quick recall
+        Why this is a huge enumeration target
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ldap-bind-credentials-application-stored-ad-creds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. LDAP Bind Credentials (application-stored AD creds)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. LDAP Bind Credentials (application-stored AD creds)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attack-avenue-1-configuration-file-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attack avenue 1: configuration file recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attack-avenue-2-exposed-services-same-patterns-as-ntlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attack avenue 2: exposed services, same patterns as NTLM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ldap-bind-attack-vectors-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LDAP Bind attack vectors (general)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ldap-pass-back-attack-the-major-attack-in-this-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ⭐ LDAP Pass-back Attack — the major attack in this section
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. ⭐ LDAP Pass-back Attack — the major attack in this section">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attack-procedure-generalized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attack procedure (generalized)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-catch-authentication-method-negotiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The catch: authentication method negotiation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalized-rogue-ldap-server-setup-openldap-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalized rogue LDAP server setup (OpenLDAP example)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturing-the-credential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capturing the credential
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-is-so-dangerous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this is so dangerous
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-offsec-takeaways-general-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Offsec takeaways / general strategy
       
     </span>
   </a>
@@ -1917,10 +2328,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gpo-enumeration" class="md-nav__link">
+  <a href="#ldap-pass-back" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GPO Enumeration
+        LDAP Pass-back
       
     </span>
   </a>
@@ -1928,10 +2339,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#force-policy-refresh" class="md-nav__link">
+  <a href="#config-file-bind-credential-recovery" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Force Policy Refresh
+        Config File Bind Credential Recovery
       
     </span>
   </a>
@@ -1980,267 +2391,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../authentication-kerberos-netntlm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication (Kerberos & NetNTLM)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trees-forests-trusts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trees, Forests and Trust Relationships
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../network-connection-dns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Connecting to the Network and DNS
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaching AD
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Breaching AD
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/breaching-ad-intro/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaching AD (Intro) & Initial Credentials
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/ntlm-authenticated-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaching AD via NTLM Authenticated Services
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/ldap-bind-passback-attack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LDAP, Bind Credentials & Pass-back Attacks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2585,44 +2735,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-what-gpos-are" class="md-nav__link">
+  <a href="#1-what-ldap-actually-is" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. What GPOs are
+        1. What LDAP actually is
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-group-policy-management-tool" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Group Policy Management tool
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Group Policy Management tool">
+    <nav class="md-nav" aria-label="1. What LDAP actually is">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#default-gpos" class="md-nav__link">
+  <a href="#the-dcs-dual-role" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Default GPOs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Inheritance
+        The DC's dual role
       
     </span>
   </a>
@@ -2635,10 +2763,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-anatomy-of-a-gpo" class="md-nav__link">
+  <a href="#2-how-the-ldap-protocol-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Anatomy of a GPO
+        2. How the LDAP protocol works
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. How the LDAP protocol works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-structure-the-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data structure (the tree)
       
     </span>
   </a>
@@ -2646,10 +2786,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-editing-a-gpo" class="md-nav__link">
+  <a href="#protocol-operations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Editing a GPO
+        Protocol operations
       
     </span>
   </a>
@@ -2657,10 +2797,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-gpo-distribution" class="md-nav__link">
+  <a href="#typical-flow-for-an-app-using-ldap-auth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. GPO distribution
+        Typical flow for an app using LDAP auth
       
     </span>
   </a>
@@ -2668,10 +2808,170 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-quick-recall" class="md-nav__link">
+  <a href="#why-this-is-a-huge-enumeration-target" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Quick recall
+        Why this is a huge enumeration target
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ldap-bind-credentials-application-stored-ad-creds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. LDAP Bind Credentials (application-stored AD creds)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. LDAP Bind Credentials (application-stored AD creds)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attack-avenue-1-configuration-file-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attack avenue 1: configuration file recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attack-avenue-2-exposed-services-same-patterns-as-ntlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attack avenue 2: exposed services, same patterns as NTLM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-ldap-bind-attack-vectors-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. LDAP Bind attack vectors (general)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-ldap-pass-back-attack-the-major-attack-in-this-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. ⭐ LDAP Pass-back Attack — the major attack in this section
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. ⭐ LDAP Pass-back Attack — the major attack in this section">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why it works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attack-procedure-generalized" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attack procedure (generalized)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-catch-authentication-method-negotiation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The catch: authentication method negotiation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalized-rogue-ldap-server-setup-openldap-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalized rogue LDAP server setup (OpenLDAP example)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturing-the-credential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capturing the credential
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-is-so-dangerous" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why this is so dangerous
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-offsec-takeaways-general-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Offsec takeaways / general strategy
       
     </span>
   </a>
@@ -2707,10 +3007,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gpo-enumeration" class="md-nav__link">
+  <a href="#ldap-pass-back" class="md-nav__link">
     <span class="md-ellipsis">
       
-        GPO Enumeration
+        LDAP Pass-back
       
     </span>
   </a>
@@ -2718,10 +3018,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#force-policy-refresh" class="md-nav__link">
+  <a href="#config-file-bind-credential-recovery" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Force Policy Refresh
+        Config File Bind Credential Recovery
       
     </span>
   </a>
@@ -2786,9 +3086,9 @@
   
 
 
-<h1 id="group-policy-objects-gpos">Group Policy Objects (GPOs)<a class="headerlink" href="#group-policy-objects-gpos" title="Permanent link">&para;</a></h1>
+<h1 id="ldap-ldap-bind-credentials-and-ldap-pass-back-attacks">LDAP, LDAP Bind Credentials, and LDAP Pass-back Attacks<a class="headerlink" href="#ldap-ldap-bind-credentials-and-ldap-pass-back-attacks" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 </blockquote>
 <table>
 <thead>
@@ -2811,120 +3111,232 @@
 <p><strong>Status:</strong> 🔄 In Progress</p>
 <hr />
 <h2 id="concepts">📌 Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<h3 id="1-what-gpos-are">1. What GPOs are<a class="headerlink" href="#1-what-gpos-are" title="Permanent link">&para;</a></h3>
+<h3 id="1-what-ldap-actually-is">1. What LDAP actually is<a class="headerlink" href="#1-what-ldap-actually-is" title="Permanent link">&para;</a></h3>
 <ul>
-<li>OUs exist so that <strong>different policies can be deployed per OU</strong>, pushing different configurations and security baselines by department or device type.</li>
-<li><strong>GPO</strong> = a collection of settings that can be applied to OUs.</li>
-<li>A GPO can hold policies for <strong>users</strong>, <strong>computers</strong>, or both, setting a baseline on specific machines and identities.</li>
+<li><strong>LDAP (Lightweight Directory Access Protocol)</strong> is not a database query language like SQL. It's an <strong>open, vendor-neutral protocol</strong> for talking to a <strong>directory service</strong> — essentially a structured "phonebook."</li>
+<li>In a Windows environment, <strong>Active Directory is the directory; LDAP is the language used to talk to it.</strong> The Domain Controller stores and exposes AD data (users, computers, groups, password hashes, attributes) through an LDAP interface.</li>
+<li><strong>Why this matters offensively:</strong> because LDAP is an open standard, <em>any</em> OS or application — Linux, macOS, third-party appliances — can authenticate against and query a Windows DC without being domain-joined or even running Windows. This is also why you can attack AD directly from Kali using <code>ldapsearch</code>, BloodHound, NetExec, etc., without ever touching a Windows host.</li>
 </ul>
-<h3 id="2-group-policy-management-tool">2. Group Policy Management tool<a class="headerlink" href="#2-group-policy-management-tool" title="Permanent link">&para;</a></h3>
+<h4 id="the-dcs-dual-role">The DC's dual role<a class="headerlink" href="#the-dcs-dual-role" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Open it from the Start menu.</li>
-<li>It shows the full OU hierarchy.</li>
-<li><strong>Workflow:</strong> create a GPO under <em>Group Policy Objects</em>, then <strong>link</strong> it to the OU where it should apply.</li>
+<li>To a Windows client: full DC duties (Kerberos, GPO enforcement, etc.).</li>
+<li>To everything else (printers, VPNs, Linux web apps, firewalls): a standard LDAP server answering bind/search requests.</li>
+<li>This dual exposure is a core reason AD has such a large attack surface: Microsoft has to keep the LDAP door open for interoperability.</li>
 </ul>
-<h4 id="default-gpos">Default GPOs<a class="headerlink" href="#default-gpos" title="Permanent link">&para;</a></h4>
+<h3 id="2-how-the-ldap-protocol-works">2. How the LDAP protocol works<a class="headerlink" href="#2-how-the-ldap-protocol-works" title="Permanent link">&para;</a></h3>
+<h4 id="data-structure-the-tree">Data structure (the tree)<a class="headerlink" href="#data-structure-the-tree" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Objects (users, computers, groups) sit in a hierarchical tree, addressed by a <strong>Distinguished Name (DN)</strong>:</li>
+<li><code>DC</code> (Domain Component) — the root, e.g. <code>DC=thm,DC=local</code></li>
+<li><code>OU</code> (Organizational Unit) — branches, e.g. <code>OU=IT_Department</code></li>
+<li><code>CN</code> (Common Name) — the actual object, e.g. <code>CN=Romeo</code></li>
+<li>Full example: <code>CN=Romeo,OU=IT_Department,DC=thm,DC=local</code></li>
+</ul>
+<h4 id="protocol-operations">Protocol operations<a class="headerlink" href="#protocol-operations" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
-<th>GPO</th>
-<th>Linked to</th>
+<th>Operation</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Default Domain Policy</td>
-<td><code>thm.local</code> (whole domain)</td>
+<td><strong>Bind</strong></td>
+<td>Authenticate to the LDAP server (the "login")</td>
 </tr>
 <tr>
-<td>RDP Policy</td>
-<td><code>thm.local</code> (whole domain)</td>
+<td><strong>Search</strong></td>
+<td>Query the tree with filters</td>
 </tr>
 <tr>
-<td>Default Domain Controllers Policy</td>
-<td>Domain Controllers OU only</td>
+<td><strong>Modify/Add/Delete</strong></td>
+<td>Change objects (requires privilege)</td>
+</tr>
+<tr>
+<td><strong>Unbind</strong></td>
+<td>Close the connection</td>
 </tr>
 </tbody>
 </table>
-<h4 id="inheritance">Inheritance<a class="headerlink" href="#inheritance" title="Permanent link">&para;</a></h4>
+<h4 id="typical-flow-for-an-app-using-ldap-auth">Typical flow for an app using LDAP auth<a class="headerlink" href="#typical-flow-for-an-app-using-ldap-auth" title="Permanent link">&para;</a></h4>
+<ol>
+<li>User submits credentials to the app.</li>
+<li>The app performs an <strong>LDAP Bind</strong> to the DC using those credentials.</li>
+<li>If successful, the app may run an <strong>LDAP Search</strong> to pull group memberships/attributes and decide access.</li>
+</ol>
+<h4 id="why-this-is-a-huge-enumeration-target">Why this is a huge enumeration target<a class="headerlink" href="#why-this-is-a-huge-enumeration-target" title="Permanent link">&para;</a></h4>
 <ul>
-<li>A GPO applies to the <strong>linked OU and all sub-OUs under it</strong>. For example, Sales is still affected by the Default Domain Policy.</li>
-<li><strong>Computer Configuration settings are ignored</strong> on OUs that contain only users, so a computer-targeted GPO linked at the root domain is safe to inherit everywhere.</li>
+<li>By default, <strong>any valid authenticated user can read most of the LDAP tree.</strong></li>
+<li>With just one valid (even low-privileged) credential, you can run <strong>LDAP Searches</strong> to:</li>
+<li>List all users and computers</li>
+<li>Identify Domain Admins and privileged group members</li>
+<li>Read computer/user description fields (sometimes containing accidentally stored passwords)</li>
+<li>Map the entire org structure for further targeting</li>
+<li>This activity is generally called <strong>LDAP enumeration</strong>, and it's usually a direct next step after any AD foothold is obtained.</li>
 </ul>
-<h3 id="3-anatomy-of-a-gpo">3. Anatomy of a GPO<a class="headerlink" href="#3-anatomy-of-a-gpo" title="Permanent link">&para;</a></h3>
+<h3 id="3-ldap-bind-credentials-application-stored-ad-creds">3. LDAP Bind Credentials (application-stored AD creds)<a class="headerlink" href="#3-ldap-bind-credentials-application-stored-ad-creds" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Scope tab:</strong> shows where the GPO is linked in AD.</li>
-<li><strong>Security Filtering:</strong> restricts a GPO to specific users or computers under an OU. The default is the <strong>Authenticated Users</strong> group (all users and PCs).</li>
-<li><strong>Settings tab:</strong> shows the actual contents. Each GPO has two sections:</li>
-<li><strong>Computer Configuration:</strong> applies to computers only.</li>
-<li><strong>User Configuration:</strong> applies to users only.</li>
-<li>The Default Domain Policy contains only Computer Configuration, with basic domain settings such as <strong>password and account lockout policies</strong>.</li>
-<li>In the editor, double-click a policy and read the <strong>Explain tab</strong> for details.</li>
+<li>Many third-party (non-Microsoft) applications integrate with AD via LDAP authentication: GitLab, Jenkins, custom web apps, printers, VPNs, Wi-Fi controllers, firewalls.</li>
+<li>Unlike NTLM-based auth (where the app just forwards a challenge), <strong>LDAP authentication requires the application itself to hold a set of AD credentials</strong> — a "service account" — which it uses to bind to the DC first, then verify the end user.</li>
+<li><strong>This is the key offensive angle:</strong> because the app must store usable AD credentials somewhere, recovering <em>that</em> credential set becomes a goal in itself, separate from attacking the end users.</li>
 </ul>
-<h3 id="4-editing-a-gpo">4. Editing a GPO<a class="headerlink" href="#4-editing-a-gpo" title="Permanent link">&para;</a></h3>
+<h4 id="attack-avenue-1-configuration-file-recovery">Attack avenue 1: configuration file recovery<a class="headerlink" href="#attack-avenue-1-configuration-file-recovery" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Right-click the GPO and choose <strong>Edit</strong>.</li>
-<li>Example path for password policy: <code>Computer Configuration -&gt; Policies -&gt; Windows Settings -&gt; Security Settings -&gt; Account Policies -&gt; Password Policy</code></li>
-<li>Settings in a domain-wide GPO affect <strong>all computers</strong> in the domain.</li>
-<li>Example setting: <strong>Minimum password length</strong>.</li>
-<li>A policy that restricts user access (for example, prohibiting Control Panel access) lives under <strong>User Configuration</strong>.</li>
+<li>If you get a foothold on the host running the LDAP-integrated app (e.g. a GitLab server), the bind credentials are often sitting in a <strong>configuration file, frequently in plaintext</strong>.</li>
+<li>The underlying assumption many vendors make: <em>security relies on protecting the location/access to the config file, not on encrypting its contents.</em> That assumption breaks the moment you get host access.</li>
+<li>General takeaway: <strong>whenever you land on a host running an LDAP/AD-integrated service, checking its config files for stored credentials should be routine.</strong></li>
 </ul>
-<h3 id="5-gpo-distribution">5. GPO distribution<a class="headerlink" href="#5-gpo-distribution" title="Permanent link">&para;</a></h3>
+<h4 id="attack-avenue-2-exposed-services-same-patterns-as-ntlm">Attack avenue 2: exposed services, same patterns as NTLM<a class="headerlink" href="#attack-avenue-2-exposed-services-same-patterns-as-ntlm" title="Permanent link">&para;</a></h4>
 <ul>
-<li>GPOs are distributed through the <strong>SYSVOL</strong> network share, stored on the DC.</li>
-<li>Domain users should normally have access to SYSVOL to sync their GPOs periodically.</li>
-<li><strong>Default path:</strong> <code>C:\Windows\SYSVOL\sysvol\</code> on each DC.</li>
-<li><strong>Sync delay:</strong> changes can take <strong>up to 2 hours</strong> to reach computers.</li>
-<li><strong>Force an immediate sync</strong> on a specific computer:</li>
+<li>If an LDAP-authenticated app is internet-facing, the same credential validation / password spraying approaches used against NTLM services apply here too.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">gpupdate</span> <span class="p">/</span><span class="n">force</span>
+<h3 id="4-ldap-bind-attack-vectors-general">4. LDAP Bind attack vectors (general)<a class="headerlink" href="#4-ldap-bind-attack-vectors-general" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Vector</th>
+<th>Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cleartext sniffing (Simple Bind)</strong></td>
+<td>Unencrypted LDAP (port 389) with Simple Bind sends credentials in plaintext. Capturable with a sniffer on the local network or path.</td>
+</tr>
+<tr>
+<td><strong>LDAP/NTLM relaying</strong></td>
+<td>Poison name resolution (e.g. LLMNR/NBT-NS, Responder) to trick a system into authenticating to your box, then relay that authentication to the DC's LDAP service to perform actions as the victim.</td>
+</tr>
+<tr>
+<td><strong>Anonymous binds</strong></td>
+<td>Misconfigured DCs sometimes accept a bind with no credentials, handing out read access to parts of the tree for free.</td>
+</tr>
+<tr>
+<td><strong>Post-bind abuse</strong></td>
+<td>No hijacking needed — bind with <em>any</em> valid credentials (however obtained) and run searches to enumerate the whole domain.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>General principle:</strong> if you can intercept a bind, you get credentials. If you can perform a bind (any valid creds), you get a license to enumerate everything.</p>
+<hr />
+<h3 id="5-ldap-pass-back-attack-the-major-attack-in-this-section">5. ⭐ LDAP Pass-back Attack — the major attack in this section<a class="headerlink" href="#5-ldap-pass-back-attack-the-major-attack-in-this-section" title="Permanent link">&para;</a></h3>
+<p><strong>This is the headline technique here.</strong> Everything above (what LDAP is, how binds work, why bind credentials matter) exists to set up <em>why</em> this attack is so effective: it is the most practical, repeatable way to turn LDAP's trust model into a stolen AD credential, usually requiring nothing more than internal network access and a misconfigured device.</p>
+<h4 id="concept">Concept<a class="headerlink" href="#concept" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A technique against <strong>network devices with LDAP integration</strong> — most commonly <strong>printers</strong>, but also Wi-Fi controllers and firewalls — typically performed once you have a foothold on the <strong>internal network</strong> (e.g. a rogue device plugged into a boardroom port).</li>
+<li>These devices hold a bind credential internally (to look up/authenticate users) but <strong>hide the password field</strong> in their web UI.</li>
+</ul>
+<h4 id="why-it-works">Why it works<a class="headerlink" href="#why-it-works" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Device admin interfaces are frequently left on <strong>default credentials</strong> (<code>admin:admin</code>, <code>admin:password</code>), or sometimes require no authentication at all.</li>
+<li>You can't read the stored LDAP password directly, but you <strong>can edit the LDAP server address</strong> the device points to.</li>
+<li>The device typically offers a <strong>"Test Settings" / "Test Connection"</strong> button, which forces it to immediately attempt an LDAP bind to whatever server is configured.</li>
+</ul>
+<h4 id="attack-procedure-generalized">Attack procedure (generalized)<a class="headerlink" href="#attack-procedure-generalized" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Access the device's admin interface (default creds, or no auth at all).</li>
+<li>Locate the LDAP configuration section — note the existing (legitimate) LDAP server address and the bind username (often visible even if the password isn't).</li>
+<li>Stand up a <strong>rogue LDAP listener</strong> on your attack box.</li>
+<li>Change the device's configured LDAP server IP to your own.</li>
+<li>Trigger "Test Settings" to force the device to bind to your rogue server.</li>
+<li>Capture the bind attempt.</li>
+</ol>
+<h4 id="the-catch-authentication-method-negotiation">The catch: authentication method negotiation<a class="headerlink" href="#the-catch-authentication-method-negotiation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A naive netcat listener on port 389 won't get you the credentials. Before sending them, the client negotiates the <strong>strongest mutually supported auth mechanism</strong> with the server (<code>supportedSASLMechanisms</code> etc.). If a secure mechanism is negotiated, the password may never be sent in cleartext — sometimes not sent over the network at all.</li>
+<li><strong>Fix:</strong> stand up a real rogue LDAP server (e.g. OpenLDAP) and <strong>deliberately downgrade</strong> its supported SASL mechanisms to only the weakest ones (<code>PLAIN</code>, <code>LOGIN</code>). This forces the client to fall back to plaintext-equivalent auth.</li>
+</ul>
+<h4 id="generalized-rogue-ldap-server-setup-openldap-example">Generalized rogue LDAP server setup (OpenLDAP example)<a class="headerlink" href="#generalized-rogue-ldap-server-setup-openldap-example" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>slapd<span class="w"> </span>ldap-utils<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>slapd
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>dpkg-reconfigure<span class="w"> </span>-p<span class="w"> </span>low<span class="w"> </span>slapd
 </code></pre></div>
-<h3 id="6-quick-recall">6. Quick recall<a class="headerlink" href="#6-quick-recall" title="Permanent link">&para;</a></h3>
 <ul>
-<li>GPO = set of user and computer settings, <strong>linked to OUs</strong> and inherited by sub-OUs.</li>
-<li>Tool: <strong>Group Policy Management</strong>. Create the GPO, then link it.</li>
-<li><strong>Security Filtering</strong> defaults to Authenticated Users.</li>
-<li>Distributed via <strong>SYSVOL</strong> (<code>C:\Windows\SYSVOL\sysvol\</code>), refreshed up to every 2 hours.</li>
-<li>Force a refresh: <code>gpupdate /force</code>.</li>
-<li><strong>User Configuration</strong> targets users. <strong>Computer Configuration</strong> targets machines and is ignored on user-only OUs.</li>
-<li>If a GPO doesn't seem to apply, run <code>gpupdate /force</code>.</li>
+<li>Configure the DNS domain name and organisation name to match the <strong>target's domain</strong> (so the DN format lines up).</li>
+<li>Restrict supported SASL mechanisms via an LDIF patch:</li>
 </ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># olcSaslSecProps.ldif
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>dn: cn=config
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>replace: olcSaslSecProps
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>olcSaslSecProps: noanonymous,minssf=0,passcred
+</code></pre></div>
+<ul>
+<li><code>noanonymous</code>: disallow anonymous bind mechanisms</li>
+<li><code>minssf=0</code>: minimum security strength factor of 0 — i.e., no required protection</li>
+<li>Apply it:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>ldapmodify<span class="w"> </span>-Y<span class="w"> </span>EXTERNAL<span class="w"> </span>-H<span class="w"> </span>ldapi://<span class="w"> </span>-f<span class="w"> </span>./olcSaslSecProps.ldif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>slapd<span class="w"> </span>restart
+</code></pre></div>
+<ul>
+<li>Verify the downgrade worked:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ldapsearch<span class="w"> </span>-H<span class="w"> </span>ldap://<span class="w"> </span>-x<span class="w"> </span>-LLL<span class="w"> </span>-s<span class="w"> </span>base<span class="w"> </span>-b<span class="w"> </span><span class="s2">""</span><span class="w"> </span>supportedSASLMechanisms
+</code></pre></div>
+<p>Expect only <code>PLAIN</code> and <code>LOGIN</code> listed.</p>
+<h4 id="capturing-the-credential">Capturing the credential<a class="headerlink" href="#capturing-the-credential" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Once the rogue server only offers weak mechanisms, triggering "Test Settings" again causes the bind attempt to carry credentials in a now-crackable/cleartext-equivalent form.</li>
+<li>If the device's own error handling swallows the response, fall back to a packet capture on the relevant interface:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-SX<span class="w"> </span>-i<span class="w"> </span>&lt;interface&gt;<span class="w"> </span>tcp<span class="w"> </span>port<span class="w"> </span><span class="m">389</span>
+</code></pre></div>
+<ul>
+<li>The bind payload will contain the full DN (<code>domain\service_account</code>) and the password in plaintext.</li>
+</ul>
+<h4 id="why-this-is-so-dangerous">Why this is so dangerous<a class="headerlink" href="#why-this-is-so-dangerous" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The recovered account is a <strong>real AD credential</strong>, usable for further authentication and enumeration.</li>
+<li>IT admins frequently take shortcuts: instead of scoping the device's service account to <strong>read-only, minimal rights</strong>, they sometimes reuse <strong>powerful admin accounts</strong> just to get the integration working quickly. If that's the case here, a "just a printer" compromise becomes a much bigger win.</li>
+</ul>
+<hr />
+<h3 id="6-offsec-takeaways-general-strategy">6. Offsec takeaways / general strategy<a class="headerlink" href="#6-offsec-takeaways-general-strategy" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>The LDAP pass-back attack is the primary, go-to technique in this category</strong> — treat it as a standard check on any engagement where you get internal/physical network access: find network devices with LDAP integration (printers first) and test for default creds plus an editable LDAP server field.</li>
+<li><strong>Any LDAP-integrated third-party system or appliance is a potential credential source</strong> — not just the DC itself. Printers, VPNs, firewalls, CI/CD tools, ticketing systems, Wi-Fi controllers.</li>
+<li><strong>Config files are a first-class secondary target</strong> on any host running an LDAP-integrated app, since bind credentials are frequently stored in plaintext there.</li>
+<li><strong>Device admin panels with default creds are common low-effort entry points</strong>, especially on hardware (printers, controllers) that IT rarely hardens — this is exactly what makes the pass-back attack so reliable.</li>
+<li><strong>A pass-back attack doesn't need you to break encryption</strong> — it just needs you to control what server the victim device talks to, and force it to negotiate down to a weak auth mechanism.</li>
+<li>Getting one set of LDAP bind credentials, however low-privileged, is enough to pivot into full <strong>LDAP enumeration</strong>: users, groups, Domain Admins, and misconfigured accounts to chase next.</li>
+<li>This class of attack generally requires <strong>some level of internal/physical network access</strong> (rogue device, LAN presence) since it depends on redirecting traffic to your own listener — unlike NTLM service attacks, which can sometimes be done purely from the internet.</li>
+</ol>
 <h2 id="methodology">🧭 Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Map OU hierarchy
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  ↓
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Create GPO → Link to target OU
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  ↓
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Scope + Security Filtering check
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  ↓
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Edit User vs Computer Configuration
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  ↓
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Verify via SYSVOL / gpupdate /force
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Internal foothold (rogue device / LAN presence)
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  ↓
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Find LDAP-integrated devices (printers first, default creds)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  ↓
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Rogue LDAP server (downgraded SASL: PLAIN/LOGIN only)
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  ↓
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Repoint device LDAP server → yours → Test Settings
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  ↓
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Capture bind (tcpdump fallback) → AD credential
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  ↓
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>LDAP enumeration with recovered creds
 </code></pre></div>
 <h2 id="techniques">🛠️ Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
-<h3 id="gpo-enumeration">GPO Enumeration<a class="headerlink" href="#gpo-enumeration" title="Permanent link">&para;</a></h3>
+<h3 id="ldap-pass-back">LDAP Pass-back<a class="headerlink" href="#ldap-pass-back" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Description: Identify linked GPOs, inheritance and filtering.</li>
-<li>When to use: Mapping policy attack surface.</li>
-<li>Command: Group Policy Management → Scope / Settings tabs; <code>gpresult /r</code> on host.</li>
+<li>Description: Redirect a device's LDAP bind to your rogue server and capture the service account credential.</li>
+<li>When to use: Internal network access + device with editable LDAP server field.</li>
+<li>Command: OpenLDAP with <code>olcSaslSecProps: noanonymous,minssf=0,passcred</code> → verify <code>supportedSASLMechanisms</code> → <code>tcpdump -SX -i &lt;iface&gt; tcp port 389</code>.</li>
 </ul>
-<h3 id="force-policy-refresh">Force Policy Refresh<a class="headerlink" href="#force-policy-refresh" title="Permanent link">&para;</a></h3>
+<h3 id="config-file-bind-credential-recovery">Config File Bind Credential Recovery<a class="headerlink" href="#config-file-bind-credential-recovery" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Description: Apply pending GPO immediately for testing.</li>
-<li>When to use: GPO change not yet synced.</li>
-<li>Command:
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">gpupdate</span> <span class="p">/</span><span class="n">force</span>
-</code></pre></div></li>
+<li>Description: Read plaintext AD bind creds from LDAP-integrated app configs.</li>
+<li>When to use: Foothold on host running GitLab/Jenkins/custom LDAP app.</li>
+<li>Command: Inspect app config files for bind DN + password.</li>
 </ul>
 <h2 id="commands">💻 Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c"># Force GPO sync on host</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">gpupdate</span> <span class="p">/</span><span class="n">force</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c"># Show applied GPOs</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">gpresult</span> <span class="p">/</span><span class="nb">r</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># SYSVOL share (from Linux, for enumeration)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># smbclient //DC-IP/SYSVOL -U 'THM\user'</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># ls C:\Windows\SYSVOL\sysvol\  # on DC</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Rogue LDAP server (OpenLDAP)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>slapd<span class="w"> </span>ldap-utils<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>slapd
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sudo<span class="w"> </span>dpkg-reconfigure<span class="w"> </span>-p<span class="w"> </span>low<span class="w"> </span>slapd
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>sudo<span class="w"> </span>ldapmodify<span class="w"> </span>-Y<span class="w"> </span>EXTERNAL<span class="w"> </span>-H<span class="w"> </span>ldapi://<span class="w"> </span>-f<span class="w"> </span>./olcSaslSecProps.ldif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>slapd<span class="w"> </span>restart
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>ldapsearch<span class="w"> </span>-H<span class="w"> </span>ldap://<span class="w"> </span>-x<span class="w"> </span>-LLL<span class="w"> </span>-s<span class="w"> </span>base<span class="w"> </span>-b<span class="w"> </span><span class="s2">""</span><span class="w"> </span>supportedSASLMechanisms
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Capture bind</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>sudo<span class="w"> </span>tcpdump<span class="w"> </span>-SX<span class="w"> </span>-i<span class="w"> </span>&lt;interface&gt;<span class="w"> </span>tcp<span class="w"> </span>port<span class="w"> </span><span class="m">389</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># LDAP enumeration with recovered creds</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1"># ldapsearch -x -H ldap://&lt;DC-IP&gt; -D '&lt;bind-DN&gt;' -w '&lt;password&gt;' -b 'DC=thm,DC=local' '(objectClass=user)'</span>
 </code></pre></div>
 <h2 id="labs">🧪 Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
 <table>
@@ -2945,11 +3357,13 @@
 </table>
 <h2 id="cheatsheet">📇 Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permanent link">&para;</a></h2>
 <ul>
-<li>GPO linked to OU → inherits to sub-OUs | Filtering default Authenticated Users</li>
-<li>User vs Computer Configuration | SYSVOL <code>C:\Windows\SYSVOL\sysvol\</code> | <code>gpupdate /force</code></li>
+<li>AD = directory, LDAP = language | DN = <code>CN=..,OU=..,DC=..,DC=..</code></li>
+<li>Any valid bind = full-tree read → enumerate users, DAs, descriptions</li>
+<li>Pass-back: default-creds device → repoint LDAP → rogue server (PLAIN/LOGIN only) → Test → tcpdump 389</li>
+<li>Config files on LDAP-app hosts = plaintext bind creds | service accounts sometimes over-privileged</li>
 </ul>
 <hr />
-<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 
 
 

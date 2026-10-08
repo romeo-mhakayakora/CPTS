@@ -12,31 +12,31 @@
         <meta name="author" content="Romeo Mhakayakora">
       
       
-        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/03-network-security/password-attacks/">
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/breaching-ad/ntlm-authenticated-services/">
       
       
-        <link rel="prev" href="../attacking-common-services/">
+        <link rel="prev" href="../breaching-ad-intro/">
       
       
-        <link rel="next" href="../pivoting-tunneling-port-forwarding/">
+        <link rel="next" href="../ldap-bind-passback-attack/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Password Attacks - CPTS Notes</title>
+        <title>Breaching AD via NTLM Authenticated Services - CPTS Notes</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#password-attacks" class="md-skip">
+        <a href="#breaching-ad-via-ntlm-authenticated-services" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Password Attacks
+              Breaching AD via NTLM Authenticated Services
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../01-information-gathering/" class="md-tabs__link">
+        <a href="../../../01-information-gathering/" class="md-tabs__link">
           
   
   
@@ -268,7 +268,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../02-web-application-security/" class="md-tabs__link">
+        <a href="../../../02-web-application-security/" class="md-tabs__link">
           
   
   
@@ -284,13 +284,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../03-network-security/" class="md-tabs__link">
           
   
   
@@ -310,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../04-privilege-escalation/" class="md-tabs__link">
+        <a href="../../../04-privilege-escalation/" class="md-tabs__link">
           
   
   
@@ -326,11 +324,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../05-active-directory/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../supporting/" class="md-tabs__link">
+        <a href="../../../supporting/" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -414,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -495,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/" class="md-nav__link">
+      <a href="../../../01-information-gathering/" class="md-nav__link">
         
   
   
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
+      <a href="../../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
         
   
   
@@ -551,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/footprinting/" class="md-nav__link">
+      <a href="../../../01-information-gathering/footprinting/" class="md-nav__link">
         
   
   
@@ -579,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
+      <a href="../../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
         
   
   
@@ -668,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/" class="md-nav__link">
+      <a href="../../../02-web-application-security/" class="md-nav__link">
         
   
   
@@ -696,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
+      <a href="../../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
         
   
   
@@ -724,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/using-web-proxies/" class="md-nav__link">
+      <a href="../../../02-web-application-security/using-web-proxies/" class="md-nav__link">
         
   
   
@@ -752,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
+      <a href="../../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
         
   
   
@@ -780,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
+      <a href="../../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
         
   
   
@@ -808,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
+      <a href="../../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
         
   
   
@@ -836,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
+      <a href="../../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
         
   
   
@@ -864,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
+      <a href="../../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
         
   
   
@@ -892,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/file-inclusion/" class="md-nav__link">
+      <a href="../../../02-web-application-security/file-inclusion/" class="md-nav__link">
         
   
   
@@ -920,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
+      <a href="../../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
         
   
   
@@ -948,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/command-injections/" class="md-nav__link">
+      <a href="../../../02-web-application-security/command-injections/" class="md-nav__link">
         
   
   
@@ -976,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/web-attacks/" class="md-nav__link">
+      <a href="../../../02-web-application-security/web-attacks/" class="md-nav__link">
         
   
   
@@ -1004,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
+      <a href="../../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
         
   
   
@@ -1036,31 +1036,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -1078,7 +1075,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1096,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../../03-network-security/" class="md-nav__link">
         
   
   
@@ -1124,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../attacking-common-services/" class="md-nav__link">
+      <a href="../../../03-network-security/attacking-common-services/" class="md-nav__link">
         
   
   
@@ -1149,37 +1146,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Password Attacks
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../03-network-security/password-attacks/" class="md-nav__link">
         
   
   
@@ -1195,120 +1165,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📌 Concepts
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#methodology" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🧭 Methodology
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#techniques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🛠️ Techniques
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🛠️ Techniques">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technique 1
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        💻 Commands
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🧪 Labs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cheatsheet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📇 Cheatsheet
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cpts-readiness" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ CPTS Readiness
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1321,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pivoting-tunneling-port-forwarding/" class="md-nav__link">
+      <a href="../../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
         
   
   
@@ -1349,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../active-directory-enumeration-attacks/" class="md-nav__link">
+      <a href="../../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
         
   
   
@@ -1377,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../file-transfers/" class="md-nav__link">
+      <a href="../../../03-network-security/file-transfers/" class="md-nav__link">
         
   
   
@@ -1405,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../shells-payloads/" class="md-nav__link">
+      <a href="../../../03-network-security/shells-payloads/" class="md-nav__link">
         
   
   
@@ -1433,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../using-metasploit-framework/" class="md-nav__link">
+      <a href="../../../03-network-security/using-metasploit-framework/" class="md-nav__link">
         
   
   
@@ -1522,7 +1378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-privilege-escalation/" class="md-nav__link">
+      <a href="../../../04-privilege-escalation/" class="md-nav__link">
         
   
   
@@ -1550,7 +1406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-privilege-escalation/linux-privilege-escalation/" class="md-nav__link">
+      <a href="../../../04-privilege-escalation/linux-privilege-escalation/" class="md-nav__link">
         
   
   
@@ -1578,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../04-privilege-escalation/windows-privilege-escalation/" class="md-nav__link">
+      <a href="../../../04-privilege-escalation/windows-privilege-escalation/" class="md-nav__link">
         
   
   
@@ -1610,28 +1466,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1649,7 +1508,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1667,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -1701,10 +1560,13 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
@@ -1713,7 +1575,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
             
   
   
@@ -1749,7 +1611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/" class="md-nav__link">
+      <a href="../../ad-basics/" class="md-nav__link">
         
   
   
@@ -1777,7 +1639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/windows-domains-intro/" class="md-nav__link">
+      <a href="../../ad-basics/windows-domains-intro/" class="md-nav__link">
         
   
   
@@ -1805,7 +1667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
+      <a href="../../ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
         
   
   
@@ -1833,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/managing-users-ous-delegation/" class="md-nav__link">
+      <a href="../../ad-basics/managing-users-ous-delegation/" class="md-nav__link">
         
   
   
@@ -1861,7 +1723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/group-policy-objects/" class="md-nav__link">
+      <a href="../../ad-basics/group-policy-objects/" class="md-nav__link">
         
   
   
@@ -1889,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
+      <a href="../../ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
         
   
   
@@ -1917,7 +1779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/trees-forests-trusts/" class="md-nav__link">
+      <a href="../../ad-basics/trees-forests-trusts/" class="md-nav__link">
         
   
   
@@ -1945,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/ad-basics/network-connection-dns/" class="md-nav__link">
+      <a href="../../ad-basics/network-connection-dns/" class="md-nav__link">
         
   
   
@@ -1978,28 +1840,31 @@
                 
   
   
+    
   
   
+  
     
     
     
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
         
           
+          
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
             
   
   
@@ -2017,7 +1882,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2035,7 +1900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/breaching-ad/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -2063,7 +1928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/breaching-ad/breaching-ad-intro/" class="md-nav__link">
+      <a href="../breaching-ad-intro/" class="md-nav__link">
         
   
   
@@ -2088,10 +1953,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../05-active-directory/breaching-ad/ntlm-authenticated-services/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Breaching AD via NTLM Authenticated Services
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2107,6 +1999,309 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-where-netntlm-shows-up-as-an-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Where NetNTLM shows up as an attack surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-use-case-1-validating-credentials-found-elsewhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Use case 1: validating credentials found elsewhere
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-use-case-2-password-spraying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Use case 2: password spraying
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Use case 2: password spraying">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-spraying-not-brute-force" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why spraying, not brute force
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you need
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-validity-is-typically-detected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How validity is typically detected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-execution-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General execution principles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Outcome
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-gaining-initial-access-via-ntlm-authenticated-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy: Gaining Initial Access via NTLM-Authenticated Services
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Strategy: Gaining Initial Access via NTLM-Authenticated Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-you-already-have-leads-usernames-possible-passwords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When you already have leads (usernames, possible passwords)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-you-have-nothing-no-usernames-no-password-lead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When you have nothing (no usernames, no password lead)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When you have nothing (no usernames, no password lead)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-usernames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No usernames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-password-lead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No password lead
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-principle-either-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General principle either way
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key takeaway
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Methodology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#credential-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credential Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-spraying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password Spraying
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Labs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheatsheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📇 Cheatsheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2119,7 +2314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/breaching-ad/ldap-bind-passback-attack/" class="md-nav__link">
+      <a href="../ldap-bind-passback-attack/" class="md-nav__link">
         
   
   
@@ -2155,7 +2350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/enumeration/" class="md-nav__link">
+      <a href="../../enumeration/" class="md-nav__link">
         
   
   
@@ -2183,7 +2378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/attacks/" class="md-nav__link">
+      <a href="../../attacks/" class="md-nav__link">
         
   
   
@@ -2211,7 +2406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05-active-directory/lateral-movement/" class="md-nav__link">
+      <a href="../../lateral-movement/" class="md-nav__link">
         
   
   
@@ -2300,7 +2495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/" class="md-nav__link">
+      <a href="../../../supporting/" class="md-nav__link">
         
   
   
@@ -2328,7 +2523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/penetration-testing-process/" class="md-nav__link">
+      <a href="../../../supporting/penetration-testing-process/" class="md-nav__link">
         
   
   
@@ -2356,7 +2551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/getting-started/" class="md-nav__link">
+      <a href="../../../supporting/getting-started/" class="md-nav__link">
         
   
   
@@ -2384,7 +2579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/documentation-reporting/" class="md-nav__link">
+      <a href="../../../supporting/documentation-reporting/" class="md-nav__link">
         
   
   
@@ -2412,7 +2607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../supporting/attacking-enterprise-networks/" class="md-nav__link">
+      <a href="../../../supporting/attacking-enterprise-networks/" class="md-nav__link">
         
   
   
@@ -2475,6 +2670,195 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-where-netntlm-shows-up-as-an-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Where NetNTLM shows up as an attack surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-use-case-1-validating-credentials-found-elsewhere" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Use case 1: validating credentials found elsewhere
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-use-case-2-password-spraying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Use case 2: password spraying
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Use case 2: password spraying">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-spraying-not-brute-force" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why spraying, not brute force
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you need
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-validity-is-typically-detected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How validity is typically detected
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-execution-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General execution principles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Outcome
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-gaining-initial-access-via-ntlm-authenticated-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy: Gaining Initial Access via NTLM-Authenticated Services
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Strategy: Gaining Initial Access via NTLM-Authenticated Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-you-already-have-leads-usernames-possible-passwords" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When you already have leads (usernames, possible passwords)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-you-have-nothing-no-usernames-no-password-lead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When you have nothing (no usernames, no password lead)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When you have nothing (no usernames, no password lead)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-usernames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No usernames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-password-lead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No password lead
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-principle-either-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General principle either way
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key takeaway
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2501,10 +2885,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#credential-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        Credential Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-spraying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password Spraying
       
     </span>
   </a>
@@ -2549,17 +2944,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#cpts-readiness" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ✅ CPTS Readiness
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2580,9 +2964,9 @@
   
 
 
-<h1 id="password-attacks">Password Attacks<a class="headerlink" href="#password-attacks" title="Permanent link">&para;</a></h1>
+<h1 id="breaching-ad-via-ntlm-authenticated-services">Breaching AD via NTLM Authenticated Services<a class="headerlink" href="#breaching-ad-via-ntlm-authenticated-services" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>[⬅ Domain(./README.md) | [🏠 Dashboard(../README.md)</p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 </blockquote>
 <table>
 <thead>
@@ -2595,8 +2979,8 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">15.38%</td>
 <td style="text-align: center;">—</td>
+<td style="text-align: center;">Started</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;">—</td>
 </tr>
@@ -2605,35 +2989,129 @@
 <p><strong>Status:</strong> 🔄 In Progress</p>
 <hr />
 <h2 id="concepts">📌 Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<!-- Core theory: what is this, why it matters, how it works. -->
-
-<p>-</p>
+<h3 id="1-where-netntlm-shows-up-as-an-attack-surface">1. Where NetNTLM shows up as an attack surface<a class="headerlink" href="#1-where-netntlm-shows-up-as-an-attack-surface" title="Permanent link">&para;</a></h3>
+<p>NetNTLM authentication isn't limited to internal services; it's commonly exposed in ways reachable from outside a network. Typical examples:</p>
+<ul>
+<li>Internally-hosted <strong>Exchange/OWA</strong> login portals exposed to the internet.</li>
+<li><strong>RDP</strong> services exposed to the internet.</li>
+<li><strong>VPN endpoints</strong> integrated with AD.</li>
+<li>Internet-facing <strong>web applications</strong> using NetNTLM (often labelled "Windows Authentication").</li>
+</ul>
+<p><strong>Why this matters:</strong> each of these services acts as a <strong>middleman</strong> that forwards the client's authentication attempt to a Domain Controller as a challenge. The DC decides success or failure; the service just relays the result back. This means <strong>any exposed NetNTLM service is effectively a remote credential-check against the DC</strong>, usable without first having internal network access.</p>
+<h3 id="2-use-case-1-validating-credentials-found-elsewhere">2. Use case 1: validating credentials found elsewhere<a class="headerlink" href="#2-use-case-1-validating-credentials-found-elsewhere" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Exposed NetNTLM services are a good place to <strong>test credentials recovered through other means</strong> (OSINT, breach dumps, previous engagements), since such credentials may be stale or unverified.</li>
+<li>A quick auth attempt against one of these services confirms whether a credential pair still works, before investing further effort.</li>
+</ul>
+<h3 id="3-use-case-2-password-spraying">3. Use case 2: password spraying<a class="headerlink" href="#3-use-case-2-password-spraying" title="Permanent link">&para;</a></h3>
+<h4 id="why-spraying-not-brute-force">Why spraying, not brute force<a class="headerlink" href="#why-spraying-not-brute-force" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Most AD environments have <strong>account lockout policies</strong>.</li>
+<li>A full brute force (many passwords against one user) risks <strong>locking accounts</strong> and alerting defenders quickly.</li>
+<li><strong>Password spraying</strong> flips the approach: <strong>one password, tried across many usernames</strong>, which stays under most per-account lockout thresholds.</li>
+<li><strong>Detection risk:</strong> still generates many failed authentication attempts and can be picked up by monitoring, so this isn't silent.</li>
+</ul>
+<h4 id="what-you-need">What you need<a class="headerlink" href="#what-you-need" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A list of <strong>candidate usernames</strong>.</li>
+<li>One or more <strong>candidate passwords</strong>, chosen from recon or common patterns.</li>
+</ul>
+<h4 id="how-validity-is-typically-detected">How validity is typically detected<a class="headerlink" href="#how-validity-is-typically-detected" title="Permanent link">&para;</a></h4>
+<p>Exposed web apps using Windows Authentication usually return a distinct response for success vs. failure:</p>
+<table>
+<thead>
+<tr>
+<th>Response</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>200 OK (or similar success response)</strong></td>
+<td>Valid credential pair</td>
+</tr>
+<tr>
+<td><strong>401 Unauthorized</strong></td>
+<td>Invalid credential pair</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>For RDP, VPN or OWA, the equivalent signal is a successful login vs. an explicit rejection message.</li>
+</ul>
+<h4 id="general-execution-principles">General execution principles<a class="headerlink" href="#general-execution-principles" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Try <strong>one password across the full username list</strong> per round, never several passwords against one user in sequence.</li>
+<li><strong>Space rounds out over time</strong> (hours or days apart, aligned with the lockout reset window if known), to reduce lockout and detection risk.</li>
+<li>Prefer scripted, controlled attempts over tools that fire many requests in bursts, so you can throttle and log results deliberately.</li>
+<li>Browser-based manual testing of Windows Authentication prompts can be unreliable in some browsers; cross-check with a different browser if a login unexpectedly fails.</li>
+</ul>
+<h3 id="4-outcome">4. Outcome<a class="headerlink" href="#4-outcome" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Confirming or spraying credentials against an exposed NetNTLM service yields a <strong>first valid AD credential</strong>, which becomes the foothold for further AD enumeration (LDAP queries, SMB access, Kerberos interaction, etc.).</li>
+</ul>
+<hr />
+<h2 id="strategy-gaining-initial-access-via-ntlm-authenticated-services">Strategy: Gaining Initial Access via NTLM-Authenticated Services<a class="headerlink" href="#strategy-gaining-initial-access-via-ntlm-authenticated-services" title="Permanent link">&para;</a></h2>
+<h3 id="when-you-already-have-leads-usernames-possible-passwords">When you already have leads (usernames, possible passwords)<a class="headerlink" href="#when-you-already-have-leads-usernames-possible-passwords" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Recon:</strong> gather valid usernames and any likely passwords through OSINT (forums, code repos, breach data, employee lists, onboarding conventions).</li>
+<li><strong>Find NetNTLM-exposed surfaces:</strong> OWA, RDP, VPN portals, or internet-facing web apps using Windows Authentication.</li>
+<li><strong>Validate leads first:</strong> test any candidate credentials against an exposed NetNTLM service before trying anything noisier.</li>
+<li><strong>If no valid creds yet, password spray:</strong> one password across all usernames, never many passwords per user.</li>
+<li><strong>Throttle attempts</strong> to reduce lockout and detection risk.</li>
+<li><strong>On success:</strong> treat the account as a foothold only, regardless of its privilege level, and move to AD enumeration.</li>
+<li><strong>Repeat across other exposed services</strong> (OWA, VPN, RDP) if one route fails, since they share the same underlying authentication weakness.</li>
+</ol>
+<h3 id="when-you-have-nothing-no-usernames-no-password-lead">When you have nothing (no usernames, no password lead)<a class="headerlink" href="#when-you-have-nothing-no-usernames-no-password-lead" title="Permanent link">&para;</a></h3>
+<h4 id="no-usernames">No usernames<a class="headerlink" href="#no-usernames" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Derive a username list from naming conventions</strong>, once you know or guess the company's format:</li>
+<li><code>first.last</code>, <code>flast</code>, <code>firstl</code>, <code>first</code> — combined with real employee names from LinkedIn, the company's team page, press releases, or conference speaker lists.</li>
+<li><strong>Enumerate usernames against the service itself</strong>, where it responds differently for valid vs. invalid usernames independent of the password. Some login portals and related protocols (such as Kerberos pre-authentication) leak this distinction, letting you build a verified username list before spraying.</li>
+<li><strong>Check breach-dump and paste sites by email domain</strong>, even without an OSINT hit on a specific individual, since a domain-wide search can surface employee emails nobody intentionally disclosed.</li>
+</ul>
+<h4 id="no-password-lead">No password lead<a class="headerlink" href="#no-password-lead" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Fall back to <strong>generic, high-probability corporate passwords</strong>, since many organisations follow predictable patterns:</li>
+<li>Seasonal/year patterns: <code>Summer2026!</code>, <code>Autumn2025!</code></li>
+<li>Company name plus a common suffix: <code>Companyname1!</code>, <code>CompanyName123</code></li>
+<li>Common default or onboarding words: <code>Welcome1</code>, <code>Password1</code>, <code>Changeme1</code></li>
+<li><strong>Spray multiple candidate passwords, but space the rounds out over time</strong> rather than trying several in quick succession, to stay under lockout thresholds and remain quieter.</li>
+<li>Only ever try <strong>one password per round across the whole username list</strong>, never multiple passwords per user back-to-back.</li>
+</ul>
+<h3 id="general-principle-either-way">General principle either way<a class="headerlink" href="#general-principle-either-way" title="Permanent link">&para;</a></h3>
+<p>An exposed NetNTLM service is usable as a <strong>credential oracle</strong>: it answers success or failure regardless of where the guesses came from. Without OSINT, more of the work shifts to <strong>intelligently guessing or enumerating usernames and passwords</strong>, and to being disciplined about pacing to avoid lockouts and detection.</p>
+<h3 id="key-takeaway">Key takeaway<a class="headerlink" href="#key-takeaway" title="Permanent link">&para;</a></h3>
+<p>The exploitable idea isn't a flaw in NetNTLM itself. It's that <strong>any exposed service using it is effectively a remote authentication check against the DC</strong>. Username enumeration/OSINT and password selection are the real force multipliers; the mechanism of testing credentials against the service is simple once a target surface is found.</p>
+<hr />
 <h2 id="methodology">🧭 Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
-<!-- Step-by-step enumeration / attack workflow. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Step 1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Recon usernames/passwords (OSINT or conventions)
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ↓
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Step 2
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Find NetNTLM-exposed surfaces (OWA / RDP / VPN / Windows Auth web)
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ↓
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Step 3
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Validate leads → 200 OK vs 401
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ↓
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Else spray: 1 password × all users, spaced rounds
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  ↓
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>First valid cred → AD enumeration
 </code></pre></div>
 <h2 id="techniques">🛠️ Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
-<!-- Individual techniques with when/why to use each. -->
-
-<h3 id="technique-1">Technique 1<a class="headerlink" href="#technique-1" title="Permanent link">&para;</a></h3>
+<h3 id="credential-validation">Credential Validation<a class="headerlink" href="#credential-validation" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Description:</li>
-<li>When to use:</li>
-<li>Command:</li>
+<li>Description: Test OSINT/breach creds against exposed NetNTLM service.</li>
+<li>When to use: You have candidate pairs and need to confirm they're live.</li>
+<li>Command: Auth attempt → 200 OK = valid, 401 = invalid.</li>
+</ul>
+<h3 id="password-spraying">Password Spraying<a class="headerlink" href="#password-spraying" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: One password across many usernames per round.</li>
+<li>When to use: Leads exhausted, lockout policies must be respected.</li>
+<li>Command: Scripted, throttled rounds spaced by lockout reset window; one password per round.</li>
 </ul>
 <h2 id="commands">💻 Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<!-- Copy-paste ready command reference. -->
-
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># TODO: add commands</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># TODO: add spraying/validation tooling (e.g. medusa/hydra/nxc/netexec) when lab material provided</span>
 </code></pre></div>
 <h2 id="labs">🧪 Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
-<!-- HTB labs / boxes practiced, what worked, what failed. -->
-
 <table>
 <thead>
 <tr>
@@ -2651,22 +3129,15 @@
 </tbody>
 </table>
 <h2 id="cheatsheet">📇 Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permanent link">&para;</a></h2>
-<!-- Ultra-condensed quick reference for exam-time recall. -->
-
-<p>-</p>
-<h2 id="cpts-readiness">✅ CPTS Readiness<a class="headerlink" href="#cpts-readiness" title="Permanent link">&para;</a></h2>
 <ul>
-<li>[ ] Explain the underlying concepts</li>
-<li>[ ] Enumerate systematically</li>
-<li>[ ] Identify attack opportunities</li>
-<li>[ ] Execute the relevant techniques</li>
-<li>[ ] Troubleshoot when the obvious approach fails</li>
-<li>[ ] Document commands and evidence</li>
-<li>[ ] Apply the technique in an unfamiliar environment</li>
-<li>[ ] Combine it with other CPTS skills</li>
+<li>Exposed NetNTLM service = remote credential oracle against the DC</li>
+<li>Validate: 200 OK = valid / 401 = invalid (Windows Auth)</li>
+<li>Spray: <strong>1 password × all users</strong>, rounds spaced over hours/days — never many passwords per user</li>
+<li>Naming conventions: <code>first.last</code>, <code>flast</code>, <code>firstl</code>, <code>first</code> | corp passwords: season+year, <code>Company1!</code>, <code>Welcome1</code></li>
+<li>Success = foothold only (any priv) → enumerate</li>
 </ul>
 <hr />
-<p>[⬅ Domain(./README.md) | [🏠 Dashboard(../README.md)</p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 
 
 
@@ -2724,14 +3195,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
       
-        <script src="../../javascripts/mermaid.js"></script>
+        <script src="../../../javascripts/mermaid.js"></script>
       
     
   </body>
