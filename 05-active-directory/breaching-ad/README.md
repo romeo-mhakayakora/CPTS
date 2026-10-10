@@ -12,8 +12,9 @@
 | [Breaching AD via NTLM Authenticated Services](./ntlm-authenticated-services.md) | 🔄 | [📖](./ntlm-authenticated-services.md) |
 | [LDAP, Bind Credentials & Pass-back Attacks](./ldap-bind-passback-attack.md) | 🔄 | [📖](./ldap-bind-passback-attack.md) |
 | [SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks](./smb-llmnr-relay-attacks.md) | 🔄 | [📖](./smb-llmnr-relay-attacks.md) |
+| [Credential Recovery from Configuration Files](./config-file-credential-recovery.md) | 🔄 | [📖](./config-file-credential-recovery.md) |
 
-> Planned sections (waiting for source material): Microsoft Deployment Toolkit (MDT), Configuration files.
+> Planned sections (waiting for source material): Microsoft Deployment Toolkit (MDT).
 
 ## 🎯 Folder Goal
 
