@@ -12,13 +12,13 @@
         <meta name="author" content="Romeo Mhakayakora">
       
       
-        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/ad-basics/ad-objects-accounts-organisation/">
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/breaching-ad/config-file-credential-recovery/">
       
       
-        <link rel="prev" href="../windows-domains-intro/">
+        <link rel="prev" href="../smb-llmnr-relay-attacks/">
       
       
-        <link rel="next" href="../managing-users-ous-delegation/">
+        <link rel="next" href="../../enumeration/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>AD Objects, Accounts and Organisation - CPTS Notes</title>
+        <title>Credential Recovery from Configuration Files - CPTS Notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#active-directory-objects-accounts-and-organisation" class="md-skip">
+        <a href="#credential-recovery-from-configuration-files" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AD Objects, Accounts and Organisation
+              Credential Recovery from Configuration Files
             
           </span>
         </div>
@@ -1551,6 +1551,295 @@
                 
   
   
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AD Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/windows-domains-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Domains and AD (Intro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Objects, Accounts and Organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/managing-users-ous-delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing AD Users, OUs and Delegation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/group-policy-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Group Policy Objects (GPOs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication (Kerberos & NetNTLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/trees-forests-trusts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trees, Forests and Trust Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/network-connection-dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting to the Network and DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1572,17 +1861,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    AD Basics
+    Breaching AD
   
 
     
@@ -1593,12 +1882,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    AD Basics
+    Breaching AD
   
 
           </label>
@@ -1639,14 +1928,98 @@
   
   
     <li class="md-nav__item">
-      <a href="../windows-domains-intro/" class="md-nav__link">
+      <a href="../breaching-ad-intro/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Windows Domains and AD (Intro)
+    Breaching AD (Intro) & Initial Credentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntlm-authenticated-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Breaching AD via NTLM Authenticated Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap-bind-passback-attack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP, Bind Credentials & Pass-back Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smb-llmnr-relay-attacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks
   
 
     
@@ -1683,7 +2056,7 @@
   <span class="md-ellipsis">
     
   
-    AD Objects, Accounts and Organisation
+    Credential Recovery from Configuration Files
   
 
     
@@ -1701,7 +2074,7 @@
   <span class="md-ellipsis">
     
   
-    AD Objects, Accounts and Organisation
+    Credential Recovery from Configuration Files
   
 
     
@@ -1739,10 +2112,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-active-directory-domain-service-ad-ds" class="md-nav__link">
+  <a href="#1-why-configuration-files-matter-post-breach" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Active Directory Domain Service (AD DS)
+        1. Why configuration files matter post-breach
       
     </span>
   </a>
@@ -1750,10 +2123,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-security-principals" class="md-nav__link">
+  <a href="#2-categories-of-config-files-worth-targeting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Security principals
+        2. Categories of config files worth targeting
       
     </span>
   </a>
@@ -1761,22 +2134,33 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-object-types" class="md-nav__link">
+  <a href="#3-the-core-concept-centrally-deployed-applications" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Object types
+        3. The core concept: centrally deployed applications
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Object types">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-general-methodology-for-config-file-credential-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. General methodology for config file credential recovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. General methodology for config file credential recovery">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#users" class="md-nav__link">
+  <a href="#step-1-identify-whats-running-on-the-host" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Users
+        Step 1: identify what's running on the host
       
     </span>
   </a>
@@ -1784,10 +2168,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#machines" class="md-nav__link">
+  <a href="#step-2-locate-the-credential-store" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Machines
+        Step 2: locate the credential store
       
     </span>
   </a>
@@ -1795,10 +2179,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#security-groups" class="md-nav__link">
+  <a href="#step-3-extract-and-read-the-credential-store" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Security groups
+        Step 3: extract and read the credential store
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-handle-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: handle encryption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-use-recovered-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: use recovered credentials
       
     </span>
   </a>
@@ -1811,10 +2217,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-default-security-groups" class="md-nav__link">
+  <a href="#5-general-offsec-principle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Default security groups
+        5. General offsec principle
       
     </span>
   </a>
@@ -1822,10 +2228,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-organizational-units-ous" class="md-nav__link">
+  <a href="#6-quick-recall" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Organizational Units (OUs)
+        6. Quick recall
       
     </span>
   </a>
@@ -1833,54 +2239,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-active-directory-users-and-computers-aduc" class="md-nav__link">
+  <a href="#7-open-items" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Active Directory Users and Computers (ADUC)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-default-containers-created-automatically-by-windows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Default containers (created automatically by Windows)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-quick-recall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Quick recall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-verify-before-relying-on-these" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Verify before relying on these
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-open-items" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Open items
+        7. Open items
       
     </span>
   </a>
@@ -1916,10 +2278,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#config-file-enumeration-seatbelt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        Config File Enumeration (Seatbelt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqlite-credential-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQLite Credential Extraction
       
     </span>
   </a>
@@ -1968,379 +2341,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../managing-users-ous-delegation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing AD Users, OUs and Delegation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../group-policy-objects/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Group Policy Objects (GPOs)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../authentication-kerberos-netntlm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication (Kerberos & NetNTLM)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trees-forests-trusts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trees, Forests and Trust Relationships
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../network-connection-dns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Connecting to the Network and DNS
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaching AD
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Breaching AD
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/breaching-ad-intro/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaching AD (Intro) & Initial Credentials
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/ntlm-authenticated-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaching AD via NTLM Authenticated Services
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/ldap-bind-passback-attack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LDAP, Bind Credentials & Pass-back Attacks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/smb-llmnr-relay-attacks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/config-file-credential-recovery/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Credential Recovery from Configuration Files
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2685,10 +2685,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-active-directory-domain-service-ad-ds" class="md-nav__link">
+  <a href="#1-why-configuration-files-matter-post-breach" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Active Directory Domain Service (AD DS)
+        1. Why configuration files matter post-breach
       
     </span>
   </a>
@@ -2696,10 +2696,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-security-principals" class="md-nav__link">
+  <a href="#2-categories-of-config-files-worth-targeting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Security principals
+        2. Categories of config files worth targeting
       
     </span>
   </a>
@@ -2707,22 +2707,33 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-object-types" class="md-nav__link">
+  <a href="#3-the-core-concept-centrally-deployed-applications" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Object types
+        3. The core concept: centrally deployed applications
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Object types">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-general-methodology-for-config-file-credential-recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. General methodology for config file credential recovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. General methodology for config file credential recovery">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#users" class="md-nav__link">
+  <a href="#step-1-identify-whats-running-on-the-host" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Users
+        Step 1: identify what's running on the host
       
     </span>
   </a>
@@ -2730,10 +2741,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#machines" class="md-nav__link">
+  <a href="#step-2-locate-the-credential-store" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Machines
+        Step 2: locate the credential store
       
     </span>
   </a>
@@ -2741,10 +2752,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#security-groups" class="md-nav__link">
+  <a href="#step-3-extract-and-read-the-credential-store" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Security groups
+        Step 3: extract and read the credential store
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-handle-encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: handle encryption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-use-recovered-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: use recovered credentials
       
     </span>
   </a>
@@ -2757,10 +2790,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-default-security-groups" class="md-nav__link">
+  <a href="#5-general-offsec-principle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Default security groups
+        5. General offsec principle
       
     </span>
   </a>
@@ -2768,10 +2801,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-organizational-units-ous" class="md-nav__link">
+  <a href="#6-quick-recall" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Organizational Units (OUs)
+        6. Quick recall
       
     </span>
   </a>
@@ -2779,54 +2812,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-active-directory-users-and-computers-aduc" class="md-nav__link">
+  <a href="#7-open-items" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Active Directory Users and Computers (ADUC)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-default-containers-created-automatically-by-windows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Default containers (created automatically by Windows)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8-quick-recall" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Quick recall
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#9-verify-before-relying-on-these" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Verify before relying on these
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#10-open-items" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Open items
+        7. Open items
       
     </span>
   </a>
@@ -2862,10 +2851,21 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#config-file-enumeration-seatbelt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        Config File Enumeration (Seatbelt)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqlite-credential-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQLite Credential Extraction
       
     </span>
   </a>
@@ -2930,9 +2930,9 @@
   
 
 
-<h1 id="active-directory-objects-accounts-and-organisation">Active Directory Objects, Accounts and Organisation<a class="headerlink" href="#active-directory-objects-accounts-and-organisation" title="Permanent link">&para;</a></h1>
+<h1 id="credential-recovery-from-configuration-files">Credential Recovery from Configuration Files<a class="headerlink" href="#credential-recovery-from-configuration-files" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 </blockquote>
 <table>
 <thead>
@@ -2955,178 +2955,150 @@
 <p><strong>Status:</strong> 🔄 In Progress</p>
 <hr />
 <h2 id="concepts">📌 Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<h3 id="1-active-directory-domain-service-ad-ds">1. Active Directory Domain Service (AD DS)<a class="headerlink" href="#1-active-directory-domain-service-ad-ds" title="Permanent link">&para;</a></h3>
+<h3 id="1-why-configuration-files-matter-post-breach">1. Why configuration files matter post-breach<a class="headerlink" href="#1-why-configuration-files-matter-post-breach" title="Permanent link">&para;</a></h3>
 <ul>
-<li>The core of any Windows domain.</li>
-<li>Acts as a <strong>catalogue of all "objects"</strong> on the network: users, groups, machines, printers, shares and others.</li>
+<li>Once you have a foothold on any host inside a network, <strong>configuration files are a primary loot target</strong>.</li>
+<li>Many applications and services must authenticate to the domain during both installation and runtime. Those credentials have to be stored somewhere, and that somewhere is almost always a config file, database, or registry key — often with weak or well-known encryption, or in plaintext.</li>
+<li>This isn't a niche technique. It's a <strong>standard post-exploitation step</strong> that should be part of every host-level methodology.</li>
 </ul>
-<h3 id="2-security-principals">2. Security principals<a class="headerlink" href="#2-security-principals" title="Permanent link">&para;</a></h3>
-<p>A <strong>security principal</strong> is an object that can be authenticated by the domain and can be assigned privileges over resources (files, printers, etc.). In short, it can act upon resources in the network.</p>
-<p><strong>Security principals:</strong> users, machines, security groups.</p>
-<h3 id="3-object-types">3. Object types<a class="headerlink" href="#3-object-types" title="Permanent link">&para;</a></h3>
-<h4 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h4>
-<ul>
-<li>One of the most common object types.</li>
-<li>They represent two kinds of entities:</li>
-<li><strong>People:</strong> employees or others who need network access.</li>
-<li><strong>Services:</strong> accounts for services like IIS or MSSQL. Every service needs a user to run. Service users have only the privileges needed for their specific service.</li>
-</ul>
-<h4 id="machines">Machines<a class="headerlink" href="#machines" title="Permanent link">&para;</a></h4>
-<ul>
-<li>A machine object is created for every computer that joins the domain.</li>
-<li>Machines are security principals with their own account, which has somewhat limited rights within the domain.</li>
-<li>The account is a <strong>local administrator on its assigned computer</strong>.</li>
-<li>It isn't meant to be used by anyone except the computer itself, but <strong>if you have the password, you can log in with it</strong>.</li>
-<li><strong>Password:</strong> rotated automatically, generally 120 random characters.</li>
-<li><strong>Naming scheme:</strong> computer name + <code>$</code>. Example: machine <code>DC01</code> has the account <code>DC01$</code>.</li>
-</ul>
-<p><strong>What "logging in" as a machine account means:</strong></p>
-<ul>
-<li>It means authenticating to the network as the computer itself, not as a human.</li>
-<li>Normally this happens in the background. The computer uses its account and password to prove its identity to the DC, for example to fetch group policies and updates before any user logs in.</li>
-<li>Doing it manually requires the account's password or hash.</li>
-<li>It gives you that machine's permissions: local admin control of that computer, and the ability to interact with other domain resources as a trusted machine.</li>
-</ul>
-<h4 id="security-groups">Security groups<a class="headerlink" href="#security-groups" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Assign access rights to a group instead of to individual users. Members inherit the group's privileges, which makes management easier.</li>
-<li>Groups are security principals, so they can hold privileges over network resources.</li>
-<li>Members can be <strong>users, machines, or other groups</strong>.</li>
-</ul>
-<h3 id="4-default-security-groups">4. Default security groups<a class="headerlink" href="#4-default-security-groups" title="Permanent link">&para;</a></h3>
+<h3 id="2-categories-of-config-files-worth-targeting">2. Categories of config files worth targeting<a class="headerlink" href="#2-categories-of-config-files-worth-targeting" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Group</th>
-<th>Official description</th>
-<th>Plain-English meaning</th>
+<th>Category</th>
+<th>Examples</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Domain Admins</strong></td>
-<td>Administrative privileges over the entire domain. Can administer any computer, including DCs.</td>
-<td>Full control of everything</td>
+<td><strong>Web application config files</strong></td>
+<td><code>web.config</code>, <code>.env</code>, <code>database.yml</code>, <code>settings.py</code>, <code>config.php</code></td>
 </tr>
 <tr>
-<td><strong>Server Operators</strong></td>
-<td>Can administer DCs. Cannot change administrative group memberships.</td>
-<td>Manage the critical servers, but can't promote anyone to admin</td>
+<td><strong>Service configuration files</strong></td>
+<td>Any service needing to authenticate to AD or a database to function</td>
 </tr>
 <tr>
-<td><strong>Backup Operators</strong></td>
-<td>Can access any file, ignoring its permissions. Used for backups.</td>
-<td>Can read and copy any file</td>
+<td><strong>Registry keys</strong></td>
+<td>Credentials stored by installers or applications in the Windows registry</td>
 </tr>
 <tr>
-<td><strong>Account Operators</strong></td>
-<td>Can create or modify other accounts in the domain.</td>
-<td>Manage user accounts</td>
-</tr>
-<tr>
-<td><strong>Domain Users</strong></td>
-<td>All existing user accounts in the domain.</td>
-<td>Every normal user</td>
-</tr>
-<tr>
-<td><strong>Domain Computers</strong></td>
-<td>All existing computers in the domain.</td>
-<td>Every joined machine</td>
-</tr>
-<tr>
-<td><strong>Domain Controllers</strong></td>
-<td>All existing DCs in the domain.</td>
-<td>Only the AD servers</td>
+<td><strong>Centrally deployed applications</strong></td>
+<td>Endpoint security tools, management agents, monitoring agents — anything pushed from a central orchestrator</td>
 </tr>
 </tbody>
 </table>
-<p>The complete list of default groups is in the Microsoft documentation.</p>
-<h3 id="5-organizational-units-ous">5. Organizational Units (OUs)<a class="headerlink" href="#5-organizational-units-ous" title="Permanent link">&para;</a></h3>
+<p><strong>Automation:</strong> tools like <strong>Seatbelt</strong> can enumerate many of these locations automatically on a Windows host.</p>
+<h3 id="3-the-core-concept-centrally-deployed-applications">3. The core concept: centrally deployed applications<a class="headerlink" href="#3-the-core-concept-centrally-deployed-applications" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Container objects</strong> used to classify users and machines.</li>
-<li>Mainly used to define sets of users with <strong>similar policy requirements</strong> (for example, Sales and IT get different policies).</li>
-<li><strong>A user can only be in one OU at a time.</strong></li>
-<li>OUs commonly mirror the business structure, which makes it efficient to deploy baseline policies to whole departments. They can be defined arbitrarily, though.</li>
-<li><strong>Example:</strong> an OU named <code>THM</code> with five child OUs: IT, Management, Marketing, R&amp;D, Sales.</li>
+<li>Applications deployed centrally across a network (endpoint security tools, monitoring agents, patch management systems) need to authenticate to an orchestrator or domain during installation and continued operation.</li>
+<li>Those credentials are embedded somewhere on the host so the application can use them at runtime — <strong>without a human typing them in each time</strong>.</li>
+<li>This means <strong>every host running that application is a potential source of those credentials</strong>, not just the server it connects back to.</li>
 </ul>
-<h3 id="6-active-directory-users-and-computers-aduc">6. Active Directory Users and Computers (ADUC)<a class="headerlink" href="#6-active-directory-users-and-computers-aduc" title="Permanent link">&para;</a></h3>
+<h3 id="4-general-methodology-for-config-file-credential-recovery">4. General methodology for config file credential recovery<a class="headerlink" href="#4-general-methodology-for-config-file-credential-recovery" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-identify-whats-running-on-the-host">Step 1: identify what's running on the host<a class="headerlink" href="#step-1-identify-whats-running-on-the-host" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Tool for managing users, groups and machines.</li>
-<li><strong>Access:</strong> log in to the Domain Controller, then run "Active Directory Users and Computers" from the Start menu.</li>
-<li>Shows the hierarchy of users, computers and groups, organised by OU.</li>
-<li><strong>Tasks:</strong> create, delete or modify objects, create OUs (right-click an OU), and <strong>reset passwords</strong> (useful for the helpdesk).</li>
+<li>List installed applications, running services, and scheduled tasks.</li>
+<li>Focus on anything that would need to authenticate outward (to AD, to a central server, to a database).</li>
+<li>Tools: <code>tasklist</code>, <code>services.msc</code>, <code>wmic product get name</code>, Seatbelt, or manual enumeration.</li>
 </ul>
-<h3 id="7-default-containers-created-automatically-by-windows">7. Default containers (created automatically by Windows)<a class="headerlink" href="#7-default-containers-created-automatically-by-windows" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Container</th>
-<th>Contents</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Builtin</strong></td>
-<td>Default groups available to any Windows host</td>
-</tr>
-<tr>
-<td><strong>Computers</strong></td>
-<td>Default location for any machine joining the network (can be moved)</td>
-</tr>
-<tr>
-<td><strong>Domain Controllers</strong></td>
-<td>Default OU containing the DCs</td>
-</tr>
-<tr>
-<td><strong>Users</strong></td>
-<td>Default users and groups (source text cuts off here)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="8-quick-recall">8. Quick recall<a class="headerlink" href="#8-quick-recall" title="Permanent link">&para;</a></h3>
+<h4 id="step-2-locate-the-credential-store">Step 2: locate the credential store<a class="headerlink" href="#step-2-locate-the-credential-store" title="Permanent link">&para;</a></h4>
 <ul>
-<li>AD DS = catalogue of network objects</li>
-<li>Security principals = users, machines, security groups</li>
-<li>Users = people or services</li>
-<li>Machine account = <code>COMPUTERNAME$</code>, 120-character auto-rotated password, local admin on its own computer</li>
-<li>Groups can contain users, machines, and other groups</li>
-<li>OUs = containers for applying policy, one OU per user</li>
-<li>Default containers = Builtin, Computers, Domain Controllers, Users</li>
+<li>Each application stores its credentials differently. Common patterns:</li>
+<li><strong>Flat config files</strong> (XML, JSON, INI, YAML) with plaintext or encoded credentials.</li>
+<li><strong>SQLite or other embedded databases</strong> (look for <code>.db</code> files in the application's data directory).</li>
+<li><strong>Registry keys</strong> written during installation.</li>
+<li><strong><code>ProgramData</code></strong> directories — a frequent location for application data on Windows that many assessors overlook (<code>C:\ProgramData\&lt;VendorName&gt;\</code>).</li>
 </ul>
-<h3 id="9-verify-before-relying-on-these">9. Verify before relying on these<a class="headerlink" href="#9-verify-before-relying-on-these" title="Permanent link">&para;</a></h3>
-<p>These claims aren't in the original source text, and some are oversimplified:</p>
+<h4 id="step-3-extract-and-read-the-credential-store">Step 3: extract and read the credential store<a class="headerlink" href="#step-3-extract-and-read-the-credential-store" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>"Account Operators can't touch admin accounts."</strong> The source only says they can create or modify other accounts. Check Microsoft's documentation for the exact restrictions.</li>
-<li><strong>"Machine accounts can impersonate Domain Admins via delegation."</strong> This is true only in specific misconfigurations (such as unconstrained delegation), not by default.</li>
-<li><strong>"Machine accounts are hidden."</strong> They are visible in AD, and the <code>$</code> naming makes them easy to spot.</li>
+<li>If it's a readable text file, read it directly.</li>
+<li>If it's a SQLite database, copy it off the host and inspect it with <strong>sqlitebrowser</strong> or the <code>sqlite3</code> CLI:</li>
 </ul>
-<h3 id="10-open-items">10. Open items<a class="headerlink" href="#10-open-items" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sqlitebrowser<span class="w"> </span>&lt;file&gt;.db
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># or</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sqlite3<span class="w"> </span>&lt;file&gt;.db<span class="w"> </span><span class="s2">".tables"</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sqlite3<span class="w"> </span>&lt;file&gt;.db<span class="w"> </span><span class="s2">"SELECT * FROM &lt;table&gt;;"</span>
+</code></pre></div>
 <ul>
-<li>The <strong>Users</strong> container description was cut off in the source. Send the rest to complete it.</li>
-<li>Two follow-ups were never answered: how machine account passwords or hashes are obtained, and why Backup Operators are a common target. Nothing is added here on either.</li>
+<li>Transferring a file off a Windows host with SSH access:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>scp<span class="w"> </span>&lt;user&gt;@&lt;host&gt;:C:/&lt;path&gt;/&lt;file&gt;<span class="w"> </span>.
+</code></pre></div>
+<h4 id="step-4-handle-encryption">Step 4: handle encryption<a class="headerlink" href="#step-4-handle-encryption" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Many applications encrypt stored credentials, but often use:</li>
+<li><strong>Known, static encryption keys</strong> baked into the application (the McAfee <code>ma.db</code> case is a direct example of this pattern).</li>
+<li><strong>Weak or reversible encoding</strong> (Base64, XOR with a fixed key).</li>
+<li><strong>DPAPI</strong> (Windows Data Protection API) — tied to the user or machine context, recoverable if you have the right access.</li>
+<li><strong>Check if a public decryption tool or known key already exists for the application</strong> before trying to reverse engineer the encryption yourself. Endpoint security tools, VPN clients, and management agents are frequently researched and have known decryption methods publicly documented.</li>
+</ul>
+<h4 id="step-5-use-recovered-credentials">Step 5: use recovered credentials<a class="headerlink" href="#step-5-use-recovered-credentials" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Recovered credentials are typically <strong>AD service account credentials</strong>, valid domain-wide.</li>
+<li>Use them for further AD enumeration, lateral movement, or privilege escalation — even a low-privileged service account opens up LDAP enumeration.</li>
+</ul>
+<h3 id="5-general-offsec-principle">5. General offsec principle<a class="headerlink" href="#5-general-offsec-principle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The security model behind most config-file credential storage is: <em>protect the location and access to the file, not the credential itself</em>.</li>
+<li>The moment you have local access to the host, that model collapses. This is exactly why <strong>any foothold, however low-privileged, is worth fully exploiting before moving on</strong> — the credentials to breach further may already be sitting on the host you're on.</li>
+</ul>
+<h3 id="6-quick-recall">6. Quick recall<a class="headerlink" href="#6-quick-recall" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Post-breach, always enumerate config files</strong> — don't treat a foothold as just a pivot point.</li>
+<li>Locations to always check: <code>ProgramData</code>, application install directories, service config files, registry.</li>
+<li>Centrally deployed apps (endpoint security, patch management, monitoring agents) nearly always embed AD credentials.</li>
+<li>Encrypted ≠ safe. Many vendors use known, static keys or weak encoding. Check for existing public tooling before assuming the encryption is a blocker.</li>
+<li>A recovered service account credential, even a read-only one, is enough to enumerate the entire LDAP tree.</li>
+<li><strong>Seatbelt</strong> automates much of this enumeration on Windows hosts.</li>
+</ul>
+<h3 id="7-open-items">7. Open items<a class="headerlink" href="#7-open-items" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The source covers McAfee Enterprise as the worked example. The principle applies equally to any vendor: <strong>the pattern (application stores encrypted creds in a known location with a known key) repeats across many enterprise products</strong>. Build your methodology around the pattern, not the specific vendor.</li>
+<li>DPAPI-protected credentials on Windows (used by browsers, credential manager, and many applications) follow a different recovery path — worth covering separately if that material comes up.</li>
 </ul>
 <h2 id="methodology">🧭 Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Identify AD DS role and DC
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ↓
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Enumerate users / machines / groups
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ↓
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Map OUs and default containers
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ↓
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Check privileged groups membership
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  ↓
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Link to enumeration / attacks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Foothold on host
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  ↓
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Enumerate apps/services/tasks (Seatbelt, tasklist, wmic)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  ↓
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Locate credential store (configs, .db, registry, ProgramData)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  ↓
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Extract (read / sqlitebrowser / scp off host)
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  ↓
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>Decrypt (known static key / weak encoding / DPAPI tooling)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  ↓
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>Use AD service creds → enumerate / move laterally
 </code></pre></div>
 <h2 id="techniques">🛠️ Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
-<!-- Individual techniques with when/why to use each. -->
-
-<h3 id="technique-1">Technique 1<a class="headerlink" href="#technique-1" title="Permanent link">&para;</a></h3>
+<h3 id="config-file-enumeration-seatbelt">Config File Enumeration (Seatbelt)<a class="headerlink" href="#config-file-enumeration-seatbelt" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Description:</li>
-<li>When to use:</li>
-<li>Command:</li>
+<li>Description: Automatically enumerate credential stores on a Windows host.</li>
+<li>When to use: Every post-breach foothold, before pivoting on.</li>
+<li>Command: Run Seatbelt; manually check <code>C:\ProgramData\&lt;Vendor&gt;\</code>, install dirs, service configs, registry.</li>
+</ul>
+<h3 id="sqlite-credential-extraction">SQLite Credential Extraction<a class="headerlink" href="#sqlite-credential-extraction" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: Copy embedded app databases off-host and query them.</li>
+<li>When to use: App stores creds in <code>.db</code> files.</li>
+<li>Command:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scp<span class="w"> </span>&lt;user&gt;@&lt;host&gt;:C:/&lt;path&gt;/&lt;file&gt;.db<span class="w"> </span>.
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sqlite3<span class="w"> </span>&lt;file&gt;.db<span class="w"> </span><span class="s2">".tables"</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sqlite3<span class="w"> </span>&lt;file&gt;.db<span class="w"> </span><span class="s2">"SELECT * FROM &lt;table&gt;;"</span>
+</code></pre></div></li>
 </ul>
 <h2 id="commands">💻 Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># TODO: ADUC, PowerView, ldapsearch, netexec, BloodHound collection for objects/OUs/groups</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Host recon (Windows)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>tasklist
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>wmic<span class="w"> </span>product<span class="w"> </span>get<span class="w"> </span>name
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># SQLite inspection</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>sqlitebrowser<span class="w"> </span>&lt;file&gt;.db
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>sqlite3<span class="w"> </span>&lt;file&gt;.db<span class="w"> </span><span class="s2">".tables"</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>sqlite3<span class="w"> </span>&lt;file&gt;.db<span class="w"> </span><span class="s2">"SELECT * FROM &lt;table&gt;;"</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Exfil over SSH</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>scp<span class="w"> </span>&lt;user&gt;@&lt;host&gt;:C:/&lt;path&gt;/&lt;file&gt;<span class="w"> </span>.
 </code></pre></div>
 <h2 id="labs">🧪 Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
 <table>
@@ -3139,20 +3111,21 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
+<td>McAfee Enterprise example (ma.db, known static key)</td>
+<td style="text-align: center;">Pattern: known-location + known-key encrypted store</td>
+<td style="text-align: center;">🔄</td>
 </tr>
 </tbody>
 </table>
 <h2 id="cheatsheet">📇 Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permanent link">&para;</a></h2>
 <ul>
-<li>AD DS = catalogue | Principals = users, machines, groups</li>
-<li><code>COMPUTERNAME$</code> = machine account, local admin on itself</li>
-<li>OUs = policy containers | Default = Builtin, Computers, DCs, Users</li>
+<li>Foothold → configs first: <code>ProgramData</code>, install dirs, registry, <code>.db</code> files</li>
+<li>Centrally deployed apps = embedded AD creds on every host</li>
+<li>Encrypted ≠ safe: static keys / weak encoding / DPAPI — check public tooling first</li>
+<li>Even read-only service creds → full LDAP enumeration</li>
 </ul>
 <hr />
-<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 
 
 
