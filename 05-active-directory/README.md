@@ -22,6 +22,7 @@
 | [Breaching AD (Intro) & Initial Credentials](./breaching-ad/breaching-ad-intro.md) | — | 🔄 | [📖](./breaching-ad/breaching-ad-intro.md) |
 | [Breaching AD via NTLM Authenticated Services](./breaching-ad/ntlm-authenticated-services.md) | — | 🔄 | [📖](./breaching-ad/ntlm-authenticated-services.md) |
 | [LDAP, Bind Credentials & Pass-back Attacks](./breaching-ad/ldap-bind-passback-attack.md) | — | 🔄 | [📖](./breaching-ad/ldap-bind-passback-attack.md) |
+| [SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks](./breaching-ad/smb-llmnr-relay-attacks.md) | — | 🔄 | [📖](./breaching-ad/smb-llmnr-relay-attacks.md) |
 | [Enumeration](./enumeration.md) | — | ⬜ | [📖](./enumeration.md) |
 | [Attacks](./attacks.md) | — | ⬜ | [📖](./attacks.md) |
 | [Lateral Movement & Pivoting](./lateral-movement.md) | — | ⬜ | [📖](./lateral-movement.md) |

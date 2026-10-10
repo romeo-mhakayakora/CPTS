@@ -11,8 +11,9 @@
 | [Breaching AD (Intro) & Initial Credentials via OSINT/Phishing](./breaching-ad-intro.md) | 🔄 | [📖](./breaching-ad-intro.md) |
 | [Breaching AD via NTLM Authenticated Services](./ntlm-authenticated-services.md) | 🔄 | [📖](./ntlm-authenticated-services.md) |
 | [LDAP, Bind Credentials & Pass-back Attacks](./ldap-bind-passback-attack.md) | 🔄 | [📖](./ldap-bind-passback-attack.md) |
+| [SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks](./smb-llmnr-relay-attacks.md) | 🔄 | [📖](./smb-llmnr-relay-attacks.md) |
 
-> Planned sections (waiting for source material): Authentication relays, Microsoft Deployment Toolkit (MDT), Configuration files.
+> Planned sections (waiting for source material): Microsoft Deployment Toolkit (MDT), Configuration files.
 
 ## 🎯 Folder Goal
 

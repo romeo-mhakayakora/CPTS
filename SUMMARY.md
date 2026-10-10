@@ -42,6 +42,7 @@
     * [Breaching AD (Intro) & Initial Credentials via OSINT/Phishing](05-active-directory/breaching-ad/breaching-ad-intro.md)
     * [Breaching AD via NTLM Authenticated Services](05-active-directory/breaching-ad/ntlm-authenticated-services.md)
     * [LDAP, Bind Credentials & Pass-back Attacks](05-active-directory/breaching-ad/ldap-bind-passback-attack.md)
+    * [SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks](05-active-directory/breaching-ad/smb-llmnr-relay-attacks.md)
   * [Enumeration](05-active-directory/enumeration.md)
   * [Attacks](05-active-directory/attacks.md)
   * [Lateral Movement & Pivoting](05-active-directory/lateral-movement.md)
