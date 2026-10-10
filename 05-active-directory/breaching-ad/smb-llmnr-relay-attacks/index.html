@@ -12,13 +12,13 @@
         <meta name="author" content="Romeo Mhakayakora">
       
       
-        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/ad-basics/ad-objects-accounts-organisation/">
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/breaching-ad/smb-llmnr-relay-attacks/">
       
       
-        <link rel="prev" href="../windows-domains-intro/">
+        <link rel="prev" href="../ldap-bind-passback-attack/">
       
       
-        <link rel="next" href="../managing-users-ous-delegation/">
+        <link rel="next" href="../../enumeration/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>AD Objects, Accounts and Organisation - CPTS Notes</title>
+        <title>SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks - CPTS Notes</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#active-directory-objects-accounts-and-organisation" class="md-skip">
+        <a href="#smb-authentication-llmnrnbt-nswpad-poisoning-and-netntlm-relay-attacks" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AD Objects, Accounts and Organisation
+              SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks
             
           </span>
         </div>
@@ -1551,6 +1551,295 @@
                 
   
   
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AD Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/windows-domains-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Domains and AD (Intro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Objects, Accounts and Organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/managing-users-ous-delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing AD Users, OUs and Delegation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/group-policy-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Group Policy Objects (GPOs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication (Kerberos & NetNTLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/trees-forests-trusts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trees, Forests and Trust Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/network-connection-dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting to the Network and DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1572,17 +1861,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    AD Basics
+    Breaching AD
   
 
     
@@ -1593,12 +1882,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    AD Basics
+    Breaching AD
   
 
           </label>
@@ -1639,14 +1928,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../windows-domains-intro/" class="md-nav__link">
+      <a href="../breaching-ad-intro/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Windows Domains and AD (Intro)
+    Breaching AD (Intro) & Initial Credentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ntlm-authenticated-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Breaching AD via NTLM Authenticated Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ldap-bind-passback-attack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP, Bind Credentials & Pass-back Attacks
   
 
     
@@ -1683,7 +2028,7 @@
   <span class="md-ellipsis">
     
   
-    AD Objects, Accounts and Organisation
+    SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks
   
 
     
@@ -1701,7 +2046,7 @@
   <span class="md-ellipsis">
     
   
-    AD Objects, Accounts and Organisation
+    SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks
   
 
     
@@ -1739,10 +2084,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-active-directory-domain-service-ad-ds" class="md-nav__link">
+  <a href="#1-the-problem-space" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Active Directory Domain Service (AD DS)
+        1. The problem space
       
     </span>
   </a>
@@ -1750,55 +2095,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-security-principals" class="md-nav__link">
+  <a href="#2-server-message-block-smb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Security principals
+        2. Server Message Block (SMB)
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-object-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Object types
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Object types">
+    <nav class="md-nav" aria-label="2. Server Message Block (SMB)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#users" class="md-nav__link">
+  <a href="#two-exploitation-paths-for-netntlm-over-smb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Users
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#machines" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Machines
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security-groups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Security groups
+        Two exploitation paths for NetNTLM over SMB
       
     </span>
   </a>
@@ -1811,10 +2123,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-default-security-groups" class="md-nav__link">
+  <a href="#3-why-these-authentication-attempts-end-up-in-the-air-to-catch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Default security groups
+        3. Why these authentication attempts end up "in the air" to catch
       
     </span>
   </a>
@@ -1822,10 +2134,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-organizational-units-ous" class="md-nav__link">
+  <a href="#4-the-core-mechanism-dns-fallback-not-dns-interception" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Organizational Units (OUs)
+        4. The core mechanism: DNS fallback, not DNS interception
       
     </span>
   </a>
@@ -1833,10 +2145,50 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-active-directory-users-and-computers-aduc" class="md-nav__link">
+  <a href="#5-the-three-broadcast-protocols-responder-poisons" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Active Directory Users and Computers (ADUC)
+        5. The three broadcast protocols Responder poisons
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. The three broadcast protocols Responder poisons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-these-are-so-reliably-exploitable-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why these are so reliably exploitable in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-responder-the-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Responder: the tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Responder: the tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running it
       
     </span>
   </a>
@@ -1844,10 +2196,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#7-default-containers-created-automatically-by-windows" class="md-nav__link">
+  <a href="#what-you-capture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Default containers (created automatically by Windows)
+        What you capture
       
     </span>
   </a>
@@ -1855,10 +2207,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#8-quick-recall" class="md-nav__link">
+  <a href="#constraint" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Quick recall
+        Constraint
       
     </span>
   </a>
@@ -1866,10 +2218,26 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#9-verify-before-relying-on-these" class="md-nav__link">
+  <a href="#operational-risk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Verify before relying on these
+        Operational risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-path-1-capture-offline-cracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Path 1: Capture + offline cracking
       
     </span>
   </a>
@@ -1877,10 +2245,88 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#10-open-items" class="md-nav__link">
+  <a href="#8-path-2-relaying-the-challenge-true-mitm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Open items
+        8. Path 2: Relaying the challenge (true MITM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Path 2: Relaying the challenge (true MITM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements-for-relaying-to-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements for relaying to work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-sequencing-strategy-not-just-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended sequencing (strategy, not just mechanics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-capitalising-on-this-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy: Capitalising on This Attack Surface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Strategy: Capitalising on This Attack Surface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-you-have-internallan-or-rogue-device-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When you have internal/LAN or rogue-device access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key takeaway
       
     </span>
   </a>
@@ -1916,10 +2362,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#llmnrnbt-nswpad-poisoning-responder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        LLMNR/NBT-NS/WPAD Poisoning (Responder)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline-cracking-ntlmv2-ssp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offline Cracking (NTLMv2-SSP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netntlm-relay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NetNTLM Relay
       
     </span>
   </a>
@@ -1968,351 +2436,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../managing-users-ous-delegation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Managing AD Users, OUs and Delegation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../group-policy-objects/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Group Policy Objects (GPOs)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../authentication-kerberos-netntlm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentication (Kerberos & NetNTLM)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../trees-forests-trusts/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trees, Forests and Trust Relationships
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../network-connection-dns/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Connecting to the Network and DNS
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaching AD
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Breaching AD
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/breaching-ad-intro/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaching AD (Intro) & Initial Credentials
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/ntlm-authenticated-services/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Breaching AD via NTLM Authenticated Services
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/ldap-bind-passback-attack/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LDAP, Bind Credentials & Pass-back Attacks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../breaching-ad/smb-llmnr-relay-attacks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -2657,10 +2780,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-active-directory-domain-service-ad-ds" class="md-nav__link">
+  <a href="#1-the-problem-space" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Active Directory Domain Service (AD DS)
+        1. The problem space
       
     </span>
   </a>
@@ -2668,55 +2791,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-security-principals" class="md-nav__link">
+  <a href="#2-server-message-block-smb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Security principals
+        2. Server Message Block (SMB)
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-object-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Object types
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Object types">
+    <nav class="md-nav" aria-label="2. Server Message Block (SMB)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#users" class="md-nav__link">
+  <a href="#two-exploitation-paths-for-netntlm-over-smb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Users
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#machines" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Machines
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security-groups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Security groups
+        Two exploitation paths for NetNTLM over SMB
       
     </span>
   </a>
@@ -2729,10 +2819,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-default-security-groups" class="md-nav__link">
+  <a href="#3-why-these-authentication-attempts-end-up-in-the-air-to-catch" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Default security groups
+        3. Why these authentication attempts end up "in the air" to catch
       
     </span>
   </a>
@@ -2740,10 +2830,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-organizational-units-ous" class="md-nav__link">
+  <a href="#4-the-core-mechanism-dns-fallback-not-dns-interception" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Organizational Units (OUs)
+        4. The core mechanism: DNS fallback, not DNS interception
       
     </span>
   </a>
@@ -2751,10 +2841,50 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-active-directory-users-and-computers-aduc" class="md-nav__link">
+  <a href="#5-the-three-broadcast-protocols-responder-poisons" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Active Directory Users and Computers (ADUC)
+        5. The three broadcast protocols Responder poisons
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. The three broadcast protocols Responder poisons">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-these-are-so-reliably-exploitable-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why these are so reliably exploitable in practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-responder-the-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Responder: the tool
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Responder: the tool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running it
       
     </span>
   </a>
@@ -2762,10 +2892,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#7-default-containers-created-automatically-by-windows" class="md-nav__link">
+  <a href="#what-you-capture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Default containers (created automatically by Windows)
+        What you capture
       
     </span>
   </a>
@@ -2773,10 +2903,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#8-quick-recall" class="md-nav__link">
+  <a href="#constraint" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Quick recall
+        Constraint
       
     </span>
   </a>
@@ -2784,10 +2914,26 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#9-verify-before-relying-on-these" class="md-nav__link">
+  <a href="#operational-risk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Verify before relying on these
+        Operational risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-path-1-capture-offline-cracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Path 1: Capture + offline cracking
       
     </span>
   </a>
@@ -2795,10 +2941,88 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#10-open-items" class="md-nav__link">
+  <a href="#8-path-2-relaying-the-challenge-true-mitm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Open items
+        8. Path 2: Relaying the challenge (true MITM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Path 2: Relaying the challenge (true MITM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements-for-relaying-to-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements for relaying to work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-sequencing-strategy-not-just-mechanics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended sequencing (strategy, not just mechanics)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#strategy-capitalising-on-this-attack-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strategy: Capitalising on This Attack Surface
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Strategy: Capitalising on This Attack Surface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-you-have-internallan-or-rogue-device-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When you have internal/LAN or rogue-device access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key takeaway
       
     </span>
   </a>
@@ -2834,10 +3058,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#technique-1" class="md-nav__link">
+  <a href="#llmnrnbt-nswpad-poisoning-responder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Technique 1
+        LLMNR/NBT-NS/WPAD Poisoning (Responder)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline-cracking-ntlmv2-ssp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offline Cracking (NTLMv2-SSP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#netntlm-relay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NetNTLM Relay
       
     </span>
   </a>
@@ -2902,9 +3148,9 @@
   
 
 
-<h1 id="active-directory-objects-accounts-and-organisation">Active Directory Objects, Accounts and Organisation<a class="headerlink" href="#active-directory-objects-accounts-and-organisation" title="Permanent link">&para;</a></h1>
+<h1 id="smb-authentication-llmnrnbt-nswpad-poisoning-and-netntlm-relay-attacks">SMB Authentication, LLMNR/NBT-NS/WPAD Poisoning, and NetNTLM Relay Attacks<a class="headerlink" href="#smb-authentication-llmnrnbt-nswpad-poisoning-and-netntlm-relay-attacks" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 </blockquote>
 <table>
 <thead>
@@ -2927,178 +3173,181 @@
 <p><strong>Status:</strong> 🔄 In Progress</p>
 <hr />
 <h2 id="concepts">📌 Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
-<h3 id="1-active-directory-domain-service-ad-ds">1. Active Directory Domain Service (AD DS)<a class="headerlink" href="#1-active-directory-domain-service-ad-ds" title="Permanent link">&para;</a></h3>
+<h3 id="1-the-problem-space">1. The problem space<a class="headerlink" href="#1-the-problem-space" title="Permanent link">&para;</a></h3>
 <ul>
-<li>The core of any Windows domain.</li>
-<li>Acts as a <strong>catalogue of all "objects"</strong> on the network: users, groups, machines, printers, shares and others.</li>
+<li>Windows networks are full of services authenticating to each other constantly.</li>
+<li>This section focuses on <strong>NetNTLM authentication as used by SMB</strong> — the protocol version of what the NTLM-authenticated-services notes covered through a web application.</li>
 </ul>
-<h3 id="2-security-principals">2. Security principals<a class="headerlink" href="#2-security-principals" title="Permanent link">&para;</a></h3>
-<p>A <strong>security principal</strong> is an object that can be authenticated by the domain and can be assigned privileges over resources (files, printers, etc.). In short, it can act upon resources in the network.</p>
-<p><strong>Security principals:</strong> users, machines, security groups.</p>
-<h3 id="3-object-types">3. Object types<a class="headerlink" href="#3-object-types" title="Permanent link">&para;</a></h3>
-<h4 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h4>
+<h3 id="2-server-message-block-smb">2. Server Message Block (SMB)<a class="headerlink" href="#2-server-message-block-smb" title="Permanent link">&para;</a></h3>
 <ul>
-<li>One of the most common object types.</li>
-<li>They represent two kinds of entities:</li>
-<li><strong>People:</strong> employees or others who need network access.</li>
-<li><strong>Services:</strong> accounts for services like IIS or MSSQL. Every service needs a user to run. Service users have only the privileges needed for their specific service.</li>
+<li><strong>SMB</strong> lets clients (workstations) talk to servers (file shares). It governs file sharing, remote administration, and even things like print spooler notifications.</li>
+<li>Older SMB versions have known weaknesses. Vulnerabilities let attackers <strong>recover credentials</strong> or even <strong>gain code execution</strong>.</li>
+<li>Many organisations <strong>still run legacy SMB versions</strong> because old systems don't support the newer, hardened ones. This keeps old attack paths alive in real environments.</li>
 </ul>
-<h4 id="machines">Machines<a class="headerlink" href="#machines" title="Permanent link">&para;</a></h4>
+<h4 id="two-exploitation-paths-for-netntlm-over-smb">Two exploitation paths for NetNTLM over SMB<a class="headerlink" href="#two-exploitation-paths-for-netntlm-over-smb" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>Capture and crack offline:</strong> intercept a NetNTLM challenge/response, then crack it offline to recover the password. Slower than cracking an NTLM hash directly, since NetNTLM responses are computationally harder to crack.</li>
+<li><strong>Relay:</strong> stage a MITM, relaying the SMB authentication live between client and server to get an <strong>authenticated session</strong>, without ever cracking anything.</li>
+</ol>
+<h3 id="3-why-these-authentication-attempts-end-up-in-the-air-to-catch">3. Why these authentication attempts end up "in the air" to catch<a class="headerlink" href="#3-why-these-authentication-attempts-end-up-in-the-air-to-catch" title="Permanent link">&para;</a></h3>
 <ul>
-<li>A machine object is created for every computer that joins the domain.</li>
-<li>Machines are security principals with their own account, which has somewhat limited rights within the domain.</li>
-<li>The account is a <strong>local administrator on its assigned computer</strong>.</li>
-<li>It isn't meant to be used by anyone except the computer itself, but <strong>if you have the password, you can log in with it</strong>.</li>
-<li><strong>Password:</strong> rotated automatically, generally 120 random characters.</li>
-<li><strong>Naming scheme:</strong> computer name + <code>$</code>. Example: machine <code>DC01</code> has the account <code>DC01$</code>.</li>
+<li>Large numbers of NetNTLM exchanges happen on a network constantly (background reconnections, security tooling sweeping IP ranges, etc.).</li>
+<li><strong>Stale DNS records</strong> mean some of these authentication attempts get misdirected and can land on a rogue device instead of their real target.</li>
 </ul>
-<p><strong>What "logging in" as a machine account means:</strong></p>
+<h3 id="4-the-core-mechanism-dns-fallback-not-dns-interception">4. The core mechanism: DNS fallback, not DNS interception<a class="headerlink" href="#4-the-core-mechanism-dns-fallback-not-dns-interception" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Clarified via Q&amp;A (useful mental model, not verbatim source wording):</p>
+</blockquote>
 <ul>
-<li>It means authenticating to the network as the computer itself, not as a human.</li>
-<li>Normally this happens in the background. The computer uses its account and password to prove its identity to the DC, for example to fetch group policies and updates before any user logs in.</li>
-<li>Doing it manually requires the account's password or hash.</li>
-<li>It gives you that machine's permissions: local admin control of that computer, and the ability to interact with other domain resources as a trusted machine.</li>
+<li>Normally, a client resolves a hostname through standard DNS (the Domain Controller). This path is private and hard to intercept directly.</li>
+<li><strong>LLMNR, NBT-NS and WPAD are fallback broadcast protocols</strong>, used only when:</li>
+<li><strong>Standard DNS fails</strong> (typo, decommissioned server, stale record).</li>
+<li><strong>A short (non-FQDN) name is used.</strong> Windows treats a short name as possibly being on the local subnet and may broadcast for it locally before, or instead of, going through full DNS resolution.</li>
+<li>When a fallback triggers, the client <strong>broadcasts to the local network</strong>: "does anyone know where <code>X</code> is?"</li>
+<li>Anyone listening can answer. There's no verification built into these protocols, which is the core weakness.</li>
 </ul>
-<h4 id="security-groups">Security groups<a class="headerlink" href="#security-groups" title="Permanent link">&para;</a></h4>
-<ul>
-<li>Assign access rights to a group instead of to individual users. Members inherit the group's privileges, which makes management easier.</li>
-<li>Groups are security principals, so they can hold privileges over network resources.</li>
-<li>Members can be <strong>users, machines, or other groups</strong>.</li>
-</ul>
-<h3 id="4-default-security-groups">4. Default security groups<a class="headerlink" href="#4-default-security-groups" title="Permanent link">&para;</a></h3>
+<h3 id="5-the-three-broadcast-protocols-responder-poisons">5. The three broadcast protocols Responder poisons<a class="headerlink" href="#5-the-three-broadcast-protocols-responder-poisons" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Group</th>
-<th>Official description</th>
-<th>Plain-English meaning</th>
+<th>Protocol</th>
+<th>Purpose</th>
+<th>Role here</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Domain Admins</strong></td>
-<td>Administrative privileges over the entire domain. Can administer any computer, including DCs.</td>
-<td>Full control of everything</td>
+<td><strong>LLMNR</strong> (Link-Local Multicast Name Resolution)</td>
+<td>Lets hosts resolve names for other hosts on the same local network without burdening the DNS server, by broadcasting and seeing who answers</td>
+<td>Fallback name resolution</td>
 </tr>
 <tr>
-<td><strong>Server Operators</strong></td>
-<td>Can administer DCs. Cannot change administrative group memberships.</td>
-<td>Manage the critical servers, but can't promote anyone to admin</td>
+<td><strong>NBT-NS</strong> (NetBIOS Name Service)</td>
+<td>The legacy predecessor to LLMNR, doing the same job. Kept enabled by default for compatibility with old devices</td>
+<td>Fallback name resolution</td>
 </tr>
 <tr>
-<td><strong>Backup Operators</strong></td>
-<td>Can access any file, ignoring its permissions. Used for backups.</td>
-<td>Can read and copy any file</td>
-</tr>
-<tr>
-<td><strong>Account Operators</strong></td>
-<td>Can create or modify other accounts in the domain.</td>
-<td>Manage user accounts</td>
-</tr>
-<tr>
-<td><strong>Domain Users</strong></td>
-<td>All existing user accounts in the domain.</td>
-<td>Every normal user</td>
-</tr>
-<tr>
-<td><strong>Domain Computers</strong></td>
-<td>All existing computers in the domain.</td>
-<td>Every joined machine</td>
-</tr>
-<tr>
-<td><strong>Domain Controllers</strong></td>
-<td>All existing DCs in the domain.</td>
-<td>Only the AD servers</td>
+<td><strong>WPAD</strong> (Web Proxy Auto-Discovery)</td>
+<td>Lets a client automatically discover which proxy server to route HTTP(S) traffic through</td>
+<td>Fallback proxy discovery</td>
 </tr>
 </tbody>
 </table>
-<p>The complete list of default groups is in the Microsoft documentation.</p>
-<h3 id="5-organizational-units-ous">5. Organizational Units (OUs)<a class="headerlink" href="#5-organizational-units-ous" title="Permanent link">&para;</a></h3>
+<h4 id="why-these-are-so-reliably-exploitable-in-practice">Why these are so reliably exploitable in practice<a class="headerlink" href="#why-these-are-so-reliably-exploitable-in-practice" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>Container objects</strong> used to classify users and machines.</li>
-<li>Mainly used to define sets of users with <strong>similar policy requirements</strong> (for example, Sales and IT get different policies).</li>
-<li><strong>A user can only be in one OU at a time.</strong></li>
-<li>OUs commonly mirror the business structure, which makes it efficient to deploy baseline policies to whole departments. They can be defined arbitrarily, though.</li>
-<li><strong>Example:</strong> an OU named <code>THM</code> with five child OUs: IT, Management, Marketing, R&amp;D, Sales.</li>
+<li>All three are <strong>enabled by default</strong> in Windows and require explicit Group Policy changes to disable.</li>
+<li><strong>Human error drives them constantly:</strong> typos in share names, employees typing short names instead of FQDNs, legacy login scripts mapping drives with short names.</li>
+<li><strong>WPAD specifically:</strong> "Automatically detect settings" is checked by default in most browsers/OS proxy settings, so clients regularly broadcast for a proxy on their own.</li>
+<li>Even a "well-configured" network rarely eliminates this fully, since it depends on consistent human behaviour across every script, mapped drive, and employee action.</li>
 </ul>
-<h3 id="6-active-directory-users-and-computers-aduc">6. Active Directory Users and Computers (ADUC)<a class="headerlink" href="#6-active-directory-users-and-computers-aduc" title="Permanent link">&para;</a></h3>
+<h3 id="6-responder-the-tool">6. Responder: the tool<a class="headerlink" href="#6-responder-the-tool" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Tool for managing users, groups and machines.</li>
-<li><strong>Access:</strong> log in to the Domain Controller, then run "Active Directory Users and Computers" from the Start menu.</li>
-<li>Shows the hierarchy of users, computers and groups, organised by OU.</li>
-<li><strong>Tasks:</strong> create, delete or modify objects, create OUs (right-click an OU), and <strong>reset passwords</strong> (useful for the helpdesk).</li>
+<li><strong>Responder</strong> listens passively for LLMNR, NBT-NS, and WPAD broadcasts on the attacker's interface.</li>
+<li>When it sees one, it answers before the real target can (or when there is no real target), claiming "that's me" for the requested hostname/proxy.</li>
+<li>It also <strong>spins up fake servers</strong> (SMB, HTTP, SQL, and others) so that once a victim is tricked into connecting, there's a live service ready to <strong>force an authentication attempt</strong> and capture it.</li>
 </ul>
-<h3 id="7-default-containers-created-automatically-by-windows">7. Default containers (created automatically by Windows)<a class="headerlink" href="#7-default-containers-created-automatically-by-windows" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Container</th>
-<th>Contents</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Builtin</strong></td>
-<td>Default groups available to any Windows host</td>
-</tr>
-<tr>
-<td><strong>Computers</strong></td>
-<td>Default location for any machine joining the network (can be moved)</td>
-</tr>
-<tr>
-<td><strong>Domain Controllers</strong></td>
-<td>Default OU containing the DCs</td>
-</tr>
-<tr>
-<td><strong>Users</strong></td>
-<td>Default users and groups (source text cuts off here)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="8-quick-recall">8. Quick recall<a class="headerlink" href="#8-quick-recall" title="Permanent link">&para;</a></h3>
+<h4 id="running-it">Running it<a class="headerlink" href="#running-it" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>responder<span class="w"> </span>-I<span class="w"> </span>&lt;interface&gt;
+</code></pre></div>
+<h4 id="what-you-capture">What you capture<a class="headerlink" href="#what-you-capture" title="Permanent link">&para;</a></h4>
 <ul>
-<li>AD DS = catalogue of network objects</li>
-<li>Security principals = users, machines, security groups</li>
-<li>Users = people or services</li>
-<li>Machine account = <code>COMPUTERNAME$</code>, 120-character auto-rotated password, local admin on its own computer</li>
-<li>Groups can contain users, machines, and other groups</li>
-<li>OUs = containers for applying policy, one OU per user</li>
-<li>Default containers = Builtin, Computers, Domain Controllers, Users</li>
+<li>A victim's SMB client connects to the attacker, thinking it reached the real resource, and sends an <strong>NTLMv2-SSP</strong> authentication response.</li>
+<li>Example output format:</li>
 </ul>
-<h3 id="9-verify-before-relying-on-these">9. Verify before relying on these<a class="headerlink" href="#9-verify-before-relying-on-these" title="Permanent link">&para;</a></h3>
-<p>These claims aren't in the original source text, and some are oversimplified:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[SMBv2] NTLMv2-SSP Client   : &lt;Client IP&gt;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[SMBv2] NTLMv2-SSP Username : DOMAIN\&lt;Username&gt;
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>[SMBv2] NTLMv2-SSP Hash     : &lt;Username&gt;::DOMAIN:&lt;NTLMv2-SSP Hash&gt;
+</code></pre></div>
+<h4 id="constraint">Constraint<a class="headerlink" href="#constraint" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>"Account Operators can't touch admin accounts."</strong> The source only says they can create or modify other accounts. Check Microsoft's documentation for the exact restrictions.</li>
-<li><strong>"Machine accounts can impersonate Domain Admins via delegation."</strong> This is true only in specific misconfigurations (such as unconstrained delegation), not by default.</li>
-<li><strong>"Machine accounts are hidden."</strong> They are visible in AD, and the <code>$</code> naming makes them easy to spot.</li>
+<li>Responder works on a <strong>race condition</strong>: it has to answer before/instead of any legitimate host. This generally limits it to the <strong>local broadcast domain / local network segment</strong> the attacker is actually on (or a VPN segment simulating that in a lab).</li>
 </ul>
-<h3 id="10-open-items">10. Open items<a class="headerlink" href="#10-open-items" title="Permanent link">&para;</a></h3>
+<h4 id="operational-risk">Operational risk<a class="headerlink" href="#operational-risk" title="Permanent link">&para;</a></h4>
 <ul>
-<li>The <strong>Users</strong> container description was cut off in the source. Send the rest to complete it.</li>
-<li>Two follow-ups were never answered: how machine account passwords or hashes are obtained, and why Backup Operators are a common target. Nothing is added here on either.</li>
+<li>Poisoning these requests <strong>can break legitimate traffic</strong>: if Responder answers instead of the real host, normal authentication/connections intended for that real host will fail.</li>
+<li>This is <strong>disruptive and detectable</strong> — worth factoring into timing and scope on a real assessment, not something to run blindly for long periods without consideration.</li>
 </ul>
+<h3 id="7-path-1-capture-offline-cracking">7. Path 1: Capture + offline cracking<a class="headerlink" href="#7-path-1-capture-offline-cracking" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Leave Responder running to accumulate one or more NTLMv2-SSP hashes.</li>
+<li>Save a hash to a file.</li>
+<li>Crack offline with Hashcat, using hash mode <strong>5600</strong> (NTLMv2-SSP):</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">5600</span><span class="w"> </span>&lt;<span class="nb">hash</span><span class="w"> </span>file&gt;<span class="w"> </span>&lt;password<span class="w"> </span>file&gt;<span class="w"> </span>--force
+</code></pre></div>
+<ol>
+<li>Any cracked hash gives you a <strong>valid AD credential</strong>.</li>
+</ol>
+<p><strong>Caveat:</strong> NetNTLM(v2) hashes are <strong>much slower to crack</strong> than raw NTLM hashes, so success depends heavily on password strength and wordlist quality.</p>
+<h3 id="8-path-2-relaying-the-challenge-true-mitm">8. Path 2: Relaying the challenge (true MITM)<a class="headerlink" href="#8-path-2-relaying-the-challenge-true-mitm" title="Permanent link">&para;</a></h3>
+<p>Instead of capturing and cracking, you pass the live authentication attempt straight through to a real target, gaining a session without ever knowing the password.</p>
+<h4 id="flow">Flow<a class="headerlink" href="#flow" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Victim broadcasts, thinking it's resolving a real host.</li>
+<li>Attacker (Responder/relay tool) answers and receives the victim's NetNTLM challenge/response.</li>
+<li>Instead of saving it, the attacker <strong>immediately forwards that response to a real target server</strong> (could be the DC or another host), authenticating as the victim.</li>
+<li>If accepted, the attacker now has an <strong>active, authenticated session</strong> as the victim, without ever cracking a password.</li>
+</ol>
+<h4 id="requirements-for-relaying-to-work">Requirements for relaying to work<a class="headerlink" href="#requirements-for-relaying-to-work" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>SMB Signing</strong> must be <strong>disabled</strong>, or enabled but <strong>not enforced</strong>. If signing is enforced, the relayed/modified request's signature won't validate, and the target rejects it.</li>
+<li>The <strong>relayed account needs meaningful permissions</strong> on the target server. Ideally, an account with admin rights on that server, since that's what actually gets you a foothold.</li>
+<li><strong>Without prior AD enumeration, which account you'll capture (and what it can access) is a guess.</strong> This is why "blind" relays aren't popular — relaying an account with no useful permissions wastes the opportunity and tips off defenders for nothing.</li>
+</ul>
+<h4 id="recommended-sequencing-strategy-not-just-mechanics">Recommended sequencing (strategy, not just mechanics)<a class="headerlink" href="#recommended-sequencing-strategy-not-just-mechanics" title="Permanent link">&para;</a></h4>
+<ul>
+<li>The source explicitly recommends: <strong>breach AD by another means first</strong>, enumerate privileges once you have any foothold, <strong>then</strong> come back to relay attacks with a specific, informed target in mind (an account/server pair known to matter), rather than relaying blind.</li>
+</ul>
+<hr />
+<h2 id="strategy-capitalising-on-this-attack-surface">Strategy: Capitalising on This Attack Surface<a class="headerlink" href="#strategy-capitalising-on-this-attack-surface" title="Permanent link">&para;</a></h2>
+<h3 id="when-you-have-internallan-or-rogue-device-access">When you have internal/LAN or rogue-device access<a class="headerlink" href="#when-you-have-internallan-or-rogue-device-access" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Deploy Responder early and let it run passively</strong> while doing other recon — it costs little and captures opportunistically.</li>
+<li><strong>Prioritize capture-and-crack if you lack AD foothold context:</strong> grab whatever NTLMv2-SSP hashes come in, and run them against a strong wordlist/rules in Hashcat (<code>-m 5600</code>). Any crack gives a valid, usable credential.</li>
+<li><strong>Don't blind-relay without a reason.</strong> Relaying nets you a session, but if the relayed account has no meaningful rights on the target, you've gained nothing and generated noise.</li>
+<li><strong>Once you have any foothold (from spraying, cracking, LDAP pass-back, etc.), enumerate AD</strong> to learn which accounts have admin rights on which hosts. <em>Then</em> relay attacks become worth targeting deliberately — relay a specific known-privileged account to a specific known-vulnerable (unsigned SMB) target.</li>
+<li><strong>Check SMB signing status on targets</strong> before planning a relay. Disabled/not-enforced signing is a prerequisite; if it's enforced everywhere, relaying is a dead end and capture-and-crack becomes the better route.</li>
+<li><strong>Weigh disruption risk.</strong> Long poisoning runs can break legitimate connections and get noticed. Scope the duration and timing of Responder runs to the assessment's rules of engagement.</li>
+<li><strong>Treat typos and short-name usage as your reliable entry point.</strong> This isn't a one-time exploit of a misconfiguration; it's an ongoing byproduct of normal human behaviour and legacy scripts, so leaving Responder running over time tends to pay off even on reasonably well-administered networks.</li>
+</ol>
+<h3 id="key-takeaway">Key takeaway<a class="headerlink" href="#key-takeaway" title="Permanent link">&para;</a></h3>
+<p>This entire class of attack exists because <strong>Windows silently falls back to insecure, unauthenticated broadcast protocols (LLMNR/NBT-NS/WPAD) whenever primary DNS resolution doesn't immediately succeed</strong> — which happens constantly due to typos, short names, legacy scripts, and stale records. Responder doesn't break DNS; it simply answers the broadcasts DNS failure triggers, faster and more convincingly than silence. The real decision point for an offsec engineer is <strong>capture-and-crack vs. relay</strong>, and that choice should be driven by what you already know about the environment (SMB signing status, account privileges), not by which is more "advanced."</p>
 <h2 id="methodology">🧭 Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Identify AD DS role and DC
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  ↓
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Enumerate users / machines / groups
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ↓
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Map OUs and default containers
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ↓
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Check privileged groups membership
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  ↓
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>Link to enumeration / attacks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Internal/LAN presence (rogue device)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  ↓
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Responder -I &lt;iface&gt; (passive, let it run)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  ↓
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Capture NTLMv2-SSP → crack (-m 5600) for creds
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  ↓
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>With foothold: enumerate → check SMB signing
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  ↓
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>Targeted relay (privileged account → unsigned target)
 </code></pre></div>
 <h2 id="techniques">🛠️ Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
-<!-- Individual techniques with when/why to use each. -->
-
-<h3 id="technique-1">Technique 1<a class="headerlink" href="#technique-1" title="Permanent link">&para;</a></h3>
+<h3 id="llmnrnbt-nswpad-poisoning-responder">LLMNR/NBT-NS/WPAD Poisoning (Responder)<a class="headerlink" href="#llmnrnbt-nswpad-poisoning-responder" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Description:</li>
-<li>When to use:</li>
-<li>Command:</li>
+<li>Description: Answer fallback broadcasts and capture NTLMv2-SSP hashes.</li>
+<li>When to use: Any internal/LAN access; run passively alongside recon.</li>
+<li>Command: <code>sudo responder -I &lt;interface&gt;</code></li>
+</ul>
+<h3 id="offline-cracking-ntlmv2-ssp">Offline Cracking (NTLMv2-SSP)<a class="headerlink" href="#offline-cracking-ntlmv2-ssp" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: Crack captured responses to recover passwords.</li>
+<li>When to use: Hashes captured, no relay target yet.</li>
+<li>Command: <code>hashcat -m 5600 &lt;hash file&gt; &lt;password file&gt; --force</code></li>
+</ul>
+<h3 id="netntlm-relay">NetNTLM Relay<a class="headerlink" href="#netntlm-relay" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: Forward live challenge/response to a real target for a session without cracking.</li>
+<li>When to use: Known privileged account + unsigned-SMB target; never blind.</li>
+<li>Command: (relay tooling — e.g. ntlmrelayx — to be added with lab material)</li>
 </ul>
 <h2 id="commands">💻 Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># TODO: ADUC, PowerView, ldapsearch, netexec, BloodHound collection for objects/OUs/groups</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Poison + capture</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>responder<span class="w"> </span>-I<span class="w"> </span>&lt;interface&gt;
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Crack NTLMv2-SSP</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>hashcat<span class="w"> </span>-m<span class="w"> </span><span class="m">5600</span><span class="w"> </span>&lt;<span class="nb">hash</span><span class="w"> </span>file&gt;<span class="w"> </span>&lt;password<span class="w"> </span>file&gt;<span class="w"> </span>--force
 </code></pre></div>
 <h2 id="labs">🧪 Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
 <table>
@@ -3119,12 +3368,13 @@
 </table>
 <h2 id="cheatsheet">📇 Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permanent link">&para;</a></h2>
 <ul>
-<li>AD DS = catalogue | Principals = users, machines, groups</li>
-<li><code>COMPUTERNAME$</code> = machine account, local admin on itself</li>
-<li>OUs = policy containers | Default = Builtin, Computers, DCs, Users</li>
+<li>Fallback broadcasts (LLMNR/NBT-NS/WPAD, on by default) = unauthenticated answers → Responder</li>
+<li><code>responder -I &lt;iface&gt;</code> → NTLMv2-SSP → <code>hashcat -m 5600</code></li>
+<li>Relay needs: SMB signing <strong>not enforced</strong> + relayed account with real rights → enumerate first, never blind</li>
+<li>Poisoning disrupts legit traffic — scope timing</li>
 </ul>
 <hr />
-<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 AD Basics</a> | <a href="../../../">🏠 Dashboard</a></p>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Breaching AD</a> | <a href="../../../">🏠 Dashboard</a></p>
 
 
 
