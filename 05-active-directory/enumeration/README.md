@@ -14,7 +14,6 @@
 | [Enumeration via CMD & `net` Command](./cmd-net-command-enumeration.md) | 🔄 | [📖](./cmd-net-command-enumeration.md) |
 | [Enumeration via PowerShell](./powershell-ad-enumeration.md) | 🔄 | [📖](./powershell-ad-enumeration.md) |
 | [Enumeration via BloodHound & SharpHound](./bloodhound-sharphound.md) | 🔄 | [📖](./bloodhound-sharphound.md) |
-| [HTB AD Machines (IppSec Walkthroughs)](./htb-ad-machines-ippsec.md) | 🔄 | [📖](./htb-ad-machines-ippsec.md) |
 
 > Planned sections (waiting for source material): LDAP enumeration, Kerberos enumeration (SPNs, AS-REP), SMB/NetExec enumeration.
 

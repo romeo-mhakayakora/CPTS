@@ -1,6 +1,6 @@
 # HTB Active Directory Machines (IppSec Walkthroughs)
 
-> [⬅ AD Domain](../README.md) | [📁 Enumeration](./README.md) | [🏠 Dashboard](../../README.md)
+> [⬅ AD Domain](./README.md) | [🏠 Dashboard](../README.md)
 
 | HTB Progress | Notes | Practical Labs | CPTS Confidence |
 |:------------:|:-----:|:--------------:|:---------------:|
@@ -100,4 +100,4 @@ Progress from foundational AD enumeration to complex attack chains:
 
 ---
 
-[⬅ AD Domain](../README.md) | [📁 Enumeration](./README.md) | [🏠 Dashboard](../../README.md)
+[⬅ AD Domain](./README.md) | [🏠 Dashboard](../README.md)
