@@ -12,6 +12,7 @@
 | [Credential Injection & Joining AD from Outside](./credential-injection-runas-netonly.md) | 🔄 | [📖](./credential-injection-runas-netonly.md) |
 | [Enumeration via MMC & RSAT](./mmc-rsat-enumeration.md) | 🔄 | [📖](./mmc-rsat-enumeration.md) |
 | [Enumeration via CMD & `net` Command](./cmd-net-command-enumeration.md) | 🔄 | [📖](./cmd-net-command-enumeration.md) |
+| [Enumeration via PowerShell](./powershell-ad-enumeration.md) | 🔄 | [📖](./powershell-ad-enumeration.md) |
 
 > Planned sections (waiting for source material): LDAP enumeration, Kerberos enumeration (SPNs, AS-REP), SMB/NetExec enumeration, BloodHound collection & analysis.
 

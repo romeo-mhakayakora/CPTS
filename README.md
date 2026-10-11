@@ -328,6 +328,7 @@ Root / SYSTEM
 | [Credential Injection & Joining AD from Outside](./05-active-directory/enumeration/credential-injection-runas-netonly.md) | — | 🔄 | [📖](./05-active-directory/enumeration/credential-injection-runas-netonly.md) |
 | [Enumeration via MMC & RSAT](./05-active-directory/enumeration/mmc-rsat-enumeration.md) | — | 🔄 | [📖](./05-active-directory/enumeration/mmc-rsat-enumeration.md) |
 | [Enumeration via CMD & `net` Command](./05-active-directory/enumeration/cmd-net-command-enumeration.md) | — | 🔄 | [📖](./05-active-directory/enumeration/cmd-net-command-enumeration.md) |
+| [Enumeration via PowerShell](./05-active-directory/enumeration/powershell-ad-enumeration.md) | — | 🔄 | [📖](./05-active-directory/enumeration/powershell-ad-enumeration.md) |
 | [Attacks](./05-active-directory/attacks.md) | — | ⬜ | [📖](./05-active-directory/attacks.md) |
 | [Lateral Movement & Pivoting](./05-active-directory/lateral-movement.md) | — | ⬜ | [📖](./05-active-directory/lateral-movement.md) |
 
