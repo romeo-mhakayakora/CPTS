@@ -30,6 +30,7 @@
 | [Enumeration via MMC & RSAT](./enumeration/mmc-rsat-enumeration.md) | — | 🔄 | [📖](./enumeration/mmc-rsat-enumeration.md) |
 | [Enumeration via CMD & `net` Command](./enumeration/cmd-net-command-enumeration.md) | — | 🔄 | [📖](./enumeration/cmd-net-command-enumeration.md) |
 | [Enumeration via PowerShell](./enumeration/powershell-ad-enumeration.md) | — | 🔄 | [📖](./enumeration/powershell-ad-enumeration.md) |
+| [Enumeration via BloodHound & SharpHound](./enumeration/bloodhound-sharphound.md) | — | 🔄 | [📖](./enumeration/bloodhound-sharphound.md) |
 | [Attacks](./attacks.md) | — | ⬜ | [📖](./attacks.md) |
 | [Lateral Movement & Pivoting](./lateral-movement.md) | — | ⬜ | [📖](./lateral-movement.md) |
 

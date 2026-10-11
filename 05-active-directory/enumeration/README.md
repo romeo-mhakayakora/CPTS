@@ -13,8 +13,9 @@
 | [Enumeration via MMC & RSAT](./mmc-rsat-enumeration.md) | 🔄 | [📖](./mmc-rsat-enumeration.md) |
 | [Enumeration via CMD & `net` Command](./cmd-net-command-enumeration.md) | 🔄 | [📖](./cmd-net-command-enumeration.md) |
 | [Enumeration via PowerShell](./powershell-ad-enumeration.md) | 🔄 | [📖](./powershell-ad-enumeration.md) |
+| [Enumeration via BloodHound & SharpHound](./bloodhound-sharphound.md) | 🔄 | [📖](./bloodhound-sharphound.md) |
 
-> Planned sections (waiting for source material): LDAP enumeration, Kerberos enumeration (SPNs, AS-REP), SMB/NetExec enumeration, BloodHound collection & analysis.
+> Planned sections (waiting for source material): LDAP enumeration, Kerberos enumeration (SPNs, AS-REP), SMB/NetExec enumeration.
 
 ## 🎯 Folder Goal
 

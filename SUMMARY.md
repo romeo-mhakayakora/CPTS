@@ -50,6 +50,7 @@
     * [Enumeration via MMC & RSAT](05-active-directory/enumeration/mmc-rsat-enumeration.md)
     * [Enumeration via CMD & net Command](05-active-directory/enumeration/cmd-net-command-enumeration.md)
     * [Enumeration via PowerShell](05-active-directory/enumeration/powershell-ad-enumeration.md)
+    * [Enumeration via BloodHound & SharpHound](05-active-directory/enumeration/bloodhound-sharphound.md)
   * [Attacks](05-active-directory/attacks.md)
   * [Lateral Movement & Pivoting](05-active-directory/lateral-movement.md)
 * [🧰 Supporting & Capstone](supporting/README.md)
