@@ -26,6 +26,7 @@
 | [Credential Recovery from Configuration Files](./breaching-ad/config-file-credential-recovery.md) | — | 🔄 | [📖](./breaching-ad/config-file-credential-recovery.md) |
 | [Enumeration](./enumeration/README.md) | — | ⬜ | [📖](./enumeration/README.md) |
 | [Enumeration Overview](./enumeration/overview.md) | — | ⬜ | [📖](./enumeration/overview.md) |
+| [Credential Injection & Joining AD from Outside](./enumeration/credential-injection-runas-netonly.md) | — | 🔄 | [📖](./enumeration/credential-injection-runas-netonly.md) |
 | [Attacks](./attacks.md) | — | ⬜ | [📖](./attacks.md) |
 | [Lateral Movement & Pivoting](./lateral-movement.md) | — | ⬜ | [📖](./lateral-movement.md) |
 
