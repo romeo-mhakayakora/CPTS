@@ -31,6 +31,7 @@
 | [Enumeration via CMD & `net` Command](./enumeration/cmd-net-command-enumeration.md) | — | 🔄 | [📖](./enumeration/cmd-net-command-enumeration.md) |
 | [Enumeration via PowerShell](./enumeration/powershell-ad-enumeration.md) | — | 🔄 | [📖](./enumeration/powershell-ad-enumeration.md) |
 | [Enumeration via BloodHound & SharpHound](./enumeration/bloodhound-sharphound.md) | — | 🔄 | [📖](./enumeration/bloodhound-sharphound.md) |
+| [HTB AD Machines (IppSec Walkthroughs)](./enumeration/htb-ad-machines-ippsec.md) | — | 🔄 | [📖](./enumeration/htb-ad-machines-ippsec.md) |
 | [Attacks](./attacks.md) | — | ⬜ | [📖](./attacks.md) |
 | [Lateral Movement & Pivoting](./lateral-movement.md) | — | ⬜ | [📖](./lateral-movement.md) |
 

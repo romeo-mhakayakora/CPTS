@@ -330,6 +330,7 @@ Root / SYSTEM
 | [Enumeration via CMD & `net` Command](./05-active-directory/enumeration/cmd-net-command-enumeration.md) | — | 🔄 | [📖](./05-active-directory/enumeration/cmd-net-command-enumeration.md) |
 | [Enumeration via PowerShell](./05-active-directory/enumeration/powershell-ad-enumeration.md) | — | 🔄 | [📖](./05-active-directory/enumeration/powershell-ad-enumeration.md) |
 | [Enumeration via BloodHound & SharpHound](./05-active-directory/enumeration/bloodhound-sharphound.md) | — | 🔄 | [📖](./05-active-directory/enumeration/bloodhound-sharphound.md) |
+| [HTB AD Machines (IppSec Walkthroughs)](./05-active-directory/enumeration/htb-ad-machines-ippsec.md) | — | 🔄 | [📖](./05-active-directory/enumeration/htb-ad-machines-ippsec.md) |
 | [Attacks](./05-active-directory/attacks.md) | — | ⬜ | [📖](./05-active-directory/attacks.md) |
 | [Lateral Movement & Pivoting](./05-active-directory/lateral-movement.md) | — | ⬜ | [📖](./05-active-directory/lateral-movement.md) |
 
