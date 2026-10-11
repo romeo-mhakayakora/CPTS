@@ -1,6 +1,6 @@
 # AD Enumeration
 
-> [⬅ Domain](./README.md) | [🏠 Dashboard](../README.md)
+> [⬅ AD Domain](../README.md) | [📁 Enumeration](./README.md) | [🏠 Dashboard](../../README.md)
 
 | HTB Progress | Notes | Practical Labs | CPTS Confidence |
 |:------------:|:-----:|:--------------:|:---------------:|
@@ -12,7 +12,7 @@
 
 ## 📌 Concepts
 
-<!-- Core theory: domain, forest, trusts, DC, LDAP, Kerberos, SMB, GPO, BloodHound logic. See also ./windows-domains-intro.md for intro. -->
+<!-- Core theory: domain, forest, trusts, DC, LDAP, Kerberos, SMB, GPO, BloodHound logic. See also ../ad-basics/windows-domains-intro.md for intro. -->
 
 -
 
@@ -69,4 +69,4 @@ Identify attack path
 
 ---
 
-[⬅ Domain](./README.md) | [🏠 Dashboard](../README.md)
+[⬅ AD Domain](../README.md) | [📁 Enumeration](./README.md) | [🏠 Dashboard](../../README.md)

@@ -116,7 +116,7 @@ flowchart TB
     click ADTRUST href "./05-active-directory/ad-basics/trees-forests-trusts.md"
     click ADDNS href "./05-active-directory/ad-basics/network-connection-dns.md"
     click ADBREACH href "./05-active-directory/breaching-ad/breaching-ad-intro.md"
-    click ADENUM href "./05-active-directory/enumeration.md"
+    click ADENUM href "./05-active-directory/enumeration/README.md"
     click ADATK href "./05-active-directory/attacks.md"
     click ADLAT href "./05-active-directory/lateral-movement.md"
     click CAP href "./supporting/attacking-enterprise-networks.md"
@@ -323,7 +323,8 @@ Root / SYSTEM
 | [LDAP, Bind Credentials & Pass-back Attacks](./05-active-directory/breaching-ad/ldap-bind-passback-attack.md) | — | 🔄 | [📖](./05-active-directory/breaching-ad/ldap-bind-passback-attack.md) |
 | [SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks](./05-active-directory/breaching-ad/smb-llmnr-relay-attacks.md) | — | 🔄 | [📖](./05-active-directory/breaching-ad/smb-llmnr-relay-attacks.md) |
 | [Credential Recovery from Configuration Files](./05-active-directory/breaching-ad/config-file-credential-recovery.md) | — | 🔄 | [📖](./05-active-directory/breaching-ad/config-file-credential-recovery.md) |
-| [Enumeration](./05-active-directory/enumeration.md) | — | ⬜ | [📖](./05-active-directory/enumeration.md) |
+| [Enumeration](./05-active-directory/enumeration/README.md) | — | ⬜ | [📖](./05-active-directory/enumeration/README.md) |
+| [Enumeration Overview](./05-active-directory/enumeration/overview.md) | — | ⬜ | [📖](./05-active-directory/enumeration/overview.md) |
 | [Attacks](./05-active-directory/attacks.md) | — | ⬜ | [📖](./05-active-directory/attacks.md) |
 | [Lateral Movement & Pivoting](./05-active-directory/lateral-movement.md) | — | ⬜ | [📖](./05-active-directory/lateral-movement.md) |
 

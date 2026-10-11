@@ -24,7 +24,8 @@
 | [LDAP, Bind Credentials & Pass-back Attacks](./breaching-ad/ldap-bind-passback-attack.md) | — | 🔄 | [📖](./breaching-ad/ldap-bind-passback-attack.md) |
 | [SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks](./breaching-ad/smb-llmnr-relay-attacks.md) | — | 🔄 | [📖](./breaching-ad/smb-llmnr-relay-attacks.md) |
 | [Credential Recovery from Configuration Files](./breaching-ad/config-file-credential-recovery.md) | — | 🔄 | [📖](./breaching-ad/config-file-credential-recovery.md) |
-| [Enumeration](./enumeration.md) | — | ⬜ | [📖](./enumeration.md) |
+| [Enumeration](./enumeration/README.md) | — | ⬜ | [📖](./enumeration/README.md) |
+| [Enumeration Overview](./enumeration/overview.md) | — | ⬜ | [📖](./enumeration/overview.md) |
 | [Attacks](./attacks.md) | — | ⬜ | [📖](./attacks.md) |
 | [Lateral Movement & Pivoting](./lateral-movement.md) | — | ⬜ | [📖](./lateral-movement.md) |
 
