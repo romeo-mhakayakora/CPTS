@@ -1,0 +1,3846 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Certified Penetration Testing Specialist — study dashboard, modules and technical notes.">
+      
+      
+        <meta name="author" content="Romeo Mhakayakora">
+      
+      
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/enumeration/powershell-ad-enumeration/">
+      
+      
+        <link rel="prev" href="../cmd-net-command-enumeration/">
+      
+      
+        <link rel="next" href="../../attacks/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Enumeration via PowerShell - CPTS Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ad-enumeration-via-powershell" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CPTS Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Enumeration via PowerShell
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/romeo-mhakayakora/CPTS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../01-information-gathering/" class="md-tabs__link">
+          
+  
+  
+  01 Information Gathering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../02-web-application-security/" class="md-tabs__link">
+          
+  
+  
+  02 Web & App Security
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../03-network-security/" class="md-tabs__link">
+          
+  
+  
+  03 Network Security
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../04-privilege-escalation/" class="md-tabs__link">
+          
+  
+  
+  04 Privilege Escalation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+  05 Active Directory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../supporting/" class="md-tabs__link">
+          
+  
+  
+  Supporting & Capstone
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CPTS Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/romeo-mhakayakora/CPTS" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 Information Gathering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    01 Information Gathering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-information-gathering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Enumeration with Nmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-information-gathering/footprinting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Footprinting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnerability Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 Web & App Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    02 Web & App Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Gathering – Web Edition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/using-web-proxies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Web Proxies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attacking Web Apps with Ffuf
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Login Brute Forcing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Injection Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQLMap Essentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cross-Site Scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/file-inclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Inclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Upload Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/command-injections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Injections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/web-attacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attacking Common Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 Network Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    03 Network Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-network-security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-network-security/attacking-common-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attacking Common Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-network-security/password-attacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Password Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pivoting, Tunneling & Port Forwarding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Active Directory Enumeration & Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-network-security/file-transfers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Transfers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-network-security/shells-payloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shells & Payloads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../03-network-security/using-metasploit-framework/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using the Metasploit Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    04 Privilege Escalation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-privilege-escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-privilege-escalation/linux-privilege-escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../04-privilege-escalation/windows-privilege-escalation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 Active Directory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    05 Active Directory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AD Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/windows-domains-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows Domains and AD (Intro)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Objects, Accounts and Organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/managing-users-ous-delegation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing AD Users, OUs and Delegation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/group-policy-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Group Policy Objects (GPOs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication (Kerberos & NetNTLM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/trees-forests-trusts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trees, Forests and Trust Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ad-basics/network-connection-dns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting to the Network and DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Breaching AD
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Breaching AD
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../breaching-ad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../breaching-ad/breaching-ad-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Breaching AD (Intro) & Initial Credentials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../breaching-ad/ntlm-authenticated-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Breaching AD via NTLM Authenticated Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../breaching-ad/ldap-bind-passback-attack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP, Bind Credentials & Pass-back Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../breaching-ad/smb-llmnr-relay-attacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SMB, LLMNR/NBT-NS/WPAD Poisoning & Relay Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../breaching-ad/config-file-credential-recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Credential Recovery from Configuration Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumeration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Enumeration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AD Enumeration Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../credential-injection-runas-netonly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Credential Injection & Joining AD from Outside
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mmc-rsat-enumeration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumeration via MMC & RSAT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cmd-net-command-enumeration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumeration via CMD & net Command
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumeration via PowerShell
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumeration via PowerShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-powershell-vs-cmd-for-ad-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. PowerShell vs CMD for AD enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-key-advantage-works-from-a-non-domain-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Key advantage: works from a non-domain machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-core-cmdlets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core cmdlets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core cmdlets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upgrade-to-a-powershell-terminal-from-ssh-or-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrade to a PowerShell terminal (from SSH or CMD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate-a-specific-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerate a specific user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-users-by-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter users by pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate-a-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerate a group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate-group-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerate group members
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-all-ad-objects-by-a-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search all AD objects by a condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-domain-level-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get domain-level information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-ad-objects-requires-sufficient-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modify AD objects (requires sufficient privileges)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-detection-risk-and-blue-team-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Detection risk and blue team considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Detection risk and blue team considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amsi-anti-malware-scan-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMSI (Anti-Malware Scan Interface)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script-block-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script Block Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-using-powershell-through-a-ratc2-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Using PowerShell through a RAT/C2 agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Using PowerShell through a RAT/C2 agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-bypass-unmanaged-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The bypass: Unmanaged PowerShell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-alternative-running-the-c2-agent-locally-on-your-own-attacker-machine-via-runas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Alternative: running the C2 agent locally on your own attacker machine via runas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Alternative: running the C2 agent locally on your own attacker machine via runas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-split-personality-in-this-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The "split personality" in this context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-red-teams-do-this-instead-of-just-typing-commands-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Red Teams do this instead of just typing commands manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key point
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-benefits-and-drawbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Benefits and drawbacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-enumeration-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Enumeration workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Methodology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell-ad-cmdlet-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerShell AD Cmdlet Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-spray-badpwdcount-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-spray badPwdCount Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmanaged-powershell-via-c2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unmanaged PowerShell (via C2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Labs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheatsheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📇 Cheatsheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../attacks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attacks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lateral-movement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lateral Movement & Pivoting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supporting & Capstone
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Supporting & Capstone
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supporting/penetration-testing-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Penetration Testing Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supporting/getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supporting/documentation-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation & Reporting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../supporting/attacking-enterprise-networks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attacking Enterprise Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-powershell-vs-cmd-for-ad-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. PowerShell vs CMD for AD enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-key-advantage-works-from-a-non-domain-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Key advantage: works from a non-domain machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-core-cmdlets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core cmdlets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Core cmdlets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upgrade-to-a-powershell-terminal-from-ssh-or-cmd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrade to a PowerShell terminal (from SSH or CMD)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate-a-specific-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerate a specific user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-users-by-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter users by pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate-a-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerate a group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enumerate-group-members" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enumerate group members
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-all-ad-objects-by-a-condition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search all AD objects by a condition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-domain-level-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get domain-level information
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify-ad-objects-requires-sufficient-privileges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modify AD objects (requires sufficient privileges)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-detection-risk-and-blue-team-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Detection risk and blue team considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Detection risk and blue team considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amsi-anti-malware-scan-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMSI (Anti-Malware Scan Interface)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#script-block-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script Block Logging
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-using-powershell-through-a-ratc2-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Using PowerShell through a RAT/C2 agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Using PowerShell through a RAT/C2 agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-bypass-unmanaged-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The bypass: Unmanaged PowerShell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-alternative-running-the-c2-agent-locally-on-your-own-attacker-machine-via-runas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Alternative: running the C2 agent locally on your own attacker machine via runas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Alternative: running the C2 agent locally on your own attacker machine via runas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-split-personality-in-this-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The "split personality" in this context
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-red-teams-do-this-instead-of-just-typing-commands-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Red Teams do this instead of just typing commands manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key point
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-benefits-and-drawbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Benefits and drawbacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-enumeration-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Enumeration workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#9-quick-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Quick recall
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 Methodology
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#techniques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Techniques
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell-ad-cmdlet-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PowerShell AD Cmdlet Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-spray-badpwdcount-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-spray badPwdCount Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unmanaged-powershell-via-c2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unmanaged PowerShell (via C2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#labs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 Labs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cheatsheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📇 Cheatsheet
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ad-enumeration-via-powershell">AD Enumeration via PowerShell<a class="headerlink" href="#ad-enumeration-via-powershell" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Enumeration</a> | <a href="../../../">🏠 Dashboard</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">HTB Progress</th>
+<th style="text-align: center;">Notes</th>
+<th style="text-align: center;">Practical Labs</th>
+<th style="text-align: center;">CPTS Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">Started</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Status:</strong> 🔄 In Progress</p>
+<hr />
+<h2 id="concepts">📌 Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<h3 id="1-powershell-vs-cmd-for-ad-enumeration">1. PowerShell vs CMD for AD enumeration<a class="headerlink" href="#1-powershell-vs-cmd-for-ad-enumeration" title="Permanent link">&para;</a></h3>
+<p>PowerShell is the upgrade to CMD. It gives access to <strong>cmdlets</strong> (<code>.NET</code> classes that perform specific functions), which return far richer and more structured output than <code>net</code> commands. The AD-RSAT tooling installs <strong>50+ AD-specific cmdlets</strong>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CMD (<code>net</code>)</th>
+<th>PowerShell (AD cmdlets)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Output detail</td>
+<td>Basic, truncated at ~10 groups</td>
+<td>Full, all attributes available</td>
+</tr>
+<tr>
+<td>Works from non-domain machine</td>
+<td>No</td>
+<td>Yes, via <code>-Server</code> parameter</td>
+</tr>
+<tr>
+<td>Filtering / scripting</td>
+<td>None</td>
+<td>Full filter, pipeline, and custom cmdlet support</td>
+</tr>
+<tr>
+<td>Blue team visibility</td>
+<td>Low</td>
+<td><strong>Heavily monitored</strong></td>
+</tr>
+<tr>
+<td>Can modify AD objects</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-key-advantage-works-from-a-non-domain-machine">2. Key advantage: works from a non-domain machine<a class="headerlink" href="#2-key-advantage-works-from-a-non-domain-machine" title="Permanent link">&para;</a></h3>
+<p>Unlike <code>net</code> commands, PowerShell AD cmdlets accept a <code>-Server</code> parameter that points directly at the target DC. Combined with the <code>runas /netonly</code> trick, you can run full AD enumeration from your own non-domain Windows machine without needing a foothold on a domain-joined host.</p>
+<h3 id="3-core-cmdlets">3. Core cmdlets<a class="headerlink" href="#3-core-cmdlets" title="Permanent link">&para;</a></h3>
+<h4 id="upgrade-to-a-powershell-terminal-from-ssh-or-cmd">Upgrade to a PowerShell terminal (from SSH or CMD)<a class="headerlink" href="#upgrade-to-a-powershell-terminal-from-ssh-or-cmd" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">powershell</span>
+</code></pre></div>
+<h4 id="enumerate-a-specific-user">Enumerate a specific user<a class="headerlink" href="#enumerate-a-specific-user" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Get-ADUser</span> <span class="n">-Identity</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span> <span class="n">-Properties</span> <span class="p">*</span>
+</code></pre></div>
+<ul>
+<li><code>-Identity</code> — the account to query.</li>
+<li><code>-Properties *</code> — return all attributes, not just the defaults.</li>
+<li><code>-Server</code> — point at the target DC. Required on non-domain machines.</li>
+</ul>
+<p><strong>Key attributes to look for:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Offensive value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DistinguishedName</code></td>
+<td>Full position in the AD tree</td>
+</tr>
+<tr>
+<td><code>Department</code></td>
+<td>Organisational placement</td>
+</tr>
+<tr>
+<td><code>BadPwdCount</code></td>
+<td>Prior failed logins — critical for spraying</td>
+</tr>
+<tr>
+<td><code>PasswordLastSet</code></td>
+<td>How fresh the password is</td>
+</tr>
+<tr>
+<td><code>AccountExpirationDate</code></td>
+<td>Whether the account is expiring</td>
+</tr>
+<tr>
+<td><code>Description</code></td>
+<td>Sometimes contains accidentally stored passwords</td>
+</tr>
+</tbody>
+</table>
+<h4 id="filter-users-by-pattern">Filter users by pattern<a class="headerlink" href="#filter-users-by-pattern" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">Get-ADUser</span> <span class="n">-Filter</span> <span class="s1">'Name -like "*stevens"'</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span> <span class="p">|</span> <span class="nb">Format-Table</span> <span class="n">Name</span><span class="p">,</span><span class="n">SamAccountName</span> <span class="n">-A</span>
+</code></pre></div>
+<ul>
+<li><code>-Filter</code> accepts AD query syntax for flexible searches.</li>
+<li>Pipeline to <code>Format-Table</code> for clean, readable output.</li>
+</ul>
+<h4 id="enumerate-a-group">Enumerate a group<a class="headerlink" href="#enumerate-a-group" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">Get-ADGroup</span> <span class="n">-Identity</span> <span class="p">&lt;</span><span class="nb">group </span><span class="n">name</span><span class="p">&gt;</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+</code></pre></div>
+<h4 id="enumerate-group-members">Enumerate group members<a class="headerlink" href="#enumerate-group-members" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">Get-ADGroupMember</span> <span class="n">-Identity</span> <span class="p">&lt;</span><span class="nb">group </span><span class="n">name</span><span class="p">&gt;</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+</code></pre></div>
+<ul>
+<li>Returns all members with their DN, object class and SID.</li>
+<li>Use for any high-value group: <code>Domain Admins</code>, <code>Backup Operators</code>, <code>Server Operators</code>, etc.</li>
+</ul>
+<h4 id="search-all-ad-objects-by-a-condition">Search all AD objects by a condition<a class="headerlink" href="#search-all-ad-objects-by-a-condition" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">Get-ADObject</span> <span class="n">-Filter</span> <span class="s1">'&lt;attribute&gt; -gt &lt;value&gt;'</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><strong>Example: find recently changed objects (useful for spotting recent admin activity)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">$ChangeDate</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">DateTime</span><span class="p">(</span><span class="n">2022</span><span class="p">,</span> <span class="n">02</span><span class="p">,</span> <span class="n">28</span><span class="p">,</span> <span class="n">12</span><span class="p">,</span> <span class="n">00</span><span class="p">,</span> <span class="n">00</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">Get-ADObject</span> <span class="n">-Filter</span> <span class="s1">'whenChanged -gt $ChangeDate'</span> <span class="n">-includeDeletedObjects</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+</code></pre></div>
+<p><strong>Example: find accounts with prior failed login attempts (critical before spraying)</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">Get-ADObject</span> <span class="n">-Filter</span> <span class="s1">'badPwdCount -gt 0'</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+</code></pre></div>
+<ul>
+<li><strong>This is one of the most important pre-spray checks.</strong> Accounts already at <code>badPwdCount &gt; 0</code> are closer to lockout than the domain policy threshold alone suggests. Exclude these from your spray round or you risk locking them.</li>
+</ul>
+<h4 id="get-domain-level-information">Get domain-level information<a class="headerlink" href="#get-domain-level-information" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">Get-ADDomain</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+</code></pre></div>
+<ul>
+<li>Returns domain structure: child domains, containers, DN root, DNS root, DC container.</li>
+<li>Useful for mapping scope at the start of an engagement.</li>
+</ul>
+<h4 id="modify-ad-objects-requires-sufficient-privileges">Modify AD objects (requires sufficient privileges)<a class="headerlink" href="#modify-ad-objects-requires-sufficient-privileges" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">Set-ADAccountPassword</span> <span class="n">-Identity</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span> <span class="p">`</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  <span class="n">-OldPassword</span> <span class="p">(</span><span class="nb">ConvertTo-SecureString</span> <span class="n">-AsPlaintext</span> <span class="s2">"&lt;old&gt;"</span> <span class="n">-force</span><span class="p">)</span> <span class="p">`</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  <span class="n">-NewPassword</span> <span class="p">(</span><span class="nb">ConvertTo-SecureString</span> <span class="n">-AsPlainText</span> <span class="s2">"&lt;new&gt;"</span> <span class="n">-Force</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>AD-RSAT cmdlets can also <strong>create or modify</strong> objects, not just read them.</li>
+<li>Detailed exploitation use (adding users to groups, creating accounts) is covered in later AD exploitation material.</li>
+</ul>
+<h3 id="4-detection-risk-and-blue-team-considerations">4. Detection risk and blue team considerations<a class="headerlink" href="#4-detection-risk-and-blue-team-considerations" title="Permanent link">&para;</a></h3>
+<p>PowerShell is the <strong>most monitored attack surface</strong> on a modern Windows endpoint. Two primary detection mechanisms:</p>
+<h4 id="amsi-anti-malware-scan-interface">AMSI (Anti-Malware Scan Interface)<a class="headerlink" href="#amsi-anti-malware-scan-interface" title="Permanent link">&para;</a></h4>
+<ul>
+<li>A security layer built directly into PowerShell.</li>
+<li>Scans every script or command <strong>before it runs</strong>.</li>
+<li>Recognises known offensive tools (BloodHound, PowerView, etc.) by signature and kills them, alerting the blue team.</li>
+</ul>
+<h4 id="script-block-logging">Script Block Logging<a class="headerlink" href="#script-block-logging" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Windows records <strong>every PowerShell command</strong> run on the machine into a permanent log.</li>
+<li>If the blue team reviews logs, they see your exact commands in plaintext.</li>
+<li>Enabled by Group Policy — common in mature environments.</li>
+</ul>
+<h3 id="5-using-powershell-through-a-ratc2-agent">5. Using PowerShell through a RAT/C2 agent<a class="headerlink" href="#5-using-powershell-through-a-ratc2-agent" title="Permanent link">&para;</a></h3>
+<p>You can run PowerShell AD cmdlets through a C2 shell on a compromised endpoint. The RAT executes PowerShell in the background without opening a visible window on the victim's screen. However, the detection mechanisms above still apply.</p>
+<h4 id="the-bypass-unmanaged-powershell">The bypass: Unmanaged PowerShell<a class="headerlink" href="#the-bypass-unmanaged-powershell" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Running <code>powershell.exe</code> directly triggers AMSI and logging.</li>
+<li>Advanced C2 frameworks instead load the <strong>raw PowerShell engine directly into memory inside a legitimate already-running process</strong> (e.g., a browser, <code>notepad.exe</code>).</li>
+<li>Because <code>powershell.exe</code> never actually opens, the security guards watching for it are bypassed.</li>
+<li>This technique is called <strong>Unmanaged PowerShell</strong> or <strong>PowerShell without <code>powershell.exe</code></strong>.</li>
+<li>Without this or an equivalent bypass, using PowerShell through a RAT on a monitored network risks triggering every alarm in the environment.</li>
+</ul>
+<h3 id="6-alternative-running-the-c2-agent-locally-on-your-own-attacker-machine-via-runas">6. Alternative: running the C2 agent locally on your own attacker machine via <code>runas</code><a class="headerlink" href="#6-alternative-running-the-c2-agent-locally-on-your-own-attacker-machine-via-runas" title="Permanent link">&para;</a></h3>
+<p>Instead of waiting to land on a victim's machine, you can run a C2 agent <strong>directly on your own attacker Windows machine</strong> with AD credentials injected via <code>runas /netonly</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>runas.exe /netonly /user:&lt;domain&gt;\&lt;username&gt; C:\Tools\beacon.exe
+</code></pre></div>
+<h4 id="the-split-personality-in-this-context">The "split personality" in this context<a class="headerlink" href="#the-split-personality-in-this-context" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Locally:</strong> the C2 agent runs on your own machine, completely outside the reach of the target organisation's AV and EDR.</li>
+<li><strong>Over the network:</strong> because it was launched via <code>runas /netonly</code>, every network connection the agent makes automatically carries the injected AD credentials. The DC sees a valid domain authentication, not an outsider.</li>
+<li>All PowerShell cmdlets run through this agent automatically inherit the injected credentials for the <code>-Server</code> connection, so you don't need to be on a domain-joined machine.</li>
+</ul>
+<h4 id="why-red-teams-do-this-instead-of-just-typing-commands-manually">Why Red Teams do this instead of just typing commands manually<a class="headerlink" href="#why-red-teams-do-this-instead-of-just-typing-commands-manually" title="Permanent link">&para;</a></h4>
+<p><strong>Access to advanced C2 tooling</strong></p>
+<ul>
+<li>C2 frameworks like Cobalt Strike have point-and-click graphical dashboards that automatically map AD, draw visual relationship graphs, and extract credentials — far more capable than manually typing PowerShell cmdlets into a terminal all day.</li>
+</ul>
+<p><strong>Team collaboration</strong></p>
+<ul>
+<li>In a professional penetration test with multiple operators, one person sets up a Windows VM with injected credentials and a running C2 agent. All other team members log into the central C2 server and <strong>route their attacks through that one shared gateway</strong>, effectively sharing a single authenticated domain foothold across the whole team.</li>
+</ul>
+<p><strong>Pivoting and tunnelling</strong></p>
+<ul>
+<li>C2 agents can create <strong>invisible network tunnels</strong>. By running the agent locally with injected credentials, other tools on Kali (LDAP scanners, database crackers, web scanners) can be forced to flow through the agent, <strong>automatically inheriting the AD credentials</strong> for everything they do — without needing to be on a domain-joined machine themselves.</li>
+</ul>
+<h4 id="key-point">Key point<a class="headerlink" href="#key-point" title="Permanent link">&para;</a></h4>
+<p>This approach combines the <strong>safety of attacking from your own controlled machine</strong> with the <strong>full power of a professional C2 framework, authenticated domain access, and PowerShell enumeration capabilities</strong>. It is one of the most practical setups for a real red team engagement where credentials have been obtained but no domain-joined foothold yet exists.</p>
+<h3 id="7-benefits-and-drawbacks">7. Benefits and drawbacks<a class="headerlink" href="#7-benefits-and-drawbacks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Richer data</strong></td>
+<td>Returns all attributes, not truncated like <code>net</code></td>
+</tr>
+<tr>
+<td><strong>Works from non-domain machine</strong></td>
+<td><code>-Server</code> parameter + <code>runas /netonly</code></td>
+</tr>
+<tr>
+<td><strong>Filterable and scriptable</strong></td>
+<td>Custom filters, pipelines, and your own cmdlets</td>
+</tr>
+<tr>
+<td><strong>Can modify AD objects</strong></td>
+<td>Reset passwords, add to groups, create accounts</td>
+</tr>
+<tr>
+<td><strong>Heavily monitored</strong></td>
+<td>AMSI and Script Block Logging are standard in mature environments</td>
+</tr>
+<tr>
+<td><strong>Requires RSAT or third-party scripts</strong></td>
+<td>Not available out of the box without tooling installed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="8-enumeration-workflow">8. Enumeration workflow<a class="headerlink" href="#8-enumeration-workflow" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Point PowerShell at the target DC with <code>-Server &lt;DC FQDN&gt;</code>.</li>
+<li><strong><code>Get-ADDomain</code></strong> — map the domain structure and scope.</li>
+<li><strong><code>Get-ADObject -Filter 'badPwdCount -gt 0'</code></strong> — identify accounts already accumulating failed attempts before doing anything noisy.</li>
+<li><strong><code>Get-ADUser -Filter * -Properties *</code></strong> — full user list with all attributes. Check description fields for stored credentials.</li>
+<li><strong><code>Get-ADGroup</code></strong> + <strong><code>Get-ADGroupMember</code></strong> — enumerate high-value groups and their members.</li>
+<li><strong><code>Get-ADObject -Filter 'whenChanged -gt $date'</code></strong> — identify recent changes that may indicate active admin sessions or recent privilege modifications.</li>
+<li>Feed findings into spraying, lateral movement planning, or targeted phishing.</li>
+</ol>
+<h3 id="9-quick-recall">9. Quick recall<a class="headerlink" href="#9-quick-recall" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PowerShell AD cmdlets are installed with RSAT. 50+ available.</li>
+<li>Key cmdlets: <code>Get-ADUser</code>, <code>Get-ADGroup</code>, <code>Get-ADGroupMember</code>, <code>Get-ADObject</code>, <code>Get-ADDomain</code>.</li>
+<li>Use <code>-Server &lt;DC FQDN&gt;</code> to target the DC from a non-domain machine.</li>
+<li>Use <code>-Properties *</code> to return all attributes.</li>
+<li><strong>Check <code>badPwdCount &gt; 0</code> before spraying</strong> — exclude those accounts from the round.</li>
+<li><strong>PowerShell is heavily monitored</strong> — AMSI blocks known tools, Script Block Logging records everything.</li>
+<li>Through a RAT/C2, use <strong>Unmanaged PowerShell</strong> (engine loaded into a legitimate process) to avoid triggering <code>powershell.exe</code>-based detections.</li>
+<li><strong><code>runas /netonly</code> + local C2 agent</strong> = authenticated AD access from your own machine, full C2 tooling, team collaboration, and cross-tool credential tunnelling — no victim machine foothold required.</li>
+<li>Full reference: https://docs.microsoft.com/en-us/powershell/module/activedirectory</li>
+</ul>
+<h2 id="methodology">🧭 Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>RSAT AD-RSAT installed → powershell
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>  ↓
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>-Server &lt;DC FQDN&gt; (+ runas /netonly for non-domain machine)
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>  ↓
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>Get-ADDomain (scope) → badPwdCount &gt; 0 check → Get-ADUser -Filter * -Properties *
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>  ↓
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>Get-ADGroup / Get-ADGroupMember (high-value) → whenChanged recent-activity check
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>  ↓
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>Feed into spray / lateral / phishing
+</code></pre></div>
+<h2 id="techniques">🛠️ Techniques<a class="headerlink" href="#techniques" title="Permanent link">&para;</a></h2>
+<h3 id="powershell-ad-cmdlet-enumeration">PowerShell AD Cmdlet Enumeration<a class="headerlink" href="#powershell-ad-cmdlet-enumeration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: Full-attribute AD queries from non-domain machines via <code>-Server</code>.</li>
+<li>When to use: Need rich, filterable data; creds + RSAT available.</li>
+<li>Command: <code>Get-ADUser -Identity &lt;u&gt; -Server &lt;DC FQDN&gt; -Properties *</code>, <code>Get-ADGroupMember</code>, <code>Get-ADObject -Filter ...</code>.</li>
+</ul>
+<h3 id="pre-spray-badpwdcount-check">Pre-spray badPwdCount Check<a class="headerlink" href="#pre-spray-badpwdcount-check" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: Exclude accounts near lockout from spray rounds.</li>
+<li>When to use: Before any password spraying.</li>
+<li>Command: <code>Get-ADObject -Filter 'badPwdCount -gt 0' -Server &lt;DC FQDN&gt;</code></li>
+</ul>
+<h3 id="unmanaged-powershell-via-c2">Unmanaged PowerShell (via C2)<a class="headerlink" href="#unmanaged-powershell-via-c2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Description: Load PS engine into a legit process to bypass AMSI/<code>powershell.exe</code> detection.</li>
+<li>When to use: PowerShell needed on a monitored host through a C2.</li>
+<li>Command: C2 feature (e.g., Cobalt Strike's <code>powerpick</code>) — never raw <code>powershell.exe</code>.</li>
+</ul>
+<h2 id="commands">💻 Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c"># Terminal</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">powershell</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c"># Core enumeration (non-domain machine: add -Server &lt;DC FQDN&gt;)</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nb">Get-ADDomain</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="nb">Get-ADObject</span> <span class="n">-Filter</span> <span class="s1">'badPwdCount -gt 0'</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="nb">Get-ADUser</span> <span class="n">-Filter</span> <span class="p">*</span> <span class="n">-Properties</span> <span class="p">*</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nb">Get-ADUser</span> <span class="n">-Identity</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span> <span class="n">-Properties</span> <span class="p">*</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="nb">Get-ADGroup</span> <span class="n">-Identity</span> <span class="p">&lt;</span><span class="n">group</span><span class="p">&gt;</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nb">Get-ADGroupMember</span> <span class="n">-Identity</span> <span class="p">&lt;</span><span class="n">group</span><span class="p">&gt;</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c"># Recent changes</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="nv">$ChangeDate</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">DateTime</span><span class="p">(</span><span class="n">2022</span><span class="p">,</span> <span class="n">02</span><span class="p">,</span> <span class="n">28</span><span class="p">,</span> <span class="n">12</span><span class="p">,</span> <span class="n">00</span><span class="p">,</span> <span class="n">00</span><span class="p">)</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="nb">Get-ADObject</span> <span class="n">-Filter</span> <span class="s1">'whenChanged -gt $ChangeDate'</span> <span class="n">-includeDeletedObjects</span> <span class="n">-Server</span> <span class="p">&lt;</span><span class="n">DC</span> <span class="n">FQDN</span><span class="p">&gt;</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="c"># Local C2 agent with injected creds (own machine)</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="n">runas</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">netonly</span> <span class="p">/</span><span class="n">user</span><span class="p">:&lt;</span><span class="n">domain</span><span class="p">&gt;\&lt;</span><span class="n">username</span><span class="p">&gt;</span> <span class="n">C</span><span class="p">:\</span><span class="n">Tools</span><span class="p">\</span><span class="n">beacon</span><span class="p">.</span><span class="n">exe</span>
+</code></pre></div>
+<h2 id="labs">🧪 Labs<a class="headerlink" href="#labs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Lab / Box</th>
+<th style="text-align: center;">Key Learning</th>
+<th style="text-align: center;">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cheatsheet">📇 Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permanent link">&para;</a></h2>
+<ul>
+<li>50+ AD cmdlets via RSAT | <code>-Server &lt;DC FQDN&gt;</code> works off-domain (with <code>/netonly</code>)</li>
+<li><code>Get-ADUser -Properties *</code> / <code>Get-ADGroupMember</code> / <code>Get-ADObject -Filter</code> / <code>Get-ADDomain</code></li>
+<li><strong><code>badPwdCount &gt; 0</code> before spraying</strong> | description fields = creds</li>
+<li>Heavily monitored: AMSI + Script Block Logging → Unmanaged PowerShell via C2</li>
+<li><code>runas /netonly</code> + local beacon = full PS enum from own machine</li>
+</ul>
+<hr />
+<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Enumeration</a> | <a href="../../../">🏠 Dashboard</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
+      
+        <script src="../../../javascripts/mermaid.js"></script>
+      
+    
+  </body>
+</html>
