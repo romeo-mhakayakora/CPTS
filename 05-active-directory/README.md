@@ -27,6 +27,7 @@
 | [Enumeration](./enumeration/README.md) | — | ⬜ | [📖](./enumeration/README.md) |
 | [Enumeration Overview](./enumeration/overview.md) | — | ⬜ | [📖](./enumeration/overview.md) |
 | [Credential Injection & Joining AD from Outside](./enumeration/credential-injection-runas-netonly.md) | — | 🔄 | [📖](./enumeration/credential-injection-runas-netonly.md) |
+| [Enumeration via MMC & RSAT](./enumeration/mmc-rsat-enumeration.md) | — | 🔄 | [📖](./enumeration/mmc-rsat-enumeration.md) |
 | [Attacks](./attacks.md) | — | ⬜ | [📖](./attacks.md) |
 | [Lateral Movement & Pivoting](./lateral-movement.md) | — | ⬜ | [📖](./lateral-movement.md) |
 
