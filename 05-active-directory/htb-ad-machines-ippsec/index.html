@@ -12,19 +12,19 @@
         <meta name="author" content="Romeo Mhakayakora">
       
       
-        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/enumeration/htb-ad-machines-ippsec/">
+        <link rel="canonical" href="https://romeo-mhakayakora.github.io/CPTS/05-active-directory/htb-ad-machines-ippsec/">
       
       
-        <link rel="prev" href="../bloodhound-sharphound/">
+        <link rel="prev" href="../enumeration/bloodhound-sharphound/">
       
       
-        <link rel="next" href="../../attacks/">
+        <link rel="next" href="../attacks/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
@@ -33,10 +33,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -94,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../.." title="CPTS Notes" class="md-header__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../01-information-gathering/" class="md-tabs__link">
+        <a href="../../01-information-gathering/" class="md-tabs__link">
           
   
   
@@ -268,7 +268,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../02-web-application-security/" class="md-tabs__link">
+        <a href="../../02-web-application-security/" class="md-tabs__link">
           
   
   
@@ -288,7 +288,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../03-network-security/" class="md-tabs__link">
+        <a href="../../03-network-security/" class="md-tabs__link">
           
   
   
@@ -308,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../04-privilege-escalation/" class="md-tabs__link">
+        <a href="../../04-privilege-escalation/" class="md-tabs__link">
           
   
   
@@ -330,7 +330,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -350,7 +350,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../supporting/" class="md-tabs__link">
+        <a href="../../supporting/" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
+    <a href="../.." title="CPTS Notes" class="md-nav__button md-logo" aria-label="CPTS Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -414,7 +414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -495,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01-information-gathering/" class="md-nav__link">
+      <a href="../../01-information-gathering/" class="md-nav__link">
         
   
   
@@ -523,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
+      <a href="../../01-information-gathering/network-enumeration-nmap/" class="md-nav__link">
         
   
   
@@ -551,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01-information-gathering/footprinting/" class="md-nav__link">
+      <a href="../../01-information-gathering/footprinting/" class="md-nav__link">
         
   
   
@@ -579,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
+      <a href="../../01-information-gathering/vulnerability-assessment/" class="md-nav__link">
         
   
   
@@ -668,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/" class="md-nav__link">
+      <a href="../../02-web-application-security/" class="md-nav__link">
         
   
   
@@ -696,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
+      <a href="../../02-web-application-security/information-gathering-web-edition/" class="md-nav__link">
         
   
   
@@ -724,7 +724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/using-web-proxies/" class="md-nav__link">
+      <a href="../../02-web-application-security/using-web-proxies/" class="md-nav__link">
         
   
   
@@ -752,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
+      <a href="../../02-web-application-security/attacking-web-applications-with-ffuf/" class="md-nav__link">
         
   
   
@@ -780,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
+      <a href="../../02-web-application-security/login-brute-forcing/" class="md-nav__link">
         
   
   
@@ -808,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
+      <a href="../../02-web-application-security/sql-injection-fundamentals/" class="md-nav__link">
         
   
   
@@ -836,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
+      <a href="../../02-web-application-security/sqlmap-essentials/" class="md-nav__link">
         
   
   
@@ -864,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
+      <a href="../../02-web-application-security/cross-site-scripting/" class="md-nav__link">
         
   
   
@@ -892,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/file-inclusion/" class="md-nav__link">
+      <a href="../../02-web-application-security/file-inclusion/" class="md-nav__link">
         
   
   
@@ -920,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
+      <a href="../../02-web-application-security/file-upload-attacks/" class="md-nav__link">
         
   
   
@@ -948,7 +948,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/command-injections/" class="md-nav__link">
+      <a href="../../02-web-application-security/command-injections/" class="md-nav__link">
         
   
   
@@ -976,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/web-attacks/" class="md-nav__link">
+      <a href="../../02-web-application-security/web-attacks/" class="md-nav__link">
         
   
   
@@ -1004,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
+      <a href="../../02-web-application-security/attacking-common-applications/" class="md-nav__link">
         
   
   
@@ -1093,7 +1093,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03-network-security/" class="md-nav__link">
+      <a href="../../03-network-security/" class="md-nav__link">
         
   
   
@@ -1121,7 +1121,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03-network-security/attacking-common-services/" class="md-nav__link">
+      <a href="../../03-network-security/attacking-common-services/" class="md-nav__link">
         
   
   
@@ -1149,7 +1149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03-network-security/password-attacks/" class="md-nav__link">
+      <a href="../../03-network-security/password-attacks/" class="md-nav__link">
         
   
   
@@ -1177,7 +1177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
+      <a href="../../03-network-security/pivoting-tunneling-port-forwarding/" class="md-nav__link">
         
   
   
@@ -1205,7 +1205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
+      <a href="../../03-network-security/active-directory-enumeration-attacks/" class="md-nav__link">
         
   
   
@@ -1233,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03-network-security/file-transfers/" class="md-nav__link">
+      <a href="../../03-network-security/file-transfers/" class="md-nav__link">
         
   
   
@@ -1261,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03-network-security/shells-payloads/" class="md-nav__link">
+      <a href="../../03-network-security/shells-payloads/" class="md-nav__link">
         
   
   
@@ -1289,7 +1289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../03-network-security/using-metasploit-framework/" class="md-nav__link">
+      <a href="../../03-network-security/using-metasploit-framework/" class="md-nav__link">
         
   
   
@@ -1378,7 +1378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../04-privilege-escalation/" class="md-nav__link">
+      <a href="../../04-privilege-escalation/" class="md-nav__link">
         
   
   
@@ -1406,7 +1406,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../04-privilege-escalation/linux-privilege-escalation/" class="md-nav__link">
+      <a href="../../04-privilege-escalation/linux-privilege-escalation/" class="md-nav__link">
         
   
   
@@ -1434,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../04-privilege-escalation/windows-privilege-escalation/" class="md-nav__link">
+      <a href="../../04-privilege-escalation/windows-privilege-escalation/" class="md-nav__link">
         
   
   
@@ -1526,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1611,7 +1611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ad-basics/" class="md-nav__link">
+      <a href="../ad-basics/" class="md-nav__link">
         
   
   
@@ -1639,7 +1639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ad-basics/windows-domains-intro/" class="md-nav__link">
+      <a href="../ad-basics/windows-domains-intro/" class="md-nav__link">
         
   
   
@@ -1667,7 +1667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
+      <a href="../ad-basics/ad-objects-accounts-organisation/" class="md-nav__link">
         
   
   
@@ -1695,7 +1695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ad-basics/managing-users-ous-delegation/" class="md-nav__link">
+      <a href="../ad-basics/managing-users-ous-delegation/" class="md-nav__link">
         
   
   
@@ -1723,7 +1723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ad-basics/group-policy-objects/" class="md-nav__link">
+      <a href="../ad-basics/group-policy-objects/" class="md-nav__link">
         
   
   
@@ -1751,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
+      <a href="../ad-basics/authentication-kerberos-netntlm/" class="md-nav__link">
         
   
   
@@ -1779,7 +1779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ad-basics/trees-forests-trusts/" class="md-nav__link">
+      <a href="../ad-basics/trees-forests-trusts/" class="md-nav__link">
         
   
   
@@ -1807,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ad-basics/network-connection-dns/" class="md-nav__link">
+      <a href="../ad-basics/network-connection-dns/" class="md-nav__link">
         
   
   
@@ -1900,7 +1900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../breaching-ad/" class="md-nav__link">
+      <a href="../breaching-ad/" class="md-nav__link">
         
   
   
@@ -1928,7 +1928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../breaching-ad/breaching-ad-intro/" class="md-nav__link">
+      <a href="../breaching-ad/breaching-ad-intro/" class="md-nav__link">
         
   
   
@@ -1956,7 +1956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../breaching-ad/ntlm-authenticated-services/" class="md-nav__link">
+      <a href="../breaching-ad/ntlm-authenticated-services/" class="md-nav__link">
         
   
   
@@ -1984,7 +1984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../breaching-ad/ldap-bind-passback-attack/" class="md-nav__link">
+      <a href="../breaching-ad/ldap-bind-passback-attack/" class="md-nav__link">
         
   
   
@@ -2012,7 +2012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../breaching-ad/smb-llmnr-relay-attacks/" class="md-nav__link">
+      <a href="../breaching-ad/smb-llmnr-relay-attacks/" class="md-nav__link">
         
   
   
@@ -2040,7 +2040,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../breaching-ad/config-file-credential-recovery/" class="md-nav__link">
+      <a href="../breaching-ad/config-file-credential-recovery/" class="md-nav__link">
         
   
   
@@ -2073,8 +2073,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2090,11 +2088,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_4" >
         
           
           <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="">
@@ -2115,7 +2115,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2133,7 +2133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../enumeration/" class="md-nav__link">
         
   
   
@@ -2161,7 +2161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../enumeration/overview/" class="md-nav__link">
         
   
   
@@ -2189,7 +2189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../credential-injection-runas-netonly/" class="md-nav__link">
+      <a href="../enumeration/credential-injection-runas-netonly/" class="md-nav__link">
         
   
   
@@ -2217,7 +2217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mmc-rsat-enumeration/" class="md-nav__link">
+      <a href="../enumeration/mmc-rsat-enumeration/" class="md-nav__link">
         
   
   
@@ -2245,7 +2245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cmd-net-command-enumeration/" class="md-nav__link">
+      <a href="../enumeration/cmd-net-command-enumeration/" class="md-nav__link">
         
   
   
@@ -2273,7 +2273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../powershell-ad-enumeration/" class="md-nav__link">
+      <a href="../enumeration/powershell-ad-enumeration/" class="md-nav__link">
         
   
   
@@ -2301,7 +2301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bloodhound-sharphound/" class="md-nav__link">
+      <a href="../enumeration/bloodhound-sharphound/" class="md-nav__link">
         
   
   
@@ -2317,6 +2317,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2485,14 +2493,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
               
                 
   
@@ -2500,7 +2500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../attacks/" class="md-nav__link">
+      <a href="../attacks/" class="md-nav__link">
         
   
   
@@ -2528,7 +2528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../lateral-movement/" class="md-nav__link">
+      <a href="../lateral-movement/" class="md-nav__link">
         
   
   
@@ -2617,7 +2617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../supporting/" class="md-nav__link">
+      <a href="../../supporting/" class="md-nav__link">
         
   
   
@@ -2645,7 +2645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../supporting/penetration-testing-process/" class="md-nav__link">
+      <a href="../../supporting/penetration-testing-process/" class="md-nav__link">
         
   
   
@@ -2673,7 +2673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../supporting/getting-started/" class="md-nav__link">
+      <a href="../../supporting/getting-started/" class="md-nav__link">
         
   
   
@@ -2701,7 +2701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../supporting/documentation-reporting/" class="md-nav__link">
+      <a href="../../supporting/documentation-reporting/" class="md-nav__link">
         
   
   
@@ -2729,7 +2729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../supporting/attacking-enterprise-networks/" class="md-nav__link">
+      <a href="../../supporting/attacking-enterprise-networks/" class="md-nav__link">
         
   
   
@@ -2893,7 +2893,7 @@
 
 <h1 id="htb-active-directory-machines-ippsec-walkthroughs">HTB Active Directory Machines (IppSec Walkthroughs)<a class="headerlink" href="#htb-active-directory-machines-ippsec-walkthroughs" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Enumeration</a> | <a href="../../../">🏠 Dashboard</a></p>
+<p><a href="../">⬅ AD Domain</a> | <a href="../../">🏠 Dashboard</a></p>
 </blockquote>
 <table>
 <thead>
@@ -3231,7 +3231,7 @@
 <li>Verify coverage at ippsec.rocks</li>
 </ul>
 <hr />
-<p><a href="../../">⬅ AD Domain</a> | <a href="../">📁 Enumeration</a> | <a href="../../../">🏠 Dashboard</a></p>
+<p><a href="../">⬅ AD Domain</a> | <a href="../../">🏠 Dashboard</a></p>
 
 
 
@@ -3289,14 +3289,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js"></script>
       
-        <script src="../../../javascripts/mermaid.js"></script>
+        <script src="../../javascripts/mermaid.js"></script>
       
     
   </body>

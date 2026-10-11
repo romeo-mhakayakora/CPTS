@@ -125,6 +125,10 @@
          <lastmod>2026-10-11</lastmod>
     </url>
     <url>
+         <loc>https://romeo-mhakayakora.github.io/CPTS/05-active-directory/htb-ad-machines-ippsec/</loc>
+         <lastmod>2026-10-11</lastmod>
+    </url>
+    <url>
          <loc>https://romeo-mhakayakora.github.io/CPTS/05-active-directory/lateral-movement/</loc>
          <lastmod>2026-10-11</lastmod>
     </url>
@@ -198,10 +202,6 @@
     </url>
     <url>
          <loc>https://romeo-mhakayakora.github.io/CPTS/05-active-directory/enumeration/credential-injection-runas-netonly/</loc>
-         <lastmod>2026-10-11</lastmod>
-    </url>
-    <url>
-         <loc>https://romeo-mhakayakora.github.io/CPTS/05-active-directory/enumeration/htb-ad-machines-ippsec/</loc>
          <lastmod>2026-10-11</lastmod>
     </url>
     <url>
